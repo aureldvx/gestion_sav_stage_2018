@@ -1,0 +1,3 @@
+sav_process_homepage:
+    path:     /
+    defaults: { _controller: SAVProcessBundle:Default:index }

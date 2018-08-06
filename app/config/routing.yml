@@ -1,0 +1,11 @@
+sav_process:
+    resource: "@SAVProcessBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sav_core:
+    resource: "@SAVCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
