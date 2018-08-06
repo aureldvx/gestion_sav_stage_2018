@@ -5,7 +5,3 @@ sav_process:
 sav_core:
     resource: "@SAVCoreBundle/Resources/config/routing.yml"
     prefix:   /
-
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
