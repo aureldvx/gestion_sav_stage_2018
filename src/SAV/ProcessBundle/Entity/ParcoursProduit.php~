@@ -40,6 +40,8 @@ class ParcoursProduit
      * @var int
      *
      * @ORM\Column(name="client", type="integer")
+     *
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\Client")
      */
     private $client;
 
@@ -68,6 +70,8 @@ class ParcoursProduit
      * @var int
      *
      * @ORM\Column(name="contrat_client", type="integer")
+     *
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\ContratClient")
      */
     private $contratClient;
 
@@ -82,6 +86,8 @@ class ParcoursProduit
      * @var int
      *
      * @ORM\Column(name="traitement_prevu", type="integer")
+     *
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutTraitement")
      */
     private $traitementPrevu;
 
@@ -110,6 +116,8 @@ class ParcoursProduit
      * @var int|null
      *
      * @ORM\Column(name="statut_reception", type="integer", nullable=true)
+     *
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutReception")
      */
     private $statutReception;
 
@@ -124,6 +132,8 @@ class ParcoursProduit
      * @var int|null
      *
      * @ORM\Column(name="raison_refus_produit", type="integer", nullable=true)
+     *
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\MotifRefusProduit")
      */
     private $raisonRefusProduit;
 
@@ -180,6 +190,8 @@ class ParcoursProduit
      * @var array|null
      *
      * @ORM\Column(name="pieces_detachees_select", type="array", nullable=true)
+     *
+     * @ORM\ManyToMany(targetEntity="SAV\ProcessBundle\Entity\PieceDetachee")
      */
     private $piecesDetacheesSelect;
 
@@ -187,6 +199,8 @@ class ParcoursProduit
      * @var int|null
      *
      * @ORM\Column(name="statut_pieces_detachees", type="integer", nullable=true)
+     *
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutPieceDetachee")
      */
     private $statutPiecesDetachees;
 
@@ -194,6 +208,8 @@ class ParcoursProduit
      * @var int|null
      *
      * @ORM\Column(name="statut_reparation", type="integer", nullable=true)
+     *
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutReparation")
      */
     private $statutReparation;
 
@@ -208,6 +224,8 @@ class ParcoursProduit
      * @var int|null
      *
      * @ORM\Column(name="motif_annulation_reparation", type="integer", nullable=true)
+     *
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\MotifAnnulationReparation")
      */
     private $motifAnnulationReparation;
 
@@ -243,6 +261,8 @@ class ParcoursProduit
      * @var int|null
      *
      * @ORM\Column(name="transporteur_renvoi", type="integer", nullable=true)
+     *
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\Transporteur")
      */
     private $transporteurRenvoi;
 
@@ -271,6 +291,8 @@ class ParcoursProduit
      * @var int
      *
      * @ORM\Column(name="numero_sav", type="integer")
+     *
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\CentreSav")
      */
     private $numeroSav;
 
@@ -1143,5 +1165,77 @@ class ParcoursProduit
     public function getDatePassageDestructeur()
     {
         return $this->datePassageDestructeur;
+    }
+
+    /**
+     * Set numeroSav.
+     *
+     * @param int $numeroSav
+     *
+     * @return ParcoursProduit
+     */
+    public function setNumeroSav($numeroSav)
+    {
+        $this->numeroSav = $numeroSav;
+
+        return $this;
+    }
+
+    /**
+     * Get numeroSav.
+     *
+     * @return int
+     */
+    public function getNumeroSav()
+    {
+        return $this->numeroSav;
+    }
+
+    /**
+     * Set paysSav.
+     *
+     * @param int $paysSav
+     *
+     * @return ParcoursProduit
+     */
+    public function setPaysSav($paysSav)
+    {
+        $this->paysSav = $paysSav;
+
+        return $this;
+    }
+
+    /**
+     * Get paysSav.
+     *
+     * @return int
+     */
+    public function getPaysSav()
+    {
+        return $this->paysSav;
+    }
+
+    /**
+     * Set updatedAt.
+     *
+     * @param \DateTime|null $updatedAt
+     *
+     * @return ParcoursProduit
+     */
+    public function setUpdatedAt($updatedAt = null)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt.
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 }

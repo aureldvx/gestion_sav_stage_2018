@@ -38,14 +38,14 @@ class Client
     /**
      * @var string
      *
-     * @ORM\Column(name="telephone", type="string", length=255)
+     * @ORM\Column(name="telephone", type="string", length=255, nullable=true)
      */
     private $telephone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="fax", type="string", length=255)
+     * @ORM\Column(name="fax", type="string", length=255, nullable=true)
      */
     private $fax;
 
