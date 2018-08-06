@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e696278-a9dc-46d4-a724-3f4d3627ad86" name="Default Changelist" comment="" />
+    <list default="true" id="7e696278-a9dc-46d4-a724-3f4d3627ad86" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/MouvementStockPieceDetachee.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/MouvementStockPieceDetachee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/MouvementStockProduit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/MouvementStockProduit.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,28 +39,28 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="json" value="2" />
-          <entry key="php" value="21" />
+          <entry key="php" value="23" />
           <entry key="yml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="2" />
-          <entry key="PHP" value="21" />
+          <entry key="PHP" value="23" />
           <entry key="YAML" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="json" value="209" />
-          <entry key="php" value="655" />
+          <entry key="php" value="752" />
           <entry key="yml" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="209" />
-          <entry key="PHP" value="655" />
+          <entry key="PHP" value="752" />
           <entry key="YAML" value="17" />
         </counts>
       </usages-collector>
@@ -71,11 +74,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/ParcoursProduit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="288" selection-start-line="288" selection-end-line="288" />
+            <state relative-caret-position="484">
+              <caret line="295" column="5" lean-forward="true" selection-start-line="289" selection-start-column="4" selection-end-line="295" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/MouvementStockProduit.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/MouvementStockPieceDetachee.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="446">
+              <caret line="71" column="40" lean-forward="true" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -96,6 +117,8 @@
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/ParcoursProduit.php" />
+        <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/MouvementStockProduit.php" />
+        <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/MouvementStockPieceDetachee.php" />
       </list>
     </option>
   </component>
@@ -259,12 +282,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533490187005</updated>
-      <workItem from="1533490189838" duration="8808000" />
+      <workItem from="1533490189838" duration="9049000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8808000" />
+    <option name="totallyTimeSpent" value="9049000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -379,12 +402,6 @@
     <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/Produit.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/MouvementStockPieceDetachee.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/MouvementStockProduit.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/RubriqueProduit.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -400,8 +417,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/ParcoursProduit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="288" selection-start-line="288" selection-end-line="288" />
+        <state relative-caret-position="484">
+          <caret line="295" column="5" lean-forward="true" selection-start-line="289" selection-start-column="4" selection-end-line="295" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/MouvementStockProduit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/MouvementStockPieceDetachee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="71" column="40" lean-forward="true" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
         </state>
       </provider>
     </entry>

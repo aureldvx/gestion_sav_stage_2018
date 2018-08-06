@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="mouvement_stock_piece_detachee")
  * @ORM\Entity(repositoryClass="SAV\ProcessBundle\Repository\MouvementStockPieceDetacheeRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class MouvementStockPieceDetachee
 {
@@ -63,6 +64,13 @@ class MouvementStockPieceDetachee
      */
     private $date;
 
+    /**
+     * @ORM\PreUpdate
+     */
+    public function updateDateStockPieceDetachee()
+    {
+        $this->setDate(new \DateTime());
+    }
 
     /**
      * Get id.
