@@ -1,6 +1,10 @@
 sav_process:
     resource: "@SAVProcessBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /{_locale}
+    defaults:
+        _locale: en
+    requirements:
+        _locale: fr|en|es|it
 
 sav_core:
     resource: "@SAVCoreBundle/Resources/config/routing.yml"
