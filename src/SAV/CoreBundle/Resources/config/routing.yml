@@ -1,0 +1,10 @@
+home_login:
+  path:    /login
+  defaults:
+    _controller: SAVCoreBundle:User:login
+
+
+home_logout:
+  path:    /logout
+  defaults:
+    _controller: SAVCoreBundle:User:logout

@@ -1,0 +1,122 @@
+home_dashboard:
+  path:    /dashboard
+  defaults:
+    _controller: SAVProcessBundle:Home:index
+
+
+receipt_home:
+  path:    /receipt
+  defaults:
+    _controller: SAVProcessBundle:Receipt:index
+
+
+receipt_product_check:
+  path:    /receipt/product-check/{numero_bar}
+  defaults:
+    _controller: SAVProcessBundle:Receipt:check
+  requirements:
+    numero_bar: [a-ZA-Z]{3}\d+
+
+
+receipt_overview:
+  path:    /receipt/overview
+  defaults:
+    _controller: SAVProcessBundle:Receipt:overview
+
+
+receipt_product_review:
+  path:    /receipt/product-review/{numero_bar}
+  defaults:
+    _controller: SAVProcessBundle:Receipt:review
+  requirements:
+    numero_bar: [a-ZA-Z]{3}\d+
+
+
+receipt_product_rejection:
+  path:    /receipt/product-rejection/{numero_bar}
+  defaults:
+    _controller: SAVProcessBundle:Receipt:rejection
+  requirements:
+    numero_bar: [a-ZA-Z]{3}\d+
+
+
+treatment_home:
+  path:    /treatment
+  defaults:
+    _controller: SAVProcessBundle:Treatment:index
+
+
+treatment_product_detail:
+  path:    /treatment/product-detail/{numero_bar}
+  defaults:
+    _controller: SAVProcessBundle:Treatment:detail
+  requirements:
+    numero_bar: [a-ZA-Z]{3}\d+
+
+
+treatment_confirmed_failure:
+  path:    /treatment/confirmed-failure/{numero_bar}
+  defaults:
+    _controller: SAVProcessBundle:Treatment:failure
+  requirements:
+    numero_bar: [a-ZA-Z]{3}\d+
+
+
+treatment_product_splitting:
+  path:    /treatment/product-splitting/{numero_bar}
+  defaults:
+    _controller: SAVProcessBundle:ProductSplitting:index
+  requirements:
+    numero_bar: [a-ZA-Z]{3}\d+
+
+
+statistics_home:
+  path:    /statistics
+  defaults:
+    _controller: SAVProcessBundle:Statistics:index
+
+
+statistics_view:
+  path:    /statistics/{category}
+  defaults:
+    _controller: SAVProcessBundle:Statistics:view
+  requirements:
+    category: \d
+
+
+scan_home:
+  path:    /scan
+  defaults:
+    _controller: SAVProcessBundle:Scan:index
+
+
+scan_view:
+  path:    /scan/{numero_bar}
+  defaults:
+    _controller: SAVProcessBundle:Scan:view
+  requirements:
+    numero_bar: [a-ZA-Z]{3}\d+
+
+
+repairs_overview:
+  path:    /repairs
+  defaults:
+    _controller: SAVProcessBundle:Repairs:index
+
+
+shipping_overview:
+  path:    /shipping
+  defaults:
+    _controller: SAVProcessBundle:Shipping:index
+
+
+stocks_products:
+  path:    /stocks/products
+  defaults:
+    _controller: SAVProcessBundle:StockProduit:index
+
+
+stocks_spare_parts:
+  path:    /stocks/spare-parts/
+  defaults:
+    _controller: SAVProcessBundle:StockPieceDetachee:index
