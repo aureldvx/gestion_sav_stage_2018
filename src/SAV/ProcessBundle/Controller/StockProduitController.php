@@ -1,15 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: pongisteau
- * Date: 07/08/2018
- * Time: 17:08
- */
 
 namespace SAV\ProcessBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class StockProduitController
+class StockProduitController extends Controller
 {
-
+    public function indexAction()
+    {
+        return new Response("Stock produits : ca marche !");
+    }
 }

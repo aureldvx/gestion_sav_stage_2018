@@ -1,15 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: pongisteau
- * Date: 07/08/2018
- * Time: 17:04
- */
 
 namespace SAV\ProcessBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class TreatmentController
+class TreatmentController extends Controller
 {
-
+    public function indexAction(){
+        return new Response("Traitement : ca marche !");
+    }
 }

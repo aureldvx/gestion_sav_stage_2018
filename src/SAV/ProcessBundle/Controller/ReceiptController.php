@@ -1,15 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: pongisteau
- * Date: 07/08/2018
- * Time: 17:00
- */
 
 namespace SAV\ProcessBundle\Controller;
 
 
-class ReceiptController
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+class ReceiptController extends Controller
 {
-
+    public function indexAction()
+    {
+        return new Response("Receipt : ca marche !");
+    }
 }

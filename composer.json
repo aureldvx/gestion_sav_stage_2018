@@ -5,7 +5,8 @@
     "description": "Outil SAV SOPEG",
     "autoload": {
         "psr-4": {
-            "AppBundle\\": "src/AppBundle",
+            "CoreBundle\\": "src/CoreBundle",
+            "ProcessBundle\\": "src/ProcessBundle",
             "": "src/"
         },
         "classmap": [

@@ -1,15 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: pongisteau
- * Date: 07/08/2018
- * Time: 17:06
- */
 
 namespace SAV\ProcessBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class StatisticsController
+class StatisticsController extends Controller
 {
-
+    public function indexAction()
+    {
+        return new Response("Statistics: ca marche !");
+    }
 }
