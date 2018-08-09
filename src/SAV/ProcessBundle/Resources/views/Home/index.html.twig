@@ -1,0 +1,126 @@
+{% extends "SAVCoreBundle::corelayout.html.twig" %}
+
+{% block title %}
+    Dashboard SAV
+{% endblock %}
+
+{% block body %}
+    <header>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper grey lighten-4">
+                    <a href="{{ path('home_dashboard') }}" class="main-logo">
+                        <img src="{{ asset('bundles/savprocess/images/logo-sopeg.png') }}" alt="logo sopeg">
+                    </a>
+                    <ul class="right hide-on-med-and-down">
+                        <li class="sav-user">
+                            <i class="material-icons">person_pin</i>
+                            <h1>Centre SAV de (Nom du SAV)</h1>
+                        </li>
+                        <li>
+                            <a href="{{ path('home_logout') }}" class="logout-btn waves-effect waves-light btn red darken-2">
+                                <i class="material-icons">power_settings_new</i>
+                                Déconnexion
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div class="row first-line-home">
+                <div class="col s6">
+                    <div class="card card-home">
+                        <div class="row">
+                            <div class="col s5">
+                                <img src="{{ asset('bundles/savprocess/images/recept-home.svg') }}" alt="logo receipt">
+                            </div>
+                            <div class="col s7">
+                                <h2>Scanner les produits à leur arrivée</h2>
+                                <a href="{{ path('receipt_home') }}" class="waves-effect waves-light btn-large">
+                                    {{ 'réception produit'|upper }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="card card-home">
+                        <div class="row">
+                            <div class="col s5">
+                                <img src="{{ asset('bundles/savprocess/images/treatment-home.svg') }}" alt="logo treatment">
+                            </div>
+                            <div class="col s7">
+                                <h2>Rentrer les produits en traitement</h2>
+                                <a href="{{ path('treatment_home') }}" class="waves-effect waves-light btn-large">
+                                    {{ 'traitement produit'|upper }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row secondary-items">
+                <div class="col s4">
+                    <div class="card card-home">
+                        <h2>Chercher un produit du SAV</h2>
+                        <img src="{{ asset('bundles/savprocess/images/scan-home.svg') }}" alt="">
+                        <a href="{{ path('scan_home') }}" class="waves-effect waves-light btn">
+                            {{ 'scanner un produit'|upper }}
+                        </a>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="card card-home">
+                        <h2>Liste des produits en réparation</h2>
+                        <img src="{{ asset('bundles/savprocess/images/control-home.svg') }}" alt="">
+                        <a href="{{ path('repairs_overview') }}" class="waves-effect waves-light btn">
+                            {{ 'réparations en cours'|upper }}
+                        </a>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="card card-home">
+                        <h2>Liste des produits en attente de renvoi</h2>
+                        <img src="{{ asset('bundles/savprocess/images/control-home.svg') }}" alt="">
+                        <a href="{{ path('shipping_overview') }}" class="waves-effect waves-light btn">
+                            {{ 'renvois client'|upper }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row secondary-items">
+                <div class="col s4">
+                    <div class="card card-home">
+                        <h2>Gestion des pièces détachées</h2>
+                        <img src="{{ asset('bundles/savprocess/images/control-home.svg') }}" alt="">
+                        <a href="{{ path('stocks_spare_parts') }}" class="waves-effect waves-light btn">
+                            {{ 'pièces détachées'|upper }}
+                        </a>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="card card-home">
+                        <h2>Gestion des stocks produits</h2>
+                        <img src="{{ asset('bundles/savprocess/images/stock-home.svg') }}" alt="">
+                        <a href="{{ path('stocks_products') }}" class="waves-effect waves-light btn">
+                            {{ 'stocks produits'|upper }}
+                        </a>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="card card-home">
+                        <h2>Consultation des statistiques SAV</h2>
+                        <img src="{{ asset('bundles/savprocess/images/stats-home.svg') }}" alt="">
+                        <a href="{{ path('statistics_home') }}" class="waves-effect waves-light btn">
+                            {{ 'accès au statistiques'|upper }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "SAVCoreBundle::corelayout.html.twig" %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <header>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper grey lighten-4">
+                    <a href="{{ path('home_dashboard') }}" class="main-logo">
+                        <img src="{{ asset('bundles/savprocess/images/logo-sopeg.png') }}" alt="logo sopeg">
+                    </a>
+                    <div class="sav-user">
+                        <i class="material-icons">person_pin</i>
+                        <h1>Centre SAV de (Nom du SAV)</h1>
+                    </div>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="{{ path('receipt_home') }}" class="waves-effect waves-light btn">
+                                {{ 'accueil réception' |upper }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('treatment_home') }}" class="waves-effect waves-light btn">
+                                {{ 'accueil traitement' |upper }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('home_dashboard') }}" class="waves-effect waves-light btn">
+                                {{ 'accueil SAV' |upper }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('home_logout') }}" class="logout-btn waves-effect waves-light btn red darken-2">
+                                <i class="material-icons">power_settings_new</i>
+                                Déconnexion
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    {% block view %}
+
+    {% endblock %}
+
+{% endblock %}

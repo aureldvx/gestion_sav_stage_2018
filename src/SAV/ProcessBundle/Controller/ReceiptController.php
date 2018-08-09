@@ -11,6 +11,11 @@ class ReceiptController extends Controller
 {
     public function indexAction()
     {
-        return new Response("Receipt : ca marche !");
+        return $this->render('SAVProcessBundle:Receipt:receipt-home.html.twig');
+    }
+
+    public function checkAction($numero_bar)
+    {
+        return new Response("Voici le numero de BAR : " . $numero_bar);
     }
 }

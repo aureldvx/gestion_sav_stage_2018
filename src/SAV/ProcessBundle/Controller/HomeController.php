@@ -10,8 +10,17 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class HomeController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        return new Response("Ca marche !");
+        if ($locale = $request->attributes->get('_locale')) {
+            $request->getSession()->set('_locale', $locale);
+        } else {
+            // if no explicit locale has been set on this request, use one from the session
+            $request->setLocale($request->getSession()->get('_locale', $this->defaultLocale));
+        }
+
+        return $this->render('@SAVProcess/Home/index.html.twig', array(
+            'locale' => $locale,
+        ));
     }
 }
