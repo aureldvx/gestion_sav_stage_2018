@@ -19,6 +19,8 @@ framework:
     csrf_protection: ~
     validation: { enable_annotations: true }
     #serializer: { enable_annotations: true }
+    templating:
+        engines: ['twig']
     default_locale: '%locale%'
     trusted_hosts: ~
     session:
@@ -35,6 +37,7 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+
 
 # Doctrine Configuration
 doctrine:
@@ -69,3 +72,10 @@ swiftmailer:
 sensio_framework_extra:
    router:
         annotations: false
+
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: false
+    bundles:        [ ]
+    filters:
+        cssrewrite: ~
