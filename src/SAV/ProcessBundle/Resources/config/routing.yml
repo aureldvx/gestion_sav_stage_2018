@@ -15,7 +15,7 @@ receipt_product_check:
     defaults:
         _controller: SAVProcessBundle:Receipt:check
     requirements:
-        numero_bar: \w+
+        numero_bar: "BAR[0-9]{9}"
 
 
 receipt_overview:
@@ -29,7 +29,7 @@ receipt_product_review:
     defaults:
         _controller: SAVProcessBundle:Receipt:review
     requirements:
-        numero_bar: \w+
+        numero_bar: "BAR[0-9]{9}"
 
 
 receipt_product_rejection:
@@ -37,7 +37,7 @@ receipt_product_rejection:
     defaults:
         _controller: SAVProcessBundle:Receipt:rejection
     requirements:
-        numero_bar: \w+
+        numero_bar: "BAR[0-9]{9}"
 
 
 treatment_home:
@@ -51,7 +51,7 @@ treatment_product_detail:
     defaults:
         _controller: SAVProcessBundle:Treatment:detail
     requirements:
-        numero_bar: \w+
+        numero_bar: "BAR[0-9]{9}"
 
 
 treatment_confirmed_failure:
@@ -59,7 +59,7 @@ treatment_confirmed_failure:
     defaults:
         _controller: SAVProcessBundle:Treatment:failure
     requirements:
-        numero_bar: \w+
+        numero_bar: "BAR[0-9]{9}"
 
 
 treatment_product_splitting:
@@ -67,7 +67,7 @@ treatment_product_splitting:
     defaults:
         _controller: SAVProcessBundle:ProductSplitting:index
     requirements:
-        numero_bar: \w+
+        numero_bar: "BAR[0-9]{9}"
 
 
 statistics_home:
@@ -81,7 +81,7 @@ statistics_view:
     defaults:
         _controller: SAVProcessBundle:Statistics:view
     requirements:
-        category: \w+
+        category: "BAR[0-9]{9}"
 
 
 scan_home:
@@ -95,7 +95,7 @@ scan_view:
     defaults:
         _controller: SAVProcessBundle:Scan:view
     requirements:
-        numero_bar: \w+
+        numero_bar: "BAR[0-9]{9}"
 
 
 repairs_overview:
