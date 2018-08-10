@@ -1,0 +1,12 @@
+{
+  "name": "outil_sav_sopeg",
+  "version": "1.0.0",
+  "devDependencies": {
+    "browser-sync": "^2.24.6",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1"
+  },
+  "dependencies": {
+    "npm": "^6.3.0"
+  }
+}
