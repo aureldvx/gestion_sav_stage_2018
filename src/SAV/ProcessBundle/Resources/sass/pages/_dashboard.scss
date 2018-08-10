@@ -1,0 +1,74 @@
+.pg-dashboard {
+  margin-top: 64px;
+  padding-top: 20px;
+  height: calc(100vh - 64px);
+  width: 100vw;
+
+  h2 {
+    font-size: 20px;
+    color: $purple;
+    text-transform: uppercase;
+  }
+
+  .container {
+    height: 100%;
+
+    .row {
+      height: 216px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .col {
+        height: 100%;
+
+        .card-home {
+          height: 100%;
+
+          .row {
+            height: 100%;
+
+            .s5 {
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              img {
+                height: 90%;
+                width: auto;
+              }
+            }
+
+            .s7 {
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: space-evenly;
+            }
+          }
+        }
+      }
+    }
+    .secondary-items{
+      .s4 {
+        height: 100%;
+
+        .card-home {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-evenly;
+
+          img{
+            height: 30%;
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Assistant:300,600,700');
+
+/*
+ * VARIABLES
+ */
+
+$grey : #4b4b4b;
+$white : #ffffff;
+$purple : #A387B6;
+$blue : #5477FD;
+$red : #FF3446;
+$green : #1ABC00;
+$orange : #F5A623;
+
+
+*, *:before, *:after
+{
+  box-sizing: border-box;
+  clear: both;
+}
+
+html, body
+{
+  margin: 0;
+  padding: 0;
+  background-color: #d7d7d7;
+  font-family: 'Assistant', sans-serif;
+  font-weight: 600;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+  font-weight: 700;
+  font-size: 2em;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+header
+{
+  .navbar-fixed
+  {
+    nav
+    {
+      .nav-wrapper
+      {
+        padding: 0 10px;
+        .main-logo
+        {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .sav-user
+        {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+
+          i
+          {
+            margin-right: 5px;
+          }
+
+          h1
+          {
+            font-size: 15px;
+            margin: 0;
+            font-weight: 600;
+          }
+        }
+
+        ul
+        {
+          width: 45vw;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+
+          .btn
+          {
+            margin: -2px 0 0 0;
+          }
+
+          .logout-btn{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+
+            &:hover{
+              background-color: rgba(163,135,182,0.5);
+            }
+
+            i
+            {
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

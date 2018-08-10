@@ -2,13 +2,13 @@
 /*
  * VARIABLES
  */
-/* line 12, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
+/* line 16, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 *, *:before, *:after {
   box-sizing: border-box;
   clear: both;
 }
 
-/* line 18, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
+/* line 22, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 html, body {
   margin: 0;
   padding: 0;
@@ -17,7 +17,7 @@ html, body {
   font-weight: 600;
 }
 
-/* line 27, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
+/* line 31, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   font-size: 2em;
@@ -26,19 +26,19 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
-/* line 42, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
+/* line 46, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper {
   padding: 0 10px;
 }
 
-/* line 45, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
+/* line 49, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper .main-logo {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* line 51, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
+/* line 55, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper .sav-user {
   display: flex;
   flex-direction: row;
@@ -46,19 +46,19 @@ header .navbar-fixed nav .nav-wrapper .sav-user {
   justify-content: flex-start;
 }
 
-/* line 58, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
+/* line 62, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper .sav-user i {
   margin-right: 5px;
 }
 
-/* line 63, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
+/* line 67, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper .sav-user h1 {
   font-size: 15px;
   margin: 0;
   font-weight: 600;
 }
 
-/* line 71, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
+/* line 75, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper ul {
   width: 45vw;
   display: flex;
@@ -67,12 +67,12 @@ header .navbar-fixed nav .nav-wrapper ul {
   justify-content: space-between;
 }
 
-/* line 79, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
+/* line 83, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper ul .btn {
   margin: -2px 0 0 0;
 }
 
-/* line 84, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
+/* line 88, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper ul .logout-btn {
   display: flex;
   align-items: center;
@@ -80,38 +80,38 @@ header .navbar-fixed nav .nav-wrapper ul .logout-btn {
   margin-top: 2px;
 }
 
-/* line 90, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
+/* line 94, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper ul .logout-btn:hover {
   background-color: rgba(163, 135, 182, 0.5);
 }
 
-/* line 94, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
+/* line 98, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper ul .logout-btn i {
   margin-right: 5px;
 }
 
-/* line 105, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
-section {
+/* line 1, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_dashboard.scss */
+.pg-dashboard {
   margin-top: 64px;
   padding-top: 20px;
   height: calc(100vh - 64px);
   width: 100vw;
 }
 
-/* line 112, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
-section h2 {
+/* line 7, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_dashboard.scss */
+.pg-dashboard h2 {
   font-size: 20px;
   color: #A387B6;
   text-transform: uppercase;
 }
 
-/* line 119, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
-section .container {
+/* line 13, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_dashboard.scss */
+.pg-dashboard .container {
   height: 100%;
 }
 
-/* line 122, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
-section .container .row {
+/* line 16, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_dashboard.scss */
+.pg-dashboard .container .row {
   height: 216px;
   display: flex;
   flex-direction: row;
@@ -119,37 +119,37 @@ section .container .row {
   justify-content: center;
 }
 
-/* line 130, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
-section .container .row .col {
+/* line 23, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_dashboard.scss */
+.pg-dashboard .container .row .col {
   height: 100%;
 }
 
-/* line 133, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
-section .container .row .col .card-home {
+/* line 26, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_dashboard.scss */
+.pg-dashboard .container .row .col .card-home {
   height: 100%;
 }
 
-/* line 137, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
-section .container .row .col .card-home .row {
+/* line 29, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_dashboard.scss */
+.pg-dashboard .container .row .col .card-home .row {
   height: 100%;
 }
 
-/* line 141, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
-section .container .row .col .card-home .row .s5 {
+/* line 32, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_dashboard.scss */
+.pg-dashboard .container .row .col .card-home .row .s5 {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* line 148, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
-section .container .row .col .card-home .row .s5 img {
+/* line 38, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_dashboard.scss */
+.pg-dashboard .container .row .col .card-home .row .s5 img {
   height: 90%;
   width: auto;
 }
 
-/* line 154, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
-section .container .row .col .card-home .row .s7 {
+/* line 44, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_dashboard.scss */
+.pg-dashboard .container .row .col .card-home .row .s7 {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -157,13 +157,13 @@ section .container .row .col .card-home .row .s7 {
   justify-content: space-evenly;
 }
 
-/* line 167, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
-section .container .secondary-items .s4 {
+/* line 56, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_dashboard.scss */
+.pg-dashboard .container .secondary-items .s4 {
   height: 100%;
 }
 
-/* line 171, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
-section .container .secondary-items .s4 .card-home {
+/* line 59, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_dashboard.scss */
+.pg-dashboard .container .secondary-items .s4 .card-home {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -171,8 +171,8 @@ section .container .secondary-items .s4 .card-home {
   justify-content: space-evenly;
 }
 
-/* line 179, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/style.scss */
-section .container .secondary-items .s4 .card-home img {
+/* line 66, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_dashboard.scss */
+.pg-dashboard .container .secondary-items .s4 .card-home img {
   height: 30%;
   width: auto;
 }
