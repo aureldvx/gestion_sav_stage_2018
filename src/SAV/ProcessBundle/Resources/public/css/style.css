@@ -15,9 +15,11 @@ html, body {
   background-color: #d7d7d7;
   font-family: 'Assistant', sans-serif;
   font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 31, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+/* line 33, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   font-size: 2em;
@@ -26,19 +28,19 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
-/* line 46, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+/* line 48, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper {
   padding: 0 10px;
 }
 
-/* line 49, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+/* line 51, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper .main-logo {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* line 55, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+/* line 57, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper .sav-user {
   display: flex;
   flex-direction: row;
@@ -46,33 +48,33 @@ header .navbar-fixed nav .nav-wrapper .sav-user {
   justify-content: flex-start;
 }
 
-/* line 62, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+/* line 64, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper .sav-user i {
   margin-right: 5px;
 }
 
-/* line 67, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
-header .navbar-fixed nav .nav-wrapper .sav-user h1 {
+/* line 69, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+header .navbar-fixed nav .nav-wrapper .sav-user p {
   font-size: 15px;
   margin: 0;
   font-weight: 600;
 }
 
-/* line 75, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+/* line 77, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper ul {
   width: 45vw;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
-/* line 83, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+/* line 85, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper ul .btn {
-  margin: -2px 0 0 0;
+  margin: -2px 10px 0 10px;
 }
 
-/* line 88, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+/* line 90, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper ul .logout-btn {
   display: flex;
   align-items: center;
@@ -80,12 +82,12 @@ header .navbar-fixed nav .nav-wrapper ul .logout-btn {
   margin-top: 2px;
 }
 
-/* line 94, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+/* line 96, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper ul .logout-btn:hover {
   background-color: rgba(163, 135, 182, 0.5);
 }
 
-/* line 98, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+/* line 100, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper ul .logout-btn i {
   margin-right: 5px;
 }
@@ -101,7 +103,7 @@ header .navbar-fixed nav .nav-wrapper ul .logout-btn i {
 /* line 7, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_dashboard.scss */
 .pg-dashboard h2 {
   font-size: 20px;
-  color: #FF3446;
+  color: #A387B6;
   text-transform: uppercase;
 }
 
@@ -175,6 +177,80 @@ header .navbar-fixed nav .nav-wrapper ul .logout-btn i {
 .pg-dashboard .container .secondary-items .s4 .card-home img {
   height: 30%;
   width: auto;
+}
+
+/* line 1, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+.pg-receipt-home {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 8, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+.pg-receipt-home .container {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+/* line 12, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+.pg-receipt-home .container .page-title {
+  background-color: #A387B6;
+  border-radius: 10px 10px 0 0;
+}
+
+/* line 16, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+.pg-receipt-home .container .page-title h1 {
+  color: #ffffff;
+  text-transform: uppercase;
+  padding: 20px 0;
+}
+
+/* line 23, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+.pg-receipt-home .container .form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 29, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+.pg-receipt-home .container .form-container .form-receipt {
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 36, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+.pg-receipt-home .container .form-container .form-receipt .input-field {
+  width: 100%;
+}
+
+/* line 40, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+.pg-receipt-home .container .form-container .form-receipt span {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+/* line 45, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+.pg-receipt-home .container .form-container .form-receipt .flashbag {
+  margin-top: 20px;
+  background-color: #EF5350;
+  width: 100%;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 55, /Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+.pg-receipt-home .container .form-container .form-receipt .flashbag span {
+  color: #ffffff;
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=../public/css/style.map */

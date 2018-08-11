@@ -1,0 +1,54 @@
+{% extends "SAVProcessBundle::layout.html.twig" %}
+
+{% block view %}
+
+    <section class="pg-receipt-home">
+        <div class="container">
+            <div class="row page-title">
+                {% block title1 %}{% endblock %}
+            </div>
+            <div class="form-container row">
+                    {{ form_start(form, {'attr': {'class': 'form-receipt col s6'}}) }}
+                    {{ form_errors(form) }}
+
+                    <div class="input-field">
+                        <i class="material-icons prefix">sim_card</i>
+                        {# Génération de l'input #}
+                        {{ form_widget(form.numeroSerie, {'attr': {'class': 'validate', 'placeholder': '12345678'}}) }}
+                        {# Génération du label #}
+                        {{ form_label(form.numeroSerie, "N° IMEI ou N° de série du produit") }}
+                        {# Affichage des erreurs du champ #}
+                        {{ form_errors(form.numeroSerie) }}
+                    </div>
+                    <span>OU</span>
+                    <div class="input-field">
+                        <i class="material-icons prefix">assignment</i>
+                        {# Génération de l'input #}
+                        {{ form_widget(form.numeroBar, {'attr': {'class': 'validate', 'placeholder': 'BAR12345678'}}) }}
+                        {# Génération du label #}
+                        {{ form_label(form.numeroBar, "N° de BAR") }}
+                        {# Affichage des erreurs du champ #}
+                        {{ form_errors(form.numeroBar) }}
+                    </div>
+
+                    {# Affichage du bouton de soumission #}
+                    {{ form_widget(form.verify, {'attr': {'class': 'waves-effect waves-light btn'}}) }}
+
+                    {# Génération des champs Symfony et affichage des champs cachés #}
+                    {{ form_rest(form) }}
+
+                    {% block flashBags %}
+                        {% for message in app.flashes('notice') %}
+                            <div class="flashbag">
+                                <span class="white-text">{{ message }}</span>
+                            </div>
+                        {% endfor %}
+                    {% endblock %}
+
+                    {# Fermeture du formulaire #}
+                    {{ form_end(form) }}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
