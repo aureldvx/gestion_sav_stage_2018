@@ -39,8 +39,8 @@
 
                     {% block flashBags %}
                         {% for message in app.flashes('notice') %}
-                            <div class="flashbag">
-                                <span class="white-text">{{ message }}</span>
+                            <div class="notification is-danger flashbag">
+                                <span>{{ message }}</span>
                             </div>
                         {% endfor %}
                     {% endblock %}
