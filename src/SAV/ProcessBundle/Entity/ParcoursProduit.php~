@@ -67,6 +67,13 @@ class ParcoursProduit
     private $dateCreationBar;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(name="bar_hors_delai", type="boolean")
+     */
+    private $barHorsDelai;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="contrat_client", type="integer")

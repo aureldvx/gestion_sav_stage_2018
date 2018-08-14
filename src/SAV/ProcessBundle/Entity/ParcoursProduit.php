@@ -67,6 +67,13 @@ class ParcoursProduit
     private $dateCreationBar;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(name="bar_hors_delai", type="boolean")
+     */
+    private $barHorsDelai;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="contrat_client", type="integer")
@@ -315,6 +322,21 @@ class ParcoursProduit
     public function updateDate()
     {
         $this->setUpdatedAt(new \DateTime());
+    }
+
+    public function __construct()
+    {
+        $jourAchat = strtotime($this->getDateAchat());
+        $jourCreationBar = strtotime($this->getDateCreationBar());
+        $delaiBar = abs($jourCreationBar - $jourAchat) / 86400;
+
+        if( $delaiBar > 30)
+        {
+            $this->setBarHorsDelai(true);
+        }
+        else{
+            $this->setBarHorsDelai(false);
+        }
     }
 
     /**
@@ -1237,5 +1259,29 @@ class ParcoursProduit
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set barHorsDelai.
+     *
+     * @param bool $barHorsDelai
+     *
+     * @return ParcoursProduit
+     */
+    public function setBarHorsDelai($barHorsDelai)
+    {
+        $this->barHorsDelai = $barHorsDelai;
+
+        return $this;
+    }
+
+    /**
+     * Get barHorsDelai.
+     *
+     * @return bool
+     */
+    public function getBarHorsDelai()
+    {
+        return $this->barHorsDelai;
     }
 }

@@ -1,3 +1,19 @@
 {% extends "SAVProcessBundle:templates:form-verification.html.twig" %}
 
 {% block title1 %}<h1>Réception produit</h1>{% endblock %}
+
+{% block modal %}
+    <div class="modal {{ modalHorsDelai }}">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="modal-title">
+                <h2>{{ 'bar hors délai'|upper }}</h2>
+            </div>
+            <div class="notification is-warning">
+                <i class="material-icons">info</i>
+                <p>Il faut faire ça !</p>
+            </div>
+            <button class="btn waves-effect waves-light">{{ "j'ai compris" |upper }}</button>
+        </div>
+    </div>
+{% endblock %}

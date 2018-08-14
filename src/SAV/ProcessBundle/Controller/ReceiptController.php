@@ -7,6 +7,7 @@ use SAV\ProcessBundle\Form\ParcoursProduitType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Validator\Constraints\Date;
 
 class ReceiptController extends Controller
 {
@@ -16,6 +17,8 @@ class ReceiptController extends Controller
 
         $form = $this->get('form.factory')->create(ParcoursProduitType::class, $receipt);
 
+        $modalHorsDelai = '';
+
         if($request->isMethod('POST'))
         {
             $form->handleRequest($request);
@@ -24,7 +27,6 @@ class ReceiptController extends Controller
             if(empty($receipt->getNumeroSerie()))
             {
                 $bar = preg_replace('#([a-z]{3})([0-9]{9})#i', 'BAR$2', $receipt->getNumeroBar());
-                return $this->redirectToRoute('receipt_product_check', array('numero_bar' => $bar));
             }
             if(empty($receipt->getNumeroBar()))
             {
@@ -33,12 +35,24 @@ class ReceiptController extends Controller
                 // Appel au webservice
                 // Retour en XML
                 $bar = preg_replace('#[0-9]{9}#', 'BAR$0' , $numeroSerie);
-                return $this->redirectToRoute('receipt_product_check', array('numero_bar' => $bar));
             }
+
+            if( $receipt->getBarHorsDelai() == true)
+            {
+                $modalHorsDelai = 'is-active';
+                return $this->render('SAVProcessBundle:Receipt:receipt-home.html.twig', array(
+                    'form' => $form->createView(),
+                    'modalHorsDelai' => $modalHorsDelai,
+                ));
+            }
+
+            return $this->redirectToRoute('receipt_product_check', array('numero_bar' => $bar));
+
         }
 
         return $this->render('SAVProcessBundle:Receipt:receipt-home.html.twig', array(
             'form' => $form->createView(),
+            'modalHorsDelai' => $modalHorsDelai,
         ));
     }
 
