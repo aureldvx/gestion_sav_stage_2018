@@ -318,7 +318,7 @@ a {
     color: currentColor; }
   /* line 68, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/bulma/sass/base/generic.sass */
   a:hover {
-    color: #363636; }
+    color: #fff; }
 
 /* line 71, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/bulma/sass/base/generic.sass */
 code {
@@ -1403,7 +1403,7 @@ a.box:active {
   /* line 77, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/bulma/sass/elements/button.sass */
   .button:hover, .button.is-hovered {
     border-color: #b5b5b5;
-    color: #363636; }
+    color: #fff; }
   /* line 81, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/bulma/sass/elements/button.sass */
   .button:focus, .button.is-focused {
     border-color: #3273dc;
@@ -4431,7 +4431,7 @@ a.tag:hover {
     padding: 0 0.75em; }
     /* line 21, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/bulma/sass/components/breadcrumb.sass */
     .breadcrumb a:hover {
-      color: #363636; }
+      color: #fff; }
   /* line 23, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/bulma/sass/components/breadcrumb.sass */
   .breadcrumb li {
     align-items: center;
@@ -6042,7 +6042,7 @@ a.navbar-item,
   .pagination-next:hover,
   .pagination-link:hover {
     border-color: #b5b5b5;
-    color: #363636; }
+    color: #fff; }
   /* line 74, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/bulma/sass/components/pagination.sass */
   .pagination-previous:focus,
   .pagination-next:focus,

@@ -1,0 +1,98 @@
+{% extends "SAVProcessBundle::layout.html.twig" %}
+
+{% block title %}
+    Vérification Réception Produit
+{% endblock %}
+
+{% block view %}
+    <section class="pg-receipt-check">
+        <div class="container">
+            <div class="row page-title">
+                <h1>{{ 'Vérification Réception' }}</h1>
+            </div>
+
+            {# Affichage des informations de l'Entité #}
+            <div class="row check-content">
+                <div class="input-field col s6">
+                    <input disabled type="text" id="numero-bar" class="validate" value="{{ produit.numeroBar }}">
+                    <label for="numero-bar">N° de BAR saisi</label>
+                </div>
+                <div class="input-field col s6">
+                    <input disabled type="text" id="numero-serie" class="validate" value="{{ produit.numeroSerie }}">
+                    <label for="numero-serie">N° IMEI ou N° de série associé</label>
+                </div>
+            </div>
+            <div class="row panne">
+                <div class="input-field col s12">
+                    <input disabled type="text" id="panne-declaree" class="validate" value="{{ produit.panneDeclaree }}">
+                    <label for="panne-declaree">Panne déclarée par le client</label>
+                </div>
+            </div>
+
+            {# Affichage variable du message informatif #}
+            <div class="row affichage">
+                {% if produit.statutReception == 1 %}
+                    <div class="notification {% if produit.faibleValeur == 1 %}reception-fv{% else %} reception-ok{% endif %} col s6">
+                        <i class="material-icons small">info</i>
+                        <p>Tout est OK. Réception validée.</p>
+                        {% if produit.faibleValeur == 1 %}
+                            <p class="alert-faible-valeur"><span>Attention ! </span>Ce produit est considéré comme étant à faible valeur.</p>
+                        {% endif %}
+                    </div>
+                {% elseif produit.statutReception == 3 %}
+                    <div class="notification reception-rejected col s6">
+                        <i class="material-icons small">info</i>
+                        <p>Produit refusé. À détruire</p>
+                    </div>
+                {% elseif produit.statutReception == 4 %}
+                    <div class="notification reception-comment col s6">
+                        <i class="material-icons small">info</i>
+                        <p>Réception validée. Commentaire ajouté</p>
+                        {% if produit.faibleValeur == 1 %}
+                            <p class="alert-faible-valeur"><span>Attention ! </span>Ce produit est considéré comme étant à faible valeur.</p>
+                        {% endif %}
+                    </div>
+                {% elseif produit.statutReception == 5 %}
+                    <div class="notification reception-comment-rejected col s6">
+                        <i class="material-icons small">info</i>
+                        <p>Produit refusé. Commentaire ajouté. À détruire</p>
+                    </div>
+                {% endif %}
+
+
+                {# Affichage variable des boutons d'action #}
+                <div class="actions-buttons col s3">
+                    {% if produit.statutReception == 4 or produit.statutReception == 5 %}
+                        <a href="{{ path('receipt_product_review', {'numeroBar': numeroBar}) }}" class="add-infos btn waves-effect waves-light col s12 has-background-info">
+                            Modifier les informations complémentaires
+                        </a>
+                    {% else %}
+                        <a href="{{ path('receipt_product_review', {'numeroBar': numeroBar}) }}" class="add-infos btn waves-effect waves-light col s12 has-background-info">
+                            Insérer des informations complémentaires
+                        </a>
+                    {% endif %}
+
+                    {% if produit.statutReception == 3 or produit.statutReception == 5 %}
+                        <a href="{{ path('receipt_product_rejection', {'numeroBar': numeroBar}) }}" class="reject-product btn waves-effect waves-light col s12">
+                            Modifier le refus produit
+                        </a>
+                    {% else %}
+                        <a href="{{ path('receipt_product_rejection', {'numeroBar': numeroBar}) }}" class="reject-product btn waves-effect waves-light col s12">
+                            Refuser le produit
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row bottom-buttons">
+                <a href="{{ path('receipt_overview') }}" class="btn-large waves-effect waves-light link-overview">
+                    {{ 'Récapitulatif' | upper }}
+                </a>
+                <a href="{{ path('receipt_home') }}" class="btn-large waves-effect waves-light link-new-receipt">
+                    {{ 'Ajouter un autre produit' | upper }}
+                </a>
+            </div>
+
+        {% block modal %}
+        {% endblock %}
+    </section>
+{% endblock %}

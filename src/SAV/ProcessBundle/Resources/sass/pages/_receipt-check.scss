@@ -1,0 +1,108 @@
+.pg-receipt-check {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    background-color: $white;
+    border-radius: 10px;
+
+    .page-title {
+      background-color: $purple;
+      border-radius: 10px 10px 0 0;
+
+      h1 {
+        color: $white;
+        text-transform: uppercase;
+        padding: 20px 0;
+      }
+    }
+    .check-content{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .affichage{
+      margin: 0 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      .notification{
+        height: 105px;
+        margin-left: 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 0.5px;
+
+        i{
+          position: absolute;
+          top: 10px;
+          left: 10px;
+        }
+        p{
+          text-align: center;
+        }
+        .alert-faible-valeur{
+          font-size: 16px;
+          background-color: $orange;
+          padding: 5px 10px;
+          border-radius: 25px;
+          font-weight: 600;
+        }
+      }
+      .reception-ok{
+        background-color: darken($green, 6%);
+        color: $white;
+      }
+      .reception-fv{
+        background-color: $blue;
+        color: $white;
+      }
+      .reception-rejected{
+        background-color: $red;
+        color: $white;
+      }
+      .reception-comment{
+        background-color: $orange;
+        color: $white;
+      }
+      .reception-comment-rejected{
+        background-color: $grey;
+        color: $white;
+      }
+      .actions-buttons{
+        margin-left: 20px;
+        .add-infos{
+          height: auto;
+          padding: 5px;
+          line-height: 150%;
+          margin-bottom: 15px;
+        }
+        .reject-product{
+          background-color: $orange;
+        }
+      }
+    }
+    .bottom-buttons{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .link-overview{
+        background-color: $blue;
+        margin-right: 25px;
+      }
+      .link-new-receipt{
+        background-color: darken($green, 5%);
+      }
+    }
+  }
+}

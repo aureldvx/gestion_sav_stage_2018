@@ -124,7 +124,7 @@ class ParcoursProduit
      *
      * @ORM\Column(name="statut_reception", type="integer", nullable=true)
      *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutReception")
+     *@ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutReception")
      */
     private $statutReception;
 
@@ -330,12 +330,18 @@ class ParcoursProduit
         $jourCreationBar = strtotime($this->getDateCreationBar());
         $delaiBar = abs($jourCreationBar - $jourAchat) / 86400;
 
-        if( $delaiBar > 30)
+        if( $delaiBar > 14)
+        {
+            $this->setBarHorsDelai(false);
+            $this->setPanneAuDeballage(false);
+        }elseif($delaiBar > 30)
         {
             $this->setBarHorsDelai(true);
+            $this->setPanneAuDeballage(false);
         }
         else{
             $this->setBarHorsDelai(false);
+            $this->setPanneAuDeballage(true);
         }
     }
 

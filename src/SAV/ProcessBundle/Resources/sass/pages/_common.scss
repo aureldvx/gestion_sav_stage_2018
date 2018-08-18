@@ -8,7 +8,7 @@ $grey : #4b4b4b;
 $white : #ffffff;
 $purple : #A387B6;
 $blue : #5477FD;
-$red : #FF3446;
+$red : #D32F2F;
 $green : #1ABC00;
 $orange : #F5A623;
 
@@ -47,6 +47,7 @@ html, body
   background-color: #d7d7d7;
   font-family: 'Assistant', sans-serif;
   font-weight: 600;
+  font-size: 18px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -54,13 +55,13 @@ html, body
 h1, h2, h3, h4, h5, h6
 {
   font-weight: 700;
-  font-size: 2em;
   text-align: center;
   margin: 0;
   padding: 0;
+  font-size: 1.5em;
 }
 
-span,a{
+span, a, button{
   font-weight: 600;
 }
 
@@ -101,7 +102,7 @@ header
 
         ul
         {
-          width: 45vw;
+          width: 55vw;
           display: flex;
           flex-direction: row;
           align-items: center;
@@ -119,7 +120,7 @@ header
             margin-top: 2px;
 
             &:hover{
-              background-color: rgba(163,135,182,0.5);
+              background-color: lighten($red, 50%);
             }
 
             i

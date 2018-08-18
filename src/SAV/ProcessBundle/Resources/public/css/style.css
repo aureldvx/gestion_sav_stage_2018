@@ -14,63 +14,64 @@ html, body {
   background-color: #d7d7d7;
   font-family: 'Assistant', sans-serif;
   font-weight: 600;
+  font-size: 18px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-/* line 54, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+/* line 55, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
-  font-size: 2em;
   text-align: center;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-size: 1.5em; }
 
-/* line 63, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
-span, a {
+/* line 64, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+span, a, button {
   font-weight: 600; }
 
-/* line 73, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+/* line 74, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper {
   padding: 0 10px; }
-  /* line 76, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+  /* line 77, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
   header .navbar-fixed nav .nav-wrapper .main-logo {
     display: flex;
     align-items: center;
     justify-content: center; }
-  /* line 82, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+  /* line 83, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
   header .navbar-fixed nav .nav-wrapper .sav-user {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start; }
-    /* line 89, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+    /* line 90, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
     header .navbar-fixed nav .nav-wrapper .sav-user i {
       margin-right: 5px; }
-    /* line 94, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+    /* line 95, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
     header .navbar-fixed nav .nav-wrapper .sav-user p {
       font-size: 15px;
       margin: 0;
       font-weight: 600; }
-  /* line 102, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+  /* line 103, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
   header .navbar-fixed nav .nav-wrapper ul {
-    width: 45vw;
+    width: 55vw;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end; }
-    /* line 110, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+    /* line 111, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
     header .navbar-fixed nav .nav-wrapper ul .btn {
       margin: -2px 10px 0 10px; }
-    /* line 115, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+    /* line 116, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
     header .navbar-fixed nav .nav-wrapper ul .logout-btn {
       display: flex;
       align-items: center;
       justify-content: center;
       margin-top: 2px; }
-      /* line 121, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+      /* line 122, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
       header .navbar-fixed nav .nav-wrapper ul .logout-btn:hover {
-        background-color: rgba(163, 135, 182, 0.5); }
-      /* line 125, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+        background-color: white; }
+      /* line 126, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
       header .navbar-fixed nav .nav-wrapper ul .logout-btn i {
         margin-right: 5px; }
 
@@ -229,3 +230,165 @@ header .navbar-fixed nav .nav-wrapper {
       /* line 101, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
       .pg-receipt-home .modal .modal-content .btn:hover {
         box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); }
+
+/* line 1, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+.pg-receipt-check {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  /* line 8, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+  .pg-receipt-check .container {
+    background-color: #ffffff;
+    border-radius: 10px; }
+    /* line 12, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+    .pg-receipt-check .container .page-title {
+      background-color: #A387B6;
+      border-radius: 10px 10px 0 0; }
+      /* line 16, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+      .pg-receipt-check .container .page-title h1 {
+        color: #ffffff;
+        text-transform: uppercase;
+        padding: 20px 0; }
+    /* line 22, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+    .pg-receipt-check .container .check-content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly; }
+    /* line 28, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+    .pg-receipt-check .container .affichage {
+      margin: 0 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center; }
+      /* line 34, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+      .pg-receipt-check .container .affichage .notification {
+        height: 105px;
+        margin-left: 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 0.5px; }
+        /* line 44, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+        .pg-receipt-check .container .affichage .notification i {
+          position: absolute;
+          top: 10px;
+          left: 10px; }
+        /* line 49, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+        .pg-receipt-check .container .affichage .notification p {
+          text-align: center; }
+        /* line 52, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+        .pg-receipt-check .container .affichage .notification .alert-faible-valeur {
+          font-size: 16px;
+          background-color: #F5A623;
+          padding: 5px 10px;
+          border-radius: 25px;
+          font-weight: 600; }
+      /* line 60, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+      .pg-receipt-check .container .affichage .reception-ok {
+        background-color: #169d00;
+        color: #ffffff; }
+      /* line 64, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+      .pg-receipt-check .container .affichage .reception-fv {
+        background-color: #5477FD;
+        color: #ffffff; }
+      /* line 68, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+      .pg-receipt-check .container .affichage .reception-rejected {
+        background-color: #D32F2F;
+        color: #ffffff; }
+      /* line 72, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+      .pg-receipt-check .container .affichage .reception-comment {
+        background-color: #F5A623;
+        color: #ffffff; }
+      /* line 76, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+      .pg-receipt-check .container .affichage .reception-comment-rejected {
+        background-color: #4b4b4b;
+        color: #ffffff; }
+      /* line 80, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+      .pg-receipt-check .container .affichage .actions-buttons {
+        margin-left: 20px; }
+        /* line 82, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+        .pg-receipt-check .container .affichage .actions-buttons .add-infos {
+          height: auto;
+          padding: 5px;
+          line-height: 150%;
+          margin-bottom: 15px; }
+        /* line 88, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+        .pg-receipt-check .container .affichage .actions-buttons .reject-product {
+          background-color: #F5A623; }
+    /* line 93, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+    .pg-receipt-check .container .bottom-buttons {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center; }
+      /* line 99, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+      .pg-receipt-check .container .bottom-buttons .link-overview {
+        background-color: #5477FD;
+        margin-right: 25px; }
+      /* line 103, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss */
+      .pg-receipt-check .container .bottom-buttons .link-new-receipt {
+        background-color: #16a300; }
+
+/* line 1, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss */
+.pg-receipt-review {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  /* line 8, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss */
+  .pg-receipt-review .container {
+    background-color: #ffffff;
+    border-radius: 10px; }
+    /* line 12, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss */
+    .pg-receipt-review .container .page-title {
+      background-color: #A387B6;
+      border-radius: 10px 10px 0 0; }
+      /* line 16, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss */
+      .pg-receipt-review .container .page-title h1 {
+        color: #ffffff;
+        text-transform: uppercase;
+        padding: 20px 0; }
+    /* line 22, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss */
+    .pg-receipt-review .container .id-product {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly; }
+    /* line 29, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss */
+    .pg-receipt-review .container .form-container .buttons-zone {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center; }
+      /* line 35, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss */
+      .pg-receipt-review .container .form-container .buttons-zone .btn-save {
+        margin: 0 25px;
+        background-color: #16a300; }
+      /* line 39, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss */
+      .pg-receipt-review .container .form-container .buttons-zone .modal-button {
+        background-color: #D32F2F; }
+  /* line 46, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss */
+  .pg-receipt-review .modal-comment .modal-content {
+    border-radius: 10px; }
+    /* line 48, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss */
+    .pg-receipt-review .modal-comment .modal-content h2 {
+      background-color: #A387B6;
+      color: #ffffff;
+      padding: 10px 0;
+      font-size: 24px; }
+    /* line 54, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss */
+    .pg-receipt-review .modal-comment .modal-content .actions-delete-comment {
+      margin: 25px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center; }
+      /* line 61, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss */
+      .pg-receipt-review .modal-comment .modal-content .actions-delete-comment .btn-delete {
+        margin-left: 20px; }
