@@ -28,7 +28,6 @@
                 <label for="commentaire-client">Commentaire client</label>
             </div>
         </div>
-        <span>{{ produit.statutReception }}</span>
         <div class="form-container row">
             {{ form_start(form, {'attr': {'class': 'form-receipt col s12'}}) }}
             {{ form_errors(form) }}
@@ -43,12 +42,14 @@
                 {{ form_errors(form.commentaireReception) }}
             </div>
             <div class="row buttons-zone">
-                <a href="{{ path('receipt_product_check', {'numero_bar': numeroBar }) }}" class="btn waves-effect waves-light btn-return">
+                <a href="{{ path('receipt_product_check', {'numeroBar': produit.numeroBar }) }}" class="btn waves-effect waves-light btn-return">
                     {{ 'retour' | upper }}
                 </a>
                 {# Affichage du bouton de soumission #}
                 {{ form_widget(form.add, {'attr': {'class': 'waves-effect waves-light btn btn-save'}}) }}
-                <a href="#!" class="btn waves-effect waves-light modal-button">Supprimer le commentaire</a>
+                {% if produit.statutReception == 4 or produit.statutReception == 5 %}
+                    <a href="#!" class="btn waves-effect waves-light modal-button">Supprimer le commentaire</a>
+                {% endif %}
             </div>
             {# Génération des champs Symfony et affichage des champs cachés #}
             {{ form_rest(form) }}
@@ -62,7 +63,7 @@
             <h2>Êtes-vous sûr de vouloir supprimer votre commentaire ?</h2>
             <div class="actions-delete-comment">
                 <a href="#!" class="btn waves-effect waves-light modal-close-button">{{ 'Non' |upper }}</a>
-                <a href="{{ path('receipt_product_check', {'numero_bar': numeroBar, 'delete': 'yes'}) }}" class="btn waves-effect waves-light btn-delete">{{ 'Oui' |upper }}</a>
+                <a href="{{ path('receipt_product_check', {'numeroBar': produit.numeroBar, 'delete': 'yes'}) }}" class="btn waves-effect waves-light btn-delete">{{ 'Oui' |upper }}</a>
             </div>
         </div>
     </div>

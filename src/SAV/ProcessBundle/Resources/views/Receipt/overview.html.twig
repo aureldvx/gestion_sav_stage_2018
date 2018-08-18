@@ -1,0 +1,137 @@
+{% extends "SAVProcessBundle::layout.html.twig" %}
+
+{% block title %}
+    {% spaceless %}
+        Récapitulatif Réception
+    {% endspaceless %}
+{% endblock %}
+
+{% block view %}
+<section class="pg-receipt-overview">
+    <div class="container container-overview is-fluid">
+        <div class="row page-title">
+            <h1>{{ "Liste des produits en attente d'importation" }}</h1>
+        </div>
+        <div class="row resume">
+            <a href="{{ path('receipt_home') }}" class="btn waves-effect waves-light add-product-button">
+                {{ "Ajouter un autre produit" | upper }}
+            </a>
+
+            <div class="group-stats">
+                    <a href="{{ path('receipt_overview', {'statut' : 'all', 'filter': 'p.statutReception', 'order': 'DESC'}) }}" class="stats">
+                        <p>{{ "Total produits de la liste" | upper }}</p>
+                        <span>{{ linesTotal }}</span>
+                    </a>
+                    <a href="{{ path('receipt_overview', {'statut' : 'valid', 'filter': 'p.statutReception', 'order': 'DESC'}) }}" class="stats">
+                        <p>{{ "Réceptions validées" | upper }}</p>
+                        <span>{{ linesValid }}</span>
+                    </a>
+                    <a href="{{ path('receipt_overview', {'statut' : 'faibleValeur', 'filter': 'p.statutReception', 'order': 'DESC'}) }}" class="stats">
+                        <p>{{ "Faible valeur" | upper }}</p>
+                        <span>{{ linesFaibleValeur }}</span>
+                    </a>
+                    <a href="{{ path('receipt_overview', {'statut' : 'commented', 'filter': 'p.statutReception', 'order': 'DESC'}) }}" class="stats">
+                        <p>{{ "Avec commentaire" | upper }}</p>
+                        <span>{{ linesCommented }}</span>
+                    </a>
+                    <a href="{{ path('receipt_overview', {'statut' : 'rejected', 'filter': 'p.statutReception', 'order': 'DESC'}) }}" class="stats">
+                        <p>{{ "Refusées" | upper }}</p>
+                        <span>{{ linesRejected }}</span>
+                    </a>
+            </div>
+
+            <a href="{{ path('receipt_home') }}" class="btn waves-effect waves-light import-button">
+                {{ "Valider et importer les produits" | upper }}
+            </a>
+        </div>
+        <div class="row tableau">
+            <table class="table is-bordered is-hoverable is-fullwidth striped centered responsive-table">
+                <thead>
+                    <th>
+                        {{ "client" | upper }}
+                        <div class="order-content">
+                            <a href="{{ path('receipt_overview', {'statut': app.request.query.get("statut"), 'filter': 'p.client', 'order': 'DESC'}) }}">
+                                <i class="material-icons">keyboard_arrow_up</i>
+                            </a>
+                            <a href="{{ path('receipt_overview', {'statut': app.request.query.get("statut"), 'filter': 'p.client', 'order': 'ASC'}) }}">
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </a>
+                        </div>
+                    </th>
+                    <th>
+                        {{ "référence produit" | upper }}
+                        <div class="order-content">
+                            <a href="{{ path('receipt_overview', {'statut': app.request.query.get("statut"), 'filter': 'p.referenceProduit', 'order': 'DESC'}) }}">
+                                <i class="material-icons">keyboard_arrow_up</i>
+                            </a>
+                            <a href="{{ path('receipt_overview', {'statut': app.request.query.get("statut"), 'filter': 'p.referenceProduit', 'order': 'ASC'}) }}">
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </a>
+                        </div>
+                    </th>
+                    <th>
+                        {{ "traitement prévu" | upper }}
+                        <div class="order-content">
+                            <a href="{{ path('receipt_overview', {'statut': app.request.query.get("statut"), 'filter': 'p.traitementPrevu', 'order': 'DESC'}) }}">
+                                <i class="material-icons">keyboard_arrow_up</i>
+                            </a>
+                            <a href="{{ path('receipt_overview', {'statut': app.request.query.get("statut"), 'filter': 'p.traitementPrevu', 'order': 'ASC'}) }}">
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </a>
+                        </div>
+                    </th>
+                    <th>
+                        {{ "statut réception" | upper }}
+                        <div class="order-content">
+                            <a href="{{ path('receipt_overview', {'statut': app.request.query.get("statut"), 'filter': 'p.statutReception', 'order': 'DESC'}) }}">
+                                <i class="material-icons">keyboard_arrow_up</i>
+                            </a>
+                            <a href="{{ path('receipt_overview', {'statut': app.request.query.get("statut"), 'filter': 'p.statutReception', 'order': 'ASC'}) }}">
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </a>
+                        </div>
+                    </th>
+                    <th>
+                        {{ "actions possibles" | upper }}
+                    </th>
+                </thead>
+                <tbody>
+                {% for product in listProducts %}
+                    <tr>
+                        <td>{{ product.client }}</td>
+                        <td>{{ product.referenceProduit }}</td>
+                        <td>{{ product.TraitementPrevu }}</td>
+                        <td>{{ product.statutReception }}</td>
+                        <td class="actions-cell">
+                            {% if product.faibleValeur == 1 %}
+                                <a href="{{ path('treatment_product_splitting', {'numeroBar' : product.numeroBar, 'source' : 'receipt_overview'}) }}" class="btn waves-effect waves-light button-pd">
+                                    {{ "Récupérer pièces détachées" | upper }}
+                                </a>
+                            {% endif %}
+                            {% if product.commentaireReception is null %}
+                                <a href="{{ path('receipt_product_review', {'numeroBar' : product.numeroBar, 'source' : 'receipt_overview'}) }}" class="btn waves-effect waves-light button-infos-add">
+                                    {{ "Ajouter des informations" | upper }}
+                                </a>
+                            {% else %}
+                                <a href="{{ path('receipt_product_review', {'numeroBar' : product.numeroBar, 'source' : 'receipt_overview'}) }}" class="btn waves-effect waves-light button-infos-modify">
+                                    {{ "Modifier les informations" | upper }}
+                                </a>
+                            {% endif %}
+                            {% if product.statutReception == 3 or product.statutReception == 5 %}
+                                <a href="#!" class="btn waves-effect waves-light button-reject-cancel">
+                                    {{ "Annuler le refus" | upper }}
+                                </a>
+                            {% else %}
+                                <a href="{{ path('receipt_product_rejection', {'numeroBar' : product.numeroBar, 'source' : 'receipt_overview'}) }}" class="btn waves-effect button-reject">
+                                    {{ "Refuser produit" | upper }}
+                                </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

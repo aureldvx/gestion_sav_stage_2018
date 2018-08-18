@@ -63,21 +63,21 @@
                 {# Affichage variable des boutons d'action #}
                 <div class="actions-buttons col s3">
                     {% if produit.statutReception == 4 or produit.statutReception == 5 %}
-                        <a href="{{ path('receipt_product_review', {'numeroBar': numeroBar}) }}" class="add-infos btn waves-effect waves-light col s12 has-background-info">
+                        <a href="{{ path('receipt_product_review', {'numeroBar': produit.numeroBar}) }}" class="add-infos btn waves-effect waves-light col s12 has-background-info">
                             Modifier les informations complémentaires
                         </a>
                     {% else %}
-                        <a href="{{ path('receipt_product_review', {'numeroBar': numeroBar}) }}" class="add-infos btn waves-effect waves-light col s12 has-background-info">
+                        <a href="{{ path('receipt_product_review', {'numeroBar': produit.numeroBar}) }}" class="add-infos btn waves-effect waves-light col s12 has-background-info">
                             Insérer des informations complémentaires
                         </a>
                     {% endif %}
 
                     {% if produit.statutReception == 3 or produit.statutReception == 5 %}
-                        <a href="{{ path('receipt_product_rejection', {'numeroBar': numeroBar}) }}" class="reject-product btn waves-effect waves-light col s12">
+                        <a href="{{ path('receipt_product_rejection', {'numeroBar': produit.numeroBar}) }}" class="reject-product btn waves-effect waves-light col s12">
                             Modifier le refus produit
                         </a>
                     {% else %}
-                        <a href="{{ path('receipt_product_rejection', {'numeroBar': numeroBar}) }}" class="reject-product btn waves-effect waves-light col s12">
+                        <a href="{{ path('receipt_product_rejection', {'numeroBar': produit.numeroBar}) }}" class="reject-product btn waves-effect waves-light col s12">
                             Refuser le produit
                         </a>
                     {% endif %}

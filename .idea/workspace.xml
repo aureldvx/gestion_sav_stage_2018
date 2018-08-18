@@ -2,21 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e696278-a9dc-46d4-a724-3f4d3627ad86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/pongisteau.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/pongisteau.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.codekit3" beforeDir="false" afterPath="$PROJECT_DIR$/config.codekit3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SAV/CoreBundle/Resources/views/corelayout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/CoreBundle/Resources/views/corelayout.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Controller/ReceiptController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Controller/ReceiptController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/ParcoursProduit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/ParcoursProduit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Repository/ParcoursProduitRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Repository/ParcoursProduitRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/public/css/bulma.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/public/css/bulma.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/bulma/sass/utilities/derived-variables.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/bulma/sass/utilities/derived-variables.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_receipt.scss" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-check.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-check.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-product-review.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-product-review.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,10 +52,10 @@
           <entry key="js" value="9" />
           <entry key="json" value="14" />
           <entry key="lock" value="1" />
-          <entry key="php" value="82" />
+          <entry key="php" value="85" />
           <entry key="sass" value="24" />
-          <entry key="scss" value="61" />
-          <entry key="twig" value="68" />
+          <entry key="scss" value="66" />
+          <entry key="twig" value="72" />
           <entry key="yml" value="33" />
         </counts>
       </usages-collector>
@@ -69,11 +64,11 @@
           <entry key="CSS" value="1" />
           <entry key="JSON" value="15" />
           <entry key="JavaScript" value="9" />
-          <entry key="PHP" value="82" />
+          <entry key="PHP" value="85" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="SCSS" value="61" />
+          <entry key="SCSS" value="66" />
           <entry key="Sass" value="24" />
-          <entry key="Twig" value="68" />
+          <entry key="Twig" value="72" />
           <entry key="YAML" value="33" />
         </counts>
       </usages-collector>
@@ -82,10 +77,10 @@
           <entry key="gitignore" value="17" />
           <entry key="js" value="3005" />
           <entry key="json" value="441" />
-          <entry key="php" value="11459" />
+          <entry key="php" value="15052" />
           <entry key="sass" value="215" />
-          <entry key="scss" value="4605" />
-          <entry key="twig" value="9969" />
+          <entry key="scss" value="5450" />
+          <entry key="twig" value="12243" />
           <entry key="yml" value="2561" />
         </counts>
       </usages-collector>
@@ -93,11 +88,11 @@
         <counts>
           <entry key="JSON" value="441" />
           <entry key="JavaScript" value="3031" />
-          <entry key="PHP" value="11459" />
+          <entry key="PHP" value="15052" />
           <entry key="PLAIN_TEXT" value="17" />
-          <entry key="SCSS" value="4605" />
+          <entry key="SCSS" value="5450" />
           <entry key="Sass" value="215" />
-          <entry key="Twig" value="9943" />
+          <entry key="Twig" value="12217" />
           <entry key="YAML" value="2561" />
         </counts>
       </usages-collector>
@@ -114,76 +109,94 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Controller/ReceiptController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="118" column="11" lean-forward="true" selection-start-line="118" selection-start-column="11" selection-end-line="118" selection-end-column="11" />
-              <folding>
-                <element signature="e#48#87#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Repository/ParcoursProduitRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#48#82#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Form/ParcoursProduitType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="19" column="75" selection-start-line="19" selection-start-column="75" selection-end-line="19" selection-end-column="75" />
-              <folding>
-                <element signature="e#42#82#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-check.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2046">
-              <caret line="79" column="81" selection-start-line="79" selection-start-column="81" selection-end-line="79" selection-end-column="81" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-product-review.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/config/routing.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="97" column="17" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.65450644">
+      <split-first>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Controller/ReceiptController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="335">
+                  <caret line="185" column="59" selection-start-line="185" selection-start-column="59" selection-end-line="185" selection-end-column="59" />
+                  <folding>
+                    <element signature="e#48#87#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/overview.html.twig">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="991">
+                  <caret line="88" column="109" selection-start-line="88" selection-start-column="109" selection-end-line="88" selection-end-column="109" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Repository/ParcoursProduitRepository.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-4">
+                  <caret line="3" selection-start-line="3" selection-end-line="3" />
+                  <folding>
+                    <element signature="e#48#82#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Form/ParcoursProduitCommentType.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="87">
+                  <caret line="7" column="60" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
+                  <folding>
+                    <element signature="e#42#82#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/config/routing.yml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="280">
+                  <caret line="26" selection-start-line="26" selection-end-line="26" selection-end-column="22" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="410">
+                  <caret line="84" column="37" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1544">
+                  <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="SCSS File" />
         <option value="JavaScript File" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -196,6 +209,7 @@
       <find>modal</find>
       <find>stat</find>
       <find>statut</find>
+      <find>client</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -204,8 +218,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/common.scss" />
-        <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/_common.scss" />
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/_dashboard.scss" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/package.json" />
@@ -236,12 +248,9 @@
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/bulma/sass/components/modal.sass" />
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/components/_navbar.scss" />
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss" />
-        <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-home.html.twig" />
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/DataFixtures/ORM/LoadParcoursProduit.php" />
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/bulma/sass/utilities/derived-variables.sass" />
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss" />
-        <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/style.scss" />
-        <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Form/ParcoursProduitCommentType.php" />
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/js/pg-receipt-comment.js" />
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/js/bulma.js" />
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/js/materialize.js" />
@@ -249,10 +258,15 @@
         <option value="$PROJECT_DIR$/src/SAV/CoreBundle/Resources/views/corelayout.html.twig" />
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss" />
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss" />
-        <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-product-review.html.twig" />
-        <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/ParcoursProduit.php" />
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-check.html.twig" />
+        <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/ParcoursProduit.php" />
+        <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Form/ParcoursProduitCommentType.php" />
+        <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-product-review.html.twig" />
+        <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-home.html.twig" />
+        <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/style.scss" />
+        <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss" />
+        <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/overview.html.twig" />
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Repository/ParcoursProduitRepository.php" />
         <option value="$PROJECT_DIR$/src/SAV/ProcessBundle/Controller/ReceiptController.php" />
       </list>
@@ -385,7 +399,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="SAV" type="462c0819:PsiDirectoryNode" />
               <item name="ProcessBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Form" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="outilSav" type="b2602c69:ProjectViewProjectNode" />
@@ -394,6 +408,25 @@
               <item name="SAV" type="462c0819:PsiDirectoryNode" />
               <item name="ProcessBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="outilSav" type="b2602c69:ProjectViewProjectNode" />
+              <item name="outilSav" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="SAV" type="462c0819:PsiDirectoryNode" />
+              <item name="ProcessBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="outilSav" type="b2602c69:ProjectViewProjectNode" />
+              <item name="outilSav" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="SAV" type="462c0819:PsiDirectoryNode" />
+              <item name="ProcessBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="outilSav" type="b2602c69:ProjectViewProjectNode" />
@@ -413,16 +446,6 @@
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="Receipt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="outilSav" type="b2602c69:ProjectViewProjectNode" />
-              <item name="outilSav" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="SAV" type="462c0819:PsiDirectoryNode" />
-              <item name="ProcessBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -476,12 +499,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533490187005</updated>
-      <workItem from="1533490189838" duration="148658000" />
+      <workItem from="1533490189838" duration="169977000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148658000" />
+    <option name="totallyTimeSpent" value="169977000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -515,16 +538,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/sass/elements/button.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/sass/elements/other.sass">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/sass/utilities/initial-variables.sass">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-586" />
@@ -685,24 +698,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
           <caret line="20" column="5" lean-forward="true" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="18" column="60" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -736,57 +735,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Controller/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
             <element signature="e#48#87#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/ParcoursProduit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="121" column="7" lean-forward="true" selection-start-line="121" selection-start-column="7" selection-end-line="121" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-product-review.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Form/ParcoursProduitCommentType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="21" column="86" selection-start-line="21" selection-start-column="86" selection-end-line="21" selection-end-column="86" />
-          <folding>
-            <element signature="e#42#82#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-62">
-          <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="97" column="17" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -797,33 +751,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-check.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2046">
-          <caret line="79" column="81" selection-start-line="79" selection-start-column="81" selection-end-line="79" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-home.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/templates/form-verification.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="813">
           <caret line="33" column="59" lean-forward="true" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Repository/ParcoursProduitRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#48#82#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -837,10 +768,107 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Form/ParcoursProduitCommentType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="7" column="60" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
+          <folding>
+            <element signature="e#42#82#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-product-review.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="49" column="85" lean-forward="true" selection-start-line="49" selection-start-column="85" selection-end-line="49" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="18" column="60" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-home.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="20" column="5" lean-forward="true" selection-end-line="20" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="26" selection-start-line="26" selection-end-line="26" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/receipt-check.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1437">
+          <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/ParcoursProduit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="717">
+          <caret line="129" selection-start-line="129" selection-end-line="129" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1544">
+          <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="84" column="37" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/overview.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="991">
+          <caret line="88" column="109" selection-start-line="88" selection-start-column="109" selection-end-line="88" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Repository/ParcoursProduitRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#48#82#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Controller/ReceiptController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="118" column="11" lean-forward="true" selection-start-line="118" selection-start-column="11" selection-end-line="118" selection-end-column="11" />
+        <state relative-caret-position="335">
+          <caret line="185" column="59" selection-start-line="185" selection-start-column="59" selection-end-line="185" selection-end-column="59" />
           <folding>
             <element signature="e#48#87#0#PHP" expanded="true" />
           </folding>

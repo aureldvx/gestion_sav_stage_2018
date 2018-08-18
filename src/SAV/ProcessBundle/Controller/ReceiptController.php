@@ -9,6 +9,7 @@ use SAV\ProcessBundle\Form\ParcoursProduitCommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use SAV\ProcessBundle\Repository\ParcoursProduitRepository;
 
 class ReceiptController extends Controller
 {
@@ -85,10 +86,26 @@ class ReceiptController extends Controller
     public function checkAction(ParcoursProduit $produit, Request $request)
     {
         // Définition des champs internes
-        $produit->setStatutReception(1);
-        $produit->setDateReception(new \DateTime());
-        $produit->setNumeroSav(0); // A modifier dynamiquement
-        $produit->setPaysSav(1); // A modifier dynamiquement
+        if(null == $produit->getStatutReception())
+        {
+            $produit->setStatutReception(1);
+        }
+
+        if(null == $produit->getDateReception())
+        {
+            $produit->setDateReception(new \DateTime());
+        }
+
+        if(null == $produit->getNumeroSav())
+        {
+            $produit->setNumeroSav(0); // A modifier dynamiquement
+        }
+
+        if(null == $produit->getPaysSav())
+        {
+            $produit->setPaysSav(1); // A modifier dynamiquement
+        }
+
 
         // Cas où on supprime le commentaire réception
         if(!empty($request->query->get('delete'))) {
@@ -107,7 +124,7 @@ class ReceiptController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->flush();
             }
-            return $this->redirectToRoute('receipt_product_check', array('numero_bar' => $produit->getNumeroBar()));
+            return $this->redirectToRoute('receipt_product_check', array('numeroBar' => $produit->getNumeroBar()));
         }
 
         $em = $this->getDoctrine()->getManager();
@@ -115,12 +132,149 @@ class ReceiptController extends Controller
 
         return $this->render('SAVProcessBundle:Receipt:receipt-check.html.twig', array(
             'produit' => $produit,
-            'numeroBar' => $produit->getNumeroBar()
         ));
     }
 
-    public function reviewAction(ParcoursProduit $numeroBar, Request $request)
+    public function reviewAction(ParcoursProduit $produit, Request $request)
     {
+        $form = $this->get('form.factory')->create(ParcoursProduitCommentType::class, $produit);
 
+        if($request->isMethod('POST'))
+        {
+            $form->handleRequest($request);
+
+            $formCommentReception = $form->getData()->getCommentaireReception();
+            $produit->setCommentaireReception($formCommentReception);
+
+            // Changement du statut de réception pour changement d'affichage
+            $statutReception = $produit->getStatutReception();
+
+            switch ($statutReception)
+            {
+                case 1:
+                    $statutReception = 4;
+                break;
+
+                case 13:
+                    $statutReception = 5;
+                break;
+            }
+
+            $produit->setStatutReception($statutReception);
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+
+            return $this->redirectToRoute('receipt_product_check', array('numeroBar' => $produit->getNumeroBar()));
+        }
+
+        return $this->render('SAVProcessBundle:Receipt:receipt-product-review.html.twig', array(
+            'form' => $form->createView(),
+            'produit' => $produit,
+        ));
+    }
+
+    public function overviewAction(Request $request)
+    {
+        $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('SAVProcessBundle:ParcoursProduit')
+        ;
+
+        if(empty($request) || $request->query->get('statut') == "all")
+        {
+            $listProducts = $repository
+                ->getOverview('p.statutReception', 'DESC');
+        }
+
+        // Récupération des tags de l'URL
+        if(!empty($request))
+        {
+            $listProducts = $repository
+                ->getOverview('p.statutReception', 'DESC');
+
+            $statut = $request->query->get('statut');
+            $filter = $request->query->get('filter');
+            $order = $request->query->get('order');
+
+            if($statut == 'all')
+            {
+                $listProducts = $repository
+                    ->getOverview('p.statutReception', 'DESC');
+            }
+
+            $listStatuts = array(
+                'valid',
+                'faibleValeur',
+                'rejected',
+                'commented'
+            );
+
+            $listFilter = array(
+                'p.statutReception',
+                'p.client',
+                'p.referenceProduit',
+                'p.traitementPrevu',
+                'p.statutRception'
+            );
+
+            $listOrder = array(
+                'ASC',
+                'DESC'
+            );
+
+            if(in_array($filter, $listFilter) && in_array($order, $listOrder))
+            {
+                if(in_array($statut, $listStatuts))
+                {
+                    switch ($statut)
+                    {
+                        case 'valid':
+                            $listProducts = $repository
+                                ->getOverviewValid($filter, $order);
+                        break;
+
+                        case 'faibleValeur':
+                            $listProducts = $repository
+                                ->getOverviewFaibleValeur($filter, $order);
+                        break;
+
+                        case 'rejected':
+                            $listProducts = $repository
+                                ->getOverviewRejected($filter, $order);
+                        break;
+
+                        case 'commented':
+                            $listProducts = $repository
+                                ->getOverviewCommented($filter, $order);
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Comptage et affichage du nombre de lignes correspondantes à chaque statut
+        $linesValid = $repository
+            ->countLinesValid();
+
+        $linesCommented = $repository
+            ->countLinesCommented();
+
+        $linesFaibleValeur = $repository
+            ->countLinesFaibleValeur();
+
+        $linesRejected = $repository
+            ->countLinesRejected();
+
+        $linesTotal = $repository
+            ->countLinesTotal();
+
+        return $this->render('SAVProcessBundle:Receipt:overview.html.twig', array(
+            'listProducts' => $listProducts,
+            'linesValid' => $linesValid,
+            'linesCommented' => $linesCommented,
+            'linesFaibleValeur' => $linesFaibleValeur,
+            'linesRejected' => $linesRejected,
+            'linesTotal' => $linesTotal
+        ));
     }
 }

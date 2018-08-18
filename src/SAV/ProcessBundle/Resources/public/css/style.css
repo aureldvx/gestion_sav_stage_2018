@@ -392,3 +392,105 @@ header .navbar-fixed nav .nav-wrapper {
       /* line 61, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss */
       .pg-receipt-review .modal-comment .modal-content .actions-delete-comment .btn-delete {
         margin-left: 20px; }
+
+/* line 1, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+.pg-receipt-overview {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  /* line 8, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+  .pg-receipt-overview .container-overview {
+    width: 95vw !important;
+    background-color: #ffffff;
+    border-radius: 10px; }
+    /* line 13, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+    .pg-receipt-overview .container-overview .page-title {
+      background-color: #A387B6;
+      border-radius: 10px 10px 0 0; }
+      /* line 17, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+      .pg-receipt-overview .container-overview .page-title h1 {
+        color: #ffffff;
+        text-transform: uppercase;
+        padding: 15px 0;
+        font-size: 24px; }
+    /* line 24, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+    .pg-receipt-overview .container-overview .resume {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 0 10px 0 30px; }
+      /* line 33, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+      .pg-receipt-overview .container-overview .resume .group-stats {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 0 15px; }
+        /* line 39, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+        .pg-receipt-overview .container-overview .resume .group-stats .stats {
+          width: content-box;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 5px 10px;
+          margin: 0 10px;
+          background-color: lightgrey;
+          border-radius: 5px;
+          text-align: center;
+          color: #4b4b4b;
+          -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+          -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+          will-change: box-shadow; }
+          /* line 55, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          .pg-receipt-overview .container-overview .resume .group-stats .stats:hover {
+            -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3); }
+          /* line 60, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          .pg-receipt-overview .container-overview .resume .group-stats .stats p {
+            font-size: 14px; }
+    /* line 67, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+    .pg-receipt-overview .container-overview .tableau {
+      padding: 0 10px; }
+      /* line 69, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+      .pg-receipt-overview .container-overview .tableau table {
+        font-size: 14px; }
+        /* line 71, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+        .pg-receipt-overview .container-overview .tableau table thead {
+          background-color: #4b4b4b; }
+          /* line 73, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          .pg-receipt-overview .container-overview .tableau table thead th {
+            font-size: 15px;
+            color: #ffffff;
+            vertical-align: middle; }
+        /* line 81, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+        .pg-receipt-overview .container-overview .tableau table tbody tr td {
+          vertical-align: middle; }
+        /* line 84, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+        .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell {
+          padding: 7px 15px 7px 0;
+          width: 600px;
+          text-align: right; }
+          /* line 88, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .btn {
+            font-size: 12px; }
+          /* line 91, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .button-infos-add, .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .button-infos-modify {
+            margin: 0 10px; }
+          /* line 97, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .button-infos-add {
+            background-color: #5477FD; }
+          /* line 100, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .button-infos-modify {
+            background-color: #F5A623; }
+          /* line 103, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .button-reject {
+            background-color: #D32F2F; }
+          /* line 106, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .button-reject-cancel {
+            background-color: #F5A623; }

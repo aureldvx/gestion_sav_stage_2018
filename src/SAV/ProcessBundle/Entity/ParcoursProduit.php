@@ -124,7 +124,7 @@ class ParcoursProduit
      *
      * @ORM\Column(name="statut_reception", type="integer", nullable=true)
      *
-     *@ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutReception")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutReception")
      */
     private $statutReception;
 

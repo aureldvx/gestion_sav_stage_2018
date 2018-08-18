@@ -1,0 +1,115 @@
+.pg-receipt-overview {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container-overview {
+    width: 95vw!important;
+    background-color: $white;
+    border-radius: 10px;
+
+    .page-title {
+      background-color: $purple;
+      border-radius: 10px 10px 0 0;
+
+      h1 {
+        color: $white;
+        text-transform: uppercase;
+        padding: 15px 0;
+        font-size: 24px;
+      }
+    }
+    .resume{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 0 10px 0 30px;
+
+      .add-product-button{
+      }
+      .group-stats{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 0 15px;
+        .stats{
+          width: content-box;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 5px 10px;
+          margin: 0 10px;
+          background-color: lightgrey;
+          border-radius: 5px;
+          text-align: center;
+          color: $grey;
+          -webkit-box-shadow: $box-shadow-1;
+          -moz-box-shadow: $box-shadow-1;
+          box-shadow: $box-shadow-1;
+          will-change: box-shadow;
+          &:hover{
+            -webkit-box-shadow: $box-shadow-2;
+            -moz-box-shadow: $box-shadow-2;
+            box-shadow: $box-shadow-2;
+          }
+          p{
+            font-size: 14px;
+          }
+
+        }
+      }
+    }
+    .tableau{
+      padding: 0 10px;
+      table{
+        font-size: 14px;
+        thead{
+          background-color: $grey;
+          th{
+            font-size: 15px;
+            color: $white;
+            vertical-align: middle;
+          }
+        }
+        tbody{
+          tr{
+            td{
+              vertical-align: middle;
+            }
+            .actions-cell{
+              padding: 7px 15px 7px 0;
+              width: 600px;
+              text-align: right;
+              .btn{
+                font-size: 12px;
+              }
+              .button-infos-add, .button-infos-modify{
+                margin: 0 10px;
+              }
+              .button-pd{
+
+              }
+              .button-infos-add{
+                background-color: $blue;
+              }
+              .button-infos-modify{
+                background-color: $orange;
+              }
+              .button-reject{
+                background-color: $red;
+              }
+              .button-reject-cancel{
+                background-color: $orange;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
