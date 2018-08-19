@@ -6,6 +6,7 @@ use SAV\ProcessBundle\Entity\CentreSav;
 use SAV\ProcessBundle\Entity\ParcoursProduit;
 use SAV\ProcessBundle\Form\ParcoursProduitType;
 use SAV\ProcessBundle\Form\ParcoursProduitCommentType;
+use SAV\ProcessBundle\Form\ParcoursProduitRejectType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -175,34 +176,45 @@ class ReceiptController extends Controller
 
     public function overviewAction(Request $request)
     {
-        $repository = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('SAVProcessBundle:ParcoursProduit')
-        ;
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('SAVProcessBundle:ParcoursProduit');
 
-        if(empty($request) || $request->query->get('statut') == "all")
+        if($request->isMethod('POST'))
         {
-            $listProducts = $repository
-                ->getOverview('p.statutReception', 'DESC');
+            $bar = $_POST['numeroBar'];
+            $produit = $repository->findOneBy(array(
+                'numeroBar' => $bar,
+            ));
+
+            $statutReception = $produit->getStatutReception();
+            switch($statutReception)
+            {
+                case 3:
+                    $statutReception = 1;
+                break;
+
+                case 5:
+                    $statutReception = 4;
+                break;
+            }
+            $produit->setStatutReception($statutReception);
+            $produit->setRaisonRefusProduit(null);
+            $produit->setUrlPhotoRefus(null);
+            $em->flush();
         }
 
-        // Récupération des tags de l'URL
+        $listProducts = $repository
+            ->getOverview('p.statutReception', 'DESC');
+
+        // Récupération des tags de tri de l'URL
         if(!empty($request))
         {
-            $listProducts = $repository
-                ->getOverview('p.statutReception', 'DESC');
-
             $statut = $request->query->get('statut');
             $filter = $request->query->get('filter');
             $order = $request->query->get('order');
 
-            if($statut == 'all')
-            {
-                $listProducts = $repository
-                    ->getOverview('p.statutReception', 'DESC');
-            }
-
             $listStatuts = array(
+                'all',
                 'valid',
                 'faibleValeur',
                 'rejected',
@@ -228,6 +240,11 @@ class ReceiptController extends Controller
                 {
                     switch ($statut)
                     {
+                        case 'all':
+                            $listProducts = $repository
+                                ->getOverview($filter, $order);
+                        break;
+
                         case 'valid':
                             $listProducts = $repository
                                 ->getOverviewValid($filter, $order);
@@ -246,6 +263,11 @@ class ReceiptController extends Controller
                         case 'commented':
                             $listProducts = $repository
                                 ->getOverviewCommented($filter, $order);
+                        break;
+
+                        default:
+                            $listProducts = $repository
+                                ->getOverview($filter, $order);
                         break;
                     }
                 }

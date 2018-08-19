@@ -13,7 +13,7 @@
             <h1>{{ "Liste des produits en attente d'importation" }}</h1>
         </div>
         <div class="row resume">
-            <a href="{{ path('receipt_home') }}" class="btn waves-effect waves-light add-product-button">
+            <a href="{{ path('receipt_home') }}" class="btn-large waves-effect waves-light add-product-button">
                 {{ "Ajouter un autre produit" | upper }}
             </a>
 
@@ -40,20 +40,27 @@
                     </a>
             </div>
 
-            <a href="{{ path('receipt_home') }}" class="btn waves-effect waves-light import-button">
+            <a href="{{ path('receipt_home') }}" class="btn-large waves-effect waves-light import-button">
                 {{ "Valider et importer les produits" | upper }}
             </a>
         </div>
+
+        {% if app.request.query.get("statut") is empty %}
+            {% set statut = 'all' %}
+        {% else %}
+            {% set statut = app.request.query.get("statut") %}
+        {% endif %}
+
         <div class="row tableau">
             <table class="table is-bordered is-hoverable is-fullwidth striped centered responsive-table">
                 <thead>
                     <th>
                         {{ "client" | upper }}
                         <div class="order-content">
-                            <a href="{{ path('receipt_overview', {'statut': app.request.query.get("statut"), 'filter': 'p.client', 'order': 'DESC'}) }}">
+                            <a href="{{ path('receipt_overview', {'statut': statut, 'filter': 'p.client', 'order': 'DESC'}) }}">
                                 <i class="material-icons">keyboard_arrow_up</i>
                             </a>
-                            <a href="{{ path('receipt_overview', {'statut': app.request.query.get("statut"), 'filter': 'p.client', 'order': 'ASC'}) }}">
+                            <a href="{{ path('receipt_overview', {'statut': statut, 'filter': 'p.client', 'order': 'ASC'}) }}">
                                 <i class="material-icons">keyboard_arrow_down</i>
                             </a>
                         </div>
@@ -61,10 +68,10 @@
                     <th>
                         {{ "référence produit" | upper }}
                         <div class="order-content">
-                            <a href="{{ path('receipt_overview', {'statut': app.request.query.get("statut"), 'filter': 'p.referenceProduit', 'order': 'DESC'}) }}">
+                            <a href="{{ path('receipt_overview', {'statut': statut, 'filter': 'p.referenceProduit', 'order': 'DESC'}) }}">
                                 <i class="material-icons">keyboard_arrow_up</i>
                             </a>
-                            <a href="{{ path('receipt_overview', {'statut': app.request.query.get("statut"), 'filter': 'p.referenceProduit', 'order': 'ASC'}) }}">
+                            <a href="{{ path('receipt_overview', {'statut': statut, 'filter': 'p.referenceProduit', 'order': 'ASC'}) }}">
                                 <i class="material-icons">keyboard_arrow_down</i>
                             </a>
                         </div>
@@ -72,10 +79,10 @@
                     <th>
                         {{ "traitement prévu" | upper }}
                         <div class="order-content">
-                            <a href="{{ path('receipt_overview', {'statut': app.request.query.get("statut"), 'filter': 'p.traitementPrevu', 'order': 'DESC'}) }}">
+                            <a href="{{ path('receipt_overview', {'statut': statut, 'filter': 'p.traitementPrevu', 'order': 'DESC'}) }}">
                                 <i class="material-icons">keyboard_arrow_up</i>
                             </a>
-                            <a href="{{ path('receipt_overview', {'statut': app.request.query.get("statut"), 'filter': 'p.traitementPrevu', 'order': 'ASC'}) }}">
+                            <a href="{{ path('receipt_overview', {'statut': statut, 'filter': 'p.traitementPrevu', 'order': 'ASC'}) }}">
                                 <i class="material-icons">keyboard_arrow_down</i>
                             </a>
                         </div>
@@ -83,10 +90,10 @@
                     <th>
                         {{ "statut réception" | upper }}
                         <div class="order-content">
-                            <a href="{{ path('receipt_overview', {'statut': app.request.query.get("statut"), 'filter': 'p.statutReception', 'order': 'DESC'}) }}">
+                            <a href="{{ path('receipt_overview', {'statut': statut, 'filter': 'p.statutReception', 'order': 'DESC'}) }}">
                                 <i class="material-icons">keyboard_arrow_up</i>
                             </a>
-                            <a href="{{ path('receipt_overview', {'statut': app.request.query.get("statut"), 'filter': 'p.statutReception', 'order': 'ASC'}) }}">
+                            <a href="{{ path('receipt_overview', {'statut': statut, 'filter': 'p.statutReception', 'order': 'ASC'}) }}">
                                 <i class="material-icons">keyboard_arrow_down</i>
                             </a>
                         </div>
@@ -118,7 +125,7 @@
                                 </a>
                             {% endif %}
                             {% if product.statutReception == 3 or product.statutReception == 5 %}
-                                <a href="#!" class="btn waves-effect waves-light button-reject-cancel">
+                                <a href="#!" class="btn waves-effect waves-light modal-button button-reject-cancel" data-bar="{{ product.numeroBar }}">
                                     {{ "Annuler le refus" | upper }}
                                 </a>
                             {% else %}
@@ -133,5 +140,36 @@
             </table>
         </div>
     </div>
+    <div class="modal modal-reject">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="modal-title">
+                <h2>Êtes-vous sûr de vouloir supprimer votre commentaire ?</h2>
+            </div>
+            <div class="actions-delete-reject">
+                <form action="{{ path('receipt_overview') }}" method="post">
+                    <input type="hidden" name="numeroBar" value="" id="numBar">
+                    <button type="submit" class="btn-large waves-effect waves-light btn-delete">{{ "OUI" | upper }}</button>
+                    <a href="#!" class="btn-large waves-effect waves-light modal-close-button">{{ 'Non' |upper }}</a>
+                </form>
+            </div>
+        </div>
+    </div>
 </section>
+
+{% block javascript %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".modal-button").click(function() {
+            $(".modal-reject").addClass("is-active");
+            $numBar = $(".button-reject-cancel").data("bar");
+            $("#numBar").attr('value', $numBar);
+        });
+        $(".modal-close-button").click(function() {
+            $(".modal-reject").removeClass("is-active");
+        });
+    })
+</script>
+{% endblock %}
+
 {% endblock %}

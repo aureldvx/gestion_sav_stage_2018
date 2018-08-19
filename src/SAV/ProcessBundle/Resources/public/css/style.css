@@ -11,6 +11,9 @@
 html, body {
   margin: 0;
   padding: 0;
+  width: 100vw;
+  height: auto;
+  min-height: 100vh;
   background-color: #d7d7d7;
   font-family: 'Assistant', sans-serif;
   font-weight: 600;
@@ -18,7 +21,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-/* line 55, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+/* line 58, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   text-align: center;
@@ -26,52 +29,52 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
   font-size: 1.5em; }
 
-/* line 64, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+/* line 67, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 span, a, button {
   font-weight: 600; }
 
-/* line 74, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+/* line 77, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
 header .navbar-fixed nav .nav-wrapper {
   padding: 0 10px; }
-  /* line 77, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+  /* line 80, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
   header .navbar-fixed nav .nav-wrapper .main-logo {
     display: flex;
     align-items: center;
     justify-content: center; }
-  /* line 83, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+  /* line 86, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
   header .navbar-fixed nav .nav-wrapper .sav-user {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start; }
-    /* line 90, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+    /* line 93, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
     header .navbar-fixed nav .nav-wrapper .sav-user i {
       margin-right: 5px; }
-    /* line 95, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+    /* line 98, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
     header .navbar-fixed nav .nav-wrapper .sav-user p {
       font-size: 15px;
       margin: 0;
       font-weight: 600; }
-  /* line 103, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+  /* line 106, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
   header .navbar-fixed nav .nav-wrapper ul {
     width: 55vw;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end; }
-    /* line 111, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+    /* line 114, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
     header .navbar-fixed nav .nav-wrapper ul .btn {
       margin: -2px 10px 0 10px; }
-    /* line 116, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+    /* line 119, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
     header .navbar-fixed nav .nav-wrapper ul .logout-btn {
       display: flex;
       align-items: center;
       justify-content: center;
       margin-top: 2px; }
-      /* line 122, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+      /* line 125, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
       header .navbar-fixed nav .nav-wrapper ul .logout-btn:hover {
         background-color: white; }
-      /* line 126, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
+      /* line 129, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_common.scss */
       header .navbar-fixed nav .nav-wrapper ul .logout-btn i {
         margin-right: 5px; }
 
@@ -396,13 +399,13 @@ header .navbar-fixed nav .nav-wrapper {
 /* line 1, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
 .pg-receipt-overview {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center; }
   /* line 8, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
   .pg-receipt-overview .container-overview {
-    width: 95vw !important;
+    width: 98vw !important;
     background-color: #ffffff;
     border-radius: 10px; }
     /* line 13, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
@@ -484,13 +487,45 @@ header .navbar-fixed nav .nav-wrapper {
             margin: 0 10px; }
           /* line 97, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
           .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .button-infos-add {
-            background-color: #5477FD; }
-          /* line 100, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+            background-color: #5477FD;
+            padding-left: 16px;
+            padding-right: 16px; }
+          /* line 102, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
           .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .button-infos-modify {
             background-color: #F5A623; }
-          /* line 103, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          /* line 105, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
           .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .button-reject {
-            background-color: #D32F2F; }
-          /* line 106, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+            background-color: #D32F2F;
+            padding-left: 18px;
+            padding-right: 18px; }
+          /* line 110, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
           .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .button-reject-cancel {
             background-color: #F5A623; }
+  /* line 120, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+  .pg-receipt-overview .modal .modal-background {
+    z-index: 99; }
+  /* line 123, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+  .pg-receipt-overview .modal .modal-content {
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    /* line 131, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+    .pg-receipt-overview .modal .modal-content .modal-title {
+      width: 100%;
+      padding: 15px;
+      background-color: #A387B6; }
+      /* line 136, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+      .pg-receipt-overview .modal .modal-content .modal-title h2 {
+        color: #ffffff; }
+    /* line 140, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+    .pg-receipt-overview .modal .modal-content .actions-delete-reject {
+      margin: 30px 0; }
+      /* line 142, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+      .pg-receipt-overview .modal .modal-content .actions-delete-reject .btn-delete {
+        margin-right: 25px;
+        background-color: #F5A623;
+        font-size: 14px;
+        font-weight: 700; }

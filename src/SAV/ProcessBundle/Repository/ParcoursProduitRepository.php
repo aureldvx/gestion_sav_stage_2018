@@ -105,7 +105,8 @@ class ParcoursProduitRepository extends EntityRepository
         $qb = $this->createQueryBuilder('p');
 
         $qb->select($qb->expr()->count('p'))
-            ->where('p.statutReception  = 5');
+            ->where('p.statutReception  = 5')
+            ->orWhere('p.statutReception = 5');
 
         return (int) $qb->getQuery()->getSingleScalarResult();
     }
