@@ -71,4 +71,12 @@
       }
     }
   }
+  .flashbag{
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 999;
+    width: content-box;
+    color: $grey;
+  }
 }

@@ -39,12 +39,12 @@
                             <p class="alert-faible-valeur"><span>Attention ! </span>Ce produit est considéré comme étant à faible valeur.</p>
                         {% endif %}
                     </div>
-                {% elseif produit.statutReception == 3 %}
+                {% elseif produit.statutReception == 2 %}
                     <div class="notification reception-rejected col s6">
                         <i class="material-icons small">info</i>
                         <p>Produit refusé. À détruire</p>
                     </div>
-                {% elseif produit.statutReception == 4 %}
+                {% elseif produit.statutReception == 3 %}
                     <div class="notification reception-comment col s6">
                         <i class="material-icons small">info</i>
                         <p>Réception validée. Commentaire ajouté</p>
@@ -52,7 +52,7 @@
                             <p class="alert-faible-valeur"><span>Attention ! </span>Ce produit est considéré comme étant à faible valeur.</p>
                         {% endif %}
                     </div>
-                {% elseif produit.statutReception == 5 %}
+                {% elseif produit.statutReception == 4 %}
                     <div class="notification reception-comment-rejected col s6">
                         <i class="material-icons small">info</i>
                         <p>Produit refusé. Commentaire ajouté. À détruire</p>
@@ -62,7 +62,7 @@
 
                 {# Affichage variable des boutons d'action #}
                 <div class="actions-buttons col s3">
-                    {% if produit.statutReception == 4 or produit.statutReception == 5 %}
+                    {% if produit.statutReception == 3 or produit.statutReception == 4 %}
                         <a href="{{ path('receipt_product_review', {'numeroBar': produit.numeroBar}) }}" class="add-infos btn waves-effect waves-light col s12 has-background-info">
                             Modifier les informations complémentaires
                         </a>
@@ -72,7 +72,7 @@
                         </a>
                     {% endif %}
 
-                    {% if produit.statutReception == 3 or produit.statutReception == 5 %}
+                    {% if produit.statutReception == 2 or produit.statutReception == 4 %}
                         <a href="{{ path('receipt_product_rejection', {'numeroBar': produit.numeroBar}) }}" class="reject-product btn waves-effect waves-light col s12">
                             Modifier le refus produit
                         </a>

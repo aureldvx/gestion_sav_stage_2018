@@ -1,0 +1,79 @@
+.pg-confirmed-failure{
+  .buttons-confirm-failure{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    .btn-choice[disabled]{
+      background-color: rgba($green, 0.4)!important;
+      color: darken($green, 10%)!important;
+      margin-bottom: 30px;
+    }
+    span{
+      font-size: 16px;
+    }
+    .actions-confirm-failure{
+      margin: 15px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .btn-confirm-reparation{
+        margin-right: 25px;
+        background-color: darken($green, 5%);
+      }
+      .btn-reject-reparation{
+        background-color: $red;
+      }
+    }
+  }
+  .modal-produit-non-reparable{
+      .modal-content {
+        border-radius: 10px;
+        .modal-title {
+          background: $purple;
+          h2 {
+            padding: 15px 0;
+            color: $white;
+          }
+        }
+        .modal-container{
+          margin-top: 20px;
+          padding: 0 10px;
+          .notification{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+
+            i{
+              position: absolute;
+              top: 5px;
+              left: 5px;
+            }
+          }
+          .modal-actions{
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            .btn-large{
+              flex-grow: 1;
+            }
+            .btn-splitting{
+              margin-right: 15px;
+              background-color: $blue;
+            }
+            .btn-close-treatment{
+              background-color: $red;
+            }
+          }
+        }
+      }
+  }
+}

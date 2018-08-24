@@ -10,9 +10,10 @@ class ParcoursProduitRepository extends EntityRepository
     {
         $qb = $this->createQueryBuilder('p')
             ->where('p.statutReception = 1')
+            ->orWhere('p.statutReception = 2')
             ->orWhere('p.statutReception = 3')
             ->orWhere('p.statutReception = 4')
-            ->orWhere('p.statutReception = 5')
+            ->andWhere('p.importe = 0')
             ->orderBy($filter, $order);
 
         return $qb
@@ -25,6 +26,7 @@ class ParcoursProduitRepository extends EntityRepository
         $qb = $this->createQueryBuilder('p')
             ->where('p.statutReception = 1')
             ->andWhere('p.faibleValeur = 0')
+            ->andWhere('p.importe = 0')
             ->orderBy($filter, $order);
 
         return $qb
@@ -37,6 +39,7 @@ class ParcoursProduitRepository extends EntityRepository
         $qb = $this->createQueryBuilder('p')
             ->where('p.statutReception = 1')
             ->andWhere('p.faibleValeur = 1')
+            ->andWhere('p.importe = 0')
             ->orderBy($filter, $order);
 
         return $qb
@@ -47,8 +50,9 @@ class ParcoursProduitRepository extends EntityRepository
     public function getOverviewCommented($filter, $order)
     {
         $qb = $this->createQueryBuilder('p')
-            ->where('p.statutReception = 4')
-            ->orWhere('p.statutReception = 5')
+            ->where('p.statutReception = 3')
+            ->orWhere('p.statutReception = 4')
+            ->andWhere('p.importe = 0')
             ->orderBy($filter, $order);
 
         return $qb
@@ -59,8 +63,9 @@ class ParcoursProduitRepository extends EntityRepository
     public function getOverviewRejected($filter, $order)
     {
         $qb = $this->createQueryBuilder('p')
-            ->where('p.statutReception = 3')
-            ->orWhere('p.statutReception = 5')
+            ->where('p.statutReception = 2')
+            ->orWhere('p.statutReception = 4')
+            ->andWhere('p.importe = 0')
             ->orderBy($filter, $order);
 
         return $qb
@@ -74,7 +79,8 @@ class ParcoursProduitRepository extends EntityRepository
 
         $qb->select($qb->expr()->count('p'))
             ->where('p.statutReception  = 1')
-            ->andWhere('p.faibleValeur = 0');
+            ->andWhere('p.faibleValeur = 0')
+            ->andWhere('p.importe = 0');
 
         return (int) $qb->getQuery()->getSingleScalarResult();
     }
@@ -84,7 +90,9 @@ class ParcoursProduitRepository extends EntityRepository
         $qb = $this->createQueryBuilder('p');
 
         $qb->select($qb->expr()->count('p'))
-            ->where('p.statutReception  = 4');
+            ->where('p.statutReception  = 3')
+            ->orWhere('p.statutReception = 4')
+            ->andWhere('p.importe = 0');
 
         return (int) $qb->getQuery()->getSingleScalarResult();
     }
@@ -95,7 +103,8 @@ class ParcoursProduitRepository extends EntityRepository
 
         $qb->select($qb->expr()->count('p'))
             ->where('p.statutReception  = 1')
-            ->andWhere('p.faibleValeur = 1');
+            ->andWhere('p.faibleValeur = 1')
+            ->andWhere('p.importe = 0');
 
         return (int) $qb->getQuery()->getSingleScalarResult();
     }
@@ -105,8 +114,9 @@ class ParcoursProduitRepository extends EntityRepository
         $qb = $this->createQueryBuilder('p');
 
         $qb->select($qb->expr()->count('p'))
-            ->where('p.statutReception  = 5')
-            ->orWhere('p.statutReception = 5');
+            ->where('p.statutReception  = 2')
+            ->orWhere('p.statutReception = 4')
+            ->andWhere('p.importe = 0');
 
         return (int) $qb->getQuery()->getSingleScalarResult();
     }
@@ -114,5 +124,19 @@ class ParcoursProduitRepository extends EntityRepository
     public function countLinesTotal()
     {
         return (int) $this->countLinesValid() + $this->countLinesFaibleValeur() + $this->countLinesRejected() + $this->countLinesCommented();
+    }
+
+    public function getImportList()
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->where('p.statutReception = 1')
+            ->orWhere('p.statutReception = 2')
+            ->orWhere('p.statutReception = 3')
+            ->orWhere('p.statutReception = 4')
+            ->andWhere('p.importe = 0');
+
+        return $qb
+            ->getQuery()
+            ->getResult();
     }
 }

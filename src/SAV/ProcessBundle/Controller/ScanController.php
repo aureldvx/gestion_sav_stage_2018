@@ -13,50 +13,40 @@ class ScanController extends Controller
 {
     public function indexAction(Request $request)
     {
-        $scan = new ParcoursProduit();
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('SAVProcessBundle:ParcoursProduit');
 
-        $form = $this->get('form.factory')->create(ParcoursProduitType::class, $scan);
+        $form = $this->get('form.factory')->create(ParcoursProduitType::class, $repository);
 
         if($request->isMethod('POST'))
         {
             $form->handleRequest($request);
 
-            $repository = $this
-                ->getDoctrine()
-                ->getManager()
-                ->getRepository('SAVProcessBundle:ParcoursProduit');
+            $formNumeroSerie = $form->getData()->getNumeroSerie();
+            $formNumeroBar = $form->getData()->getNumeroBar();
 
-            if(empty($scan->getNumeroSerie()))
+            if(empty($formNumeroSerie))
             {
-                $bar = preg_replace('#([a-z]{3})([0-9]{9})#i', 'BAR$2', $scan->getNumeroBar());
-
-                $resultat = $repository->findByNumeroBar($bar);
-                if(!$resultat)
-                {
-                    $request->getSession()->getFlashBag()->add('notice', 'Aucun produit avec ce numéro de BAR n\'est passé dans votre SAV');
-                    return $this->redirectToRoute('scan_home');
-                }
-
-                return $this->redirectToRoute('scan_view', array('numero_bar' => $bar));
+                $bar = preg_replace('#([a-z]{3})([0-9]{9})#i', 'BAR$2', $formNumeroBar);
             }
-            if(empty($scan->getNumeroBar()))
+            if(empty($formNumeroBar))
             {
-                $numeroSerie = $scan->getNumeroSerie();
-                // ICI = chercher le BAR correspondant
-                // Appel au webservice
-                // Retour en XML
-                $bar = preg_replace('#[0-9]{9}#', 'BAR$0' , $numeroSerie);
-
-                $resultat = $repository->findByNumeroBar($bar);
-                if(!$resultat)
-                {
-                    $request->getSession()->getFlashBag()->add('notice', 'Aucun produit avec ce numéro de série n\'est passé dans votre SAV');
-                    return $this->redirectToRoute('scan_home');
-                }
-
-                return $this->redirectToRoute('scan_view', array('numero_bar' => $bar));
+                $bar = preg_replace('#[0-9]{9}#', '$0' , $formNumeroSerie);
             }
 
+            $resultat = $repository->findBy(array(
+                'numeroBar' => $bar
+            ));
+
+            if(null == $resultat)
+            {
+                $request->getSession()->getFlashBag()->add('notice', 'Aucun produit avec ce numéro de BAR n\'est passé dans votre SAV');
+                return $this->redirectToRoute('scan_home');
+            }
+            else
+            {
+                return $this->redirectToRoute('scan_view', array('numeroBar' => $bar));
+            }
         }
 
         return $this->render('SAVProcessBundle:Scan:scan-home.html.twig', array(
@@ -64,8 +54,10 @@ class ScanController extends Controller
         ));
     }
 
-    public function viewAction($numero_bar)
+    public function viewAction(ParcoursProduit $produit)
     {
-        return new Response("Voici le numero de BAR : " . $numero_bar);
+        return $this->render('SAVProcessBundle:Scan:view-product.html.twig', array(
+            'produit' => $produit
+        ));
     }
 }

@@ -2,8 +2,9 @@
   width: 100vw;
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  margin-top: 80px;
 
   .container-overview {
     width: 98vw!important;
@@ -29,6 +30,7 @@
       padding: 0 10px 0 30px;
 
       .add-product-button{
+        background-color: $blue;
       }
       .group-stats{
         display: flex;
@@ -62,6 +64,9 @@
           }
 
         }
+      }
+      .import-button{
+        background-color: darken($green, 5%);
       }
     }
     .tableau{

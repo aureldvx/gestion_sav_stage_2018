@@ -1,0 +1,72 @@
+{% extends 'SAVProcessBundle::layout.html.twig' %}
+
+{% block title %}Détail Produit - Traitement{% endblock %}
+
+{% block view %}
+    <section class="pg-confirmed-failure">
+        <div class="container">
+            <div class="row page-title">
+                <h1>{{ 'Détail du produit à traiter' }}</h1>
+            </div>
+            <div class="row view-detail">
+                <div class="input-field col s5">
+                    <input disabled type="text" id="reference-produit" value="{{ produit.referenceProduit }}">
+                    <label for="reference-produit">Référence produit</label>
+                </div>
+                <div class="input-field col s5">
+                    <input disabled type="text" id="nom-client" value="{{ produit.client }}">
+                    <label for="nom-client">Nom du client</label>
+                </div>
+                <a href="#!" class="col s2 btn waves-effect waves-light modal-button">{{ 'Contact Client' | upper}}</a>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 probleme-declare">
+                    <textarea disabled type="text" id="probleme-declare" class="materialize-textarea">{{ produit.referenceProduit }}</textarea>
+                    <label for="probleme-declare">Problème déclaré lors de la création du BAR</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 commentaire-reception">
+                    <textarea disabled type="text" id="commentaire-reception" class="materialize-textarea">{{ produit.referenceProduit }}</textarea>
+                    <label for="commentaire-reception">Informations renseignées lors de la réception du produit</label>
+                </div>
+            </div>
+            <div class="buttons-confirm-failure">
+                <a disabled href="#!" class="btn btn-choice">{{ 'Je confirme la panne' }}</a>
+                <div class="divider"></div>
+                <span>Produit réparable ?</span>
+                <div class="actions-confirm-failure">
+                    <a href="#!" class="btn-large waves-effect waves-light btn-confirm-reparation">{{ 'oui' | upper }}</a>
+                    <a href="#!" class="btn-large waves-effect waves-light btn-reject-reparation">{{ 'non' | upper }}</a>
+                </div>
+            </div>
+        </div>
+
+        {# Import des différents modals de la page #}
+        {% include 'SAVProcessBundle:modals:modal-client.html.twig' %}
+        {% include 'SAVProcessBundle:modals:produit-non-reparable.html.twig' %}
+    </section>
+{% endblock %}
+{% block javascript %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        // Ouverture et fermeture du modal CLIENT
+        $(".modal-button").click(function() {
+            $(".modal-client").addClass("is-active");
+        });
+        $(".modal-close-button").click(function() {
+            $(".modal-client").removeClass("is-active");
+        });
+
+        // Ouverture du modal Panne au Déballage et Faible Valeur
+        $('.btn-modal-faible-valeur').click(function(){
+            $('.modal-panne-deballage').addClass("is-active");
+        });
+
+        // Ouverture du modal Panne au Déballage et Forte Valeur
+        $('.btn-reject-reparation').click(function(){
+            $('.modal-produit-non-reparable').addClass("is-active");
+        });
+    })
+</script>
+{% endblock %}

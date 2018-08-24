@@ -1,0 +1,266 @@
+{% extends 'SAVProcessBundle::layout.html.twig' %}
+
+{% block title %}Produit trouvé{% endblock %}
+
+{# Récupération des informations du produit #}
+
+{# Faible Valeur #}
+{% if produit.faibleValeur == 1 %}{% set faibleValeur = 'OUI'|upper %}{% else %}{% set faibleValeur = 'NON'|upper %}{% endif %}
+{# Panne au Déballage #}
+{% if produit.panneAuDeballage == 1 %}{% set panneDeballage = 'OUI'|upper %}{% else %}{% set panneDeballage = 'NON'|upper %}{% endif %}
+{# BAR hors délai #}
+{% if produit.barHorsDelai == 1 %}{% set barHorsDelai = 'OUI'|upper %}{% else %}{% set barHorsDelai = 'NON'|upper %}{% endif %}
+{# Statut réception #}
+{% if produit.statutReception == 1 %}
+    {% set statutReception = 'Validée' %}
+{% elseif produit.statutReception == 2 %}
+    {% set statutReception = 'Refusée' %}
+{% elseif produit.statutReception == 3 %}
+    {% set statutReception = 'Commentée' %}
+{% elseif produit.statutReception == 4 %}
+    {% set statutReception = 'Refusée & Commentée' %}
+{% endif %}
+{# Produit réparable #}
+{% if produit.produitReparable == 1 %}{% set produitReparable = 'OUI'|upper %}{% else %}{% set produitReparable = 'NON'|upper %}{% endif %}
+{# Produit échangé #}
+{% if produit.echangeProduit == 1 %}{% set echangeProduit = 'OUI'|upper %}{% else %}{% set echangeProduit = 'NON'|upper %}{% endif %}
+{% if produit.produitTrouve == 1 %}{% set produitTrouve = 'OUI'|upper %}{% else %}{% set produitTrouve = 'NON'|upper %}{% endif %}
+{# Paiement client #}
+{% if produit.paiementParClient == 1 %}{% set paiementParClient = 'OUI'|upper %}{% else %}{% set paiementParClient = 'NON'|upper %}{% endif %}
+
+{# Affichage de la page #}
+{% block view %}
+<section class="pg-view-product">
+    <div class="container">
+        <div class="row page-title">
+            <h1>{{ 'Produit trouvé : BAR n° ' }}{{ produit.numeroBar }}</h1>
+        </div>
+        <div class="row view-container">
+            <div class="col s4 block-reception">
+                <img src="{{ asset('bundles/savprocess/images/recept-home.svg') }}" alt="illustration reception">
+                <p>Rentré en Réception le</p>
+                <span>{{ produit.dateReception | date('d/m/Y') }}</span>
+            </div>
+            <div class="col s4 block-treatment">
+                <img src="{{ asset('bundles/savprocess/images/treatment-home.svg') }}" alt="logo treatment">
+                <p>Rentré en Traitement le</p>
+                {% if produit.dateReparation == null %}
+                    <span>Pas encore rentré en Traitement</span>
+                {% else %}
+                    <span>{{ produit.dateReparation | date('d/m/Y') }}</span>
+                {% endif %}
+            </div>
+            <div class="col s4 block-now">
+                <p>Le produit se trouve dans la partie</p>
+                {# Partie : Renvoi Client #}
+                {% if produit.dateRenvoiProduit is not empty %}
+                    <span>Produits Renvoyés</span>
+                    <p>Depuis le</p>
+                    <span>{{ produit.dateRenvoiProduit | date('d/m/Y') }}</span>
+                {# Partie : En attente de renvoi #}
+                {% elseif produit.paiementParClient is not empty and produit.dateRenvoiProduit is empty %}
+                    <span>Produits en attente de renvoi</span>
+                    <p>Depuis le</p>
+                    <span>{{ produit.datePaiementparClient | date('d/m/Y') }}</span>
+                    <a href="{{ path('shipping_overview') }}" class="btn waves-effect waves-light btn-access-part">{{ 'Se rendre à cette partie' | upper }}</a>
+                {% elseif produit.dateReparation is not empty and produit.dateRenvoiProduit is empty %}
+                    <span>Produits en attente de renvoi</span>
+                    <p>Depuis le</p>
+                    <span>{{ produit.dateReparation | date('d/m/Y') }}</span>
+                    <a href="{{ path('shipping_overview') }}" class="btn waves-effect waves-light btn-access-part">{{ 'Se rendre à cette partie' | upper }}</a>
+                    {# Partie : Destruction #}
+                {% elseif produit.datePassageDestructeur is not empty %}
+                    <span>Produits Détruits</span>
+                    <p>Depuis le</p>
+                    <span>{{ produit.datePassageDestructeur | date('d/m/Y') }}</span>
+                {# Partie : À détruire #}
+                {% elseif produit.dateRentreeDestruction is not empty %}
+                    <span>Produits à détruire</span>
+                    <p>Depuis le</p>
+                    <span>{{ produit.dateRentreeDestruction | date('d/m/Y') }}</span>
+                {# Partie : Attente Client #}
+                {% elseif produit.datePaiementClient is not empty %}
+                    <span>Mise à disposition client</span>
+                    <p>Depuis le</p>
+                    <span>{{ produit.updatedAt | date('d/m/Y') }}</span>
+                    <a href="{{ path('shipping_overview') }}" class="btn waves-effect waves-light btn-access-part">{{ 'Se rendre à cette partie' | upper }}</a>
+                    {# Partie : Produits en réparation #}
+                {% elseif produit.dateReparation is empty and produit.produitReparable == 1 %}
+                    <span>Produits en réparation</span>
+                    <p>Depuis le</p>
+                    <span>{{ produit.updatedAt | date('d/m/Y') }}</span>
+                    <a href="{{ path('repairs_overview') }}" class="btn waves-effect waves-light btn-access-part">{{ 'Se rendre à cette partie' | upper }}</a>
+                    {# Partie : Produits en traitement #}
+                {% elseif produit.importe == 1 and produit.panneConstatee is empty%}
+                    <span>Produits en traitement</span>
+                    <p>Depuis le</p>
+                    <span>{{ produit.updatedAt | date('d/m/Y') }}</span>
+                    <a href="{{ path('treatment_product_detail') }}" class="btn waves-effect waves-light btn-access-part">{{ 'Se rendre à cette partie' | upper }}</a>
+                {% elseif produit.panneConstatee is not empty and produit.produitReparable is empty%}
+                    <span>Produits en traitement</span>
+                    <p>Depuis le</p>
+                    <span>{{ produit.updatedAt | date('d/m/Y') }}</span>
+                    <a href="{{ path('treatment_confirmed_failure') }}" class="btn waves-effect waves-light btn-access-part">{{ 'Se rendre à cette partie' | upper }}</a>
+                    {# Partie : Produits réceptionné #}
+                {% elseif produit.dateReception is not empty and produit.importe == 0 %}
+                    <span>Produits en attente d'import</span>
+                    <p>Depuis le</p>
+                    <span>{{ produit.dateReception | date('d/m/Y') }}</span>
+                    <a href="{{ path('receipt_overview') }}" class="btn waves-effect waves-light btn-access-part">{{ 'Se rendre à cette partie' | upper }}</a>
+                {% endif %}
+                {# boutons #}
+            </div>
+        </div>
+        <div class="row infos-supplementaires">
+            <p>Infos supplémentaires :</p>
+            <div class="field is-grouped is-grouped-multiline">
+                {# TAG : N° de BAR #}
+                {% if produit.numeroSerie is not empty %}
+                    <div class="control">
+                        <div class="tags has-addons info">
+                            <span class="tag is-dark is-medium">N° de série</span>
+                            <span class="tag is-link is-medium">{{ produit.numeroSerie }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+                {# TAG : Référence produit #}
+                <div class="control">
+                    <div class="tags has-addons info">
+                        <span class="tag is-dark is-medium">Référence produit</span>
+                        <span class="tag is-link is-medium">{{ produit.referenceProduit }}</span>
+                    </div>
+                </div>
+                {# TAG : Date d'achat #}
+                <div class="control">
+                    <div class="tags has-addons info">
+                        <span class="tag is-dark is-medium">Date d'achat</span>
+                        <span class="tag is-link is-medium">{{ produit.dateAchat | date('d/m/Y') }}</span>
+                    </div>
+                </div>
+                {# TAG : Faible Valeur #}
+                <div class="control">
+                    <div class="tags has-addons info">
+                        <span class="tag is-dark is-medium">Faible Valeur</span>
+                        <span class="tag is-link is-medium">{{ faibleValeur }}</span>
+                    </div>
+                </div>
+                {# TAG : Panne au déballage #}
+                <div class="control">
+                    <div class="tags has-addons info">
+                        <span class="tag is-dark is-medium">Panne au déballage</span>
+                        <span class="tag is-link is-medium">{{ panneDeballage }}</span>
+                    </div>
+                </div>
+                {# TAG : BAR hors-délai #}
+                <div class="control">
+                    <div class="tags has-addons info">
+                        <span class="tag is-dark is-medium">BAR hors-délai</span>
+                        <span class="tag is-link is-medium">{{ barHorsDelai }}</span>
+                    </div>
+                </div>
+                {# TAG : Statut réception #}
+                <div class="control">
+                    <div class="tags has-addons info">
+                        <span class="tag is-dark is-medium">Statut réception</span>
+                        <span class="tag is-link is-medium">{{ statutReception }}</span>
+                    </div>
+                </div>
+                {# TAG : Produit réparable #}
+                {% if produit.produitReparable == 1 %}
+                    <div class="control">
+                        <div class="tags has-addons info">
+                            <span class="tag is-dark is-medium">Produit réparable</span>
+                            <span class="tag is-link is-medium">{{ produitReparable }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+                {# TAG : Produit échangé #}
+                {% if produit.echangeProduit == 1 %}
+                    <div class="control">
+                        <div class="tags has-addons info">
+                            <span class="tag is-dark is-medium">Échange produit</span>
+                            <span class="tag is-link is-medium">{{ echangeProduit }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+                {# TAG : Produit de remplacement trouvé #}
+                {% if produit.produitTrouve == 1 %}
+                    <div class="control">
+                        <div class="tags has-addons info">
+                            <span class="tag is-dark is-medium">Produit de remplacement trouvé</span>
+                            <span class="tag is-link is-medium">{{ produitTrouve }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+                {# TAG : N° de série du produit de remplacement #}
+                {% if produit.numeroSerieProduitEchange is not empty %}
+                    <div class="control">
+                        <div class="tags has-addons info">
+                            <span class="tag is-dark is-medium">N° série du produit de remplacement</span>
+                            <span class="tag is-link is-medium">{{ produit.numeroSerieProduitEchange }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+                {# TAG : Paiement client #}
+                {% if produit.paiementParClient == 1 %}
+                    <div class="control">
+                        <div class="tags has-addons info">
+                            <span class="tag is-dark is-medium">Paiement renvoi par client</span>
+                            <span class="tag is-link is-medium">{{ paiementParClient }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+                {# TAG : Date Paiement client #}
+                {% if produit.datePaiementClient is not empty %}
+                    <div class="control">
+                        <div class="tags has-addons info">
+                            <span class="tag is-dark is-medium">Date paiement client</span>
+                            <span class="tag is-link is-medium">{{ produit.datePaiementClient | date('d/m/Y') }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+                {# TAG : Date Renvoi produit #}
+                {% if produit.dateRenvoiProduit is not empty %}
+                    <div class="control">
+                        <div class="tags has-addons info">
+                            <span class="tag is-dark is-medium">Date renvoi produit</span>
+                            <span class="tag is-link is-medium">{{ produit.dateRenvoiProduit | date('d/m/Y') }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+                {# TAG : N° colis Renvoi produit #}
+                {% if produit.numeroColisRenvoi is not empty %}
+                    <div class="control">
+                        <div class="tags has-addons info">
+                            <span class="tag is-dark is-medium">N° colis renvoi</span>
+                            <span class="tag is-link is-medium">{{ produit.numeroColisRenvoi }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+                {# TAG : Date Mise en destruction #}
+                {% if produit.dateRentreeDestruction is not empty %}
+                    <div class="control">
+                        <div class="tags has-addons info">
+                            <span class="tag is-dark is-medium">Date rentrée stock Destruction</span>
+                            <span class="tag is-link is-medium">{{ produit.dateRentreeDestruction | date('d/m/Y') }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+                {# TAG : Date passage Destruction #}
+                {% if produit.datePassageDestructeur is not empty %}
+                    <div class="control">
+                        <div class="tags has-addons info">
+                            <span class="tag is-dark is-medium">Date passage Destruction</span>
+                            <span class="tag is-link is-medium">{{ produit.datePassageDestructeur | date('d/m/Y') }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row choices-buttons">
+            <a href="{{ path('home_dashboard') }}" class="btn-large waves-effect waves-light btn-return-home">{{ 'retourner à l\'accueil' | upper }}</a>
+            <a href="{{ path('scan_home') }}" class="btn-large waves-effect waves-light is-primary btn-scan-other">{{ 'chercher un autre produit' | upper }}</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

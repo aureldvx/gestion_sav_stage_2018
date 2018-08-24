@@ -1,0 +1,27 @@
+<div class="modal modal-panne-deballage-forte-valeur">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="modal-title">
+            <h2>Attention : Panne au déballage – Forte valeur</h2>
+        </div>
+        <div class="modal-container">
+            <div class="notification is-warning">
+                <i class="material-icons">info</i>
+                <span>{{ 'Mettre le produit dans le stock à détruire' | upper}}</span>
+            </div>
+            <div class="modal-actions">
+                <a href="#!" class="btn-large waves-effect waves-light btn-reparable">{{ 'produit réparable' | upper }}</a>
+                <div class="produit-non-reparable">
+                    <span>{{ 'produit non-réparable' | upper }}</span>
+                    <p>{{ 'Récupérer des pièces détachées ?' }}</p>
+                    <a href="{{ path('treatment_product_splitting', {'numeroBar': produit.numeroBar}) }}" class="btn waves-effect waves-light btn-splitting">
+                        {{ 'oui' | upper }}
+                    </a>
+                    <a href="{{ path('treatment_product_splitting', {'numeroBar': produit.numeroBar}) }}" class="btn waves-effect waves-light btn-close-treatment">
+                        {{ 'non' | upper }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -139,6 +139,14 @@ header .navbar-fixed nav .nav-wrapper {
         .pg-dashboard .container .secondary-items .s4 .card-home img {
           height: 30%;
           width: auto; }
+  /* line 74, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_dashboard.scss */
+  .pg-dashboard .flashbag {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 999;
+    width: content-box;
+    color: #4b4b4b; }
 
 /* line 1, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
 .pg-receipt-home {
@@ -182,13 +190,19 @@ header .navbar-fixed nav .nav-wrapper {
           font-weight: 800; }
         /* line 45, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
         .pg-receipt-home .container .form-container .form-receipt .flashbag {
+          width: 100%;
           margin-top: 20px;
-          text-align: center;
-          font-weight: 600; }
-  /* line 54, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+          padding: 20px 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center; }
+          /* line 53, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+          .pg-receipt-home .container .form-container .form-receipt .flashbag span {
+            font-weight: 600; }
+  /* line 61, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
   .pg-receipt-home .modal .modal-background {
     z-index: 99; }
-  /* line 57, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+  /* line 64, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
   .pg-receipt-home .modal .modal-content {
     background-color: #fdfdfd;
     border-radius: 10px;
@@ -196,30 +210,30 @@ header .navbar-fixed nav .nav-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center; }
-    /* line 65, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+    /* line 72, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
     .pg-receipt-home .modal .modal-content .modal-title {
       width: 100%;
       padding: 15px;
       background-color: #A387B6; }
-      /* line 70, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+      /* line 77, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
       .pg-receipt-home .modal .modal-content .modal-title h2 {
         color: #ffffff; }
-    /* line 74, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+    /* line 81, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
     .pg-receipt-home .modal .modal-content .notification {
       width: calc(100% - 40px);
       margin: 20px;
       position: relative;
       padding: 30px; }
-      /* line 80, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+      /* line 87, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
       .pg-receipt-home .modal .modal-content .notification i {
         position: absolute;
         top: 5px;
         left: 5px; }
-      /* line 86, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+      /* line 93, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
       .pg-receipt-home .modal .modal-content .notification p {
         text-align: center;
         font-size: 18px; }
-    /* line 91, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+    /* line 98, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
     .pg-receipt-home .modal .modal-content .btn {
       margin-bottom: 25px;
       width: fit-content;
@@ -230,7 +244,7 @@ header .navbar-fixed nav .nav-wrapper {
       box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
       will-change: box-shadow;
       transition: box-shadow 0.2s linear; }
-      /* line 101, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
+      /* line 108, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_form_verification.scss */
       .pg-receipt-home .modal .modal-content .btn:hover {
         box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); }
 
@@ -340,7 +354,7 @@ header .navbar-fixed nav .nav-wrapper {
 /* line 1, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-review.scss */
 .pg-receipt-review {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -401,38 +415,42 @@ header .navbar-fixed nav .nav-wrapper {
   width: 100vw;
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center; }
-  /* line 8, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 80px; }
+  /* line 9, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
   .pg-receipt-overview .container-overview {
     width: 98vw !important;
     background-color: #ffffff;
     border-radius: 10px; }
-    /* line 13, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+    /* line 14, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
     .pg-receipt-overview .container-overview .page-title {
       background-color: #A387B6;
       border-radius: 10px 10px 0 0; }
-      /* line 17, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+      /* line 18, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
       .pg-receipt-overview .container-overview .page-title h1 {
         color: #ffffff;
         text-transform: uppercase;
         padding: 15px 0;
         font-size: 24px; }
-    /* line 24, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+    /* line 25, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
     .pg-receipt-overview .container-overview .resume {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-evenly;
       padding: 0 10px 0 30px; }
-      /* line 33, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+      /* line 32, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+      .pg-receipt-overview .container-overview .resume .add-product-button {
+        background-color: #5477FD; }
+      /* line 35, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
       .pg-receipt-overview .container-overview .resume .group-stats {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-evenly;
         margin: 0 15px; }
-        /* line 39, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+        /* line 41, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
         .pg-receipt-overview .container-overview .resume .group-stats .stats {
           width: content-box;
           display: flex;
@@ -449,62 +467,65 @@ header .navbar-fixed nav .nav-wrapper {
           -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
           will-change: box-shadow; }
-          /* line 55, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          /* line 57, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
           .pg-receipt-overview .container-overview .resume .group-stats .stats:hover {
             -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
             -moz-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
             box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3); }
-          /* line 60, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          /* line 62, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
           .pg-receipt-overview .container-overview .resume .group-stats .stats p {
             font-size: 14px; }
-    /* line 67, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+      /* line 68, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+      .pg-receipt-overview .container-overview .resume .import-button {
+        background-color: #16a300; }
+    /* line 72, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
     .pg-receipt-overview .container-overview .tableau {
       padding: 0 10px; }
-      /* line 69, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+      /* line 74, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
       .pg-receipt-overview .container-overview .tableau table {
         font-size: 14px; }
-        /* line 71, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+        /* line 76, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
         .pg-receipt-overview .container-overview .tableau table thead {
           background-color: #4b4b4b; }
-          /* line 73, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          /* line 78, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
           .pg-receipt-overview .container-overview .tableau table thead th {
             font-size: 15px;
             color: #ffffff;
             vertical-align: middle; }
-        /* line 81, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+        /* line 86, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
         .pg-receipt-overview .container-overview .tableau table tbody tr td {
           vertical-align: middle; }
-        /* line 84, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+        /* line 89, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
         .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell {
           padding: 7px 15px 7px 0;
           width: 600px;
           text-align: right; }
-          /* line 88, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          /* line 93, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
           .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .btn {
             font-size: 12px; }
-          /* line 91, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          /* line 96, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
           .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .button-infos-add, .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .button-infos-modify {
             margin: 0 10px; }
-          /* line 97, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          /* line 102, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
           .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .button-infos-add {
             background-color: #5477FD;
             padding-left: 16px;
             padding-right: 16px; }
-          /* line 102, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          /* line 107, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
           .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .button-infos-modify {
             background-color: #F5A623; }
-          /* line 105, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          /* line 110, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
           .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .button-reject {
             background-color: #D32F2F;
             padding-left: 18px;
             padding-right: 18px; }
-          /* line 110, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+          /* line 115, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
           .pg-receipt-overview .container-overview .tableau table tbody tr .actions-cell .button-reject-cancel {
             background-color: #F5A623; }
-  /* line 120, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+  /* line 125, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
   .pg-receipt-overview .modal .modal-background {
     z-index: 99; }
-  /* line 123, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+  /* line 128, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
   .pg-receipt-overview .modal .modal-content {
     background-color: #fdfdfd;
     border-radius: 10px;
@@ -512,20 +533,408 @@ header .navbar-fixed nav .nav-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center; }
-    /* line 131, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+    /* line 136, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
     .pg-receipt-overview .modal .modal-content .modal-title {
       width: 100%;
       padding: 15px;
       background-color: #A387B6; }
-      /* line 136, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+      /* line 141, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
       .pg-receipt-overview .modal .modal-content .modal-title h2 {
         color: #ffffff; }
-    /* line 140, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+    /* line 145, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
     .pg-receipt-overview .modal .modal-content .actions-delete-reject {
       margin: 30px 0; }
-      /* line 142, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
+      /* line 147, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-overview.scss */
       .pg-receipt-overview .modal .modal-content .actions-delete-reject .btn-delete {
         margin-right: 25px;
         background-color: #F5A623;
         font-size: 14px;
         font-weight: 700; }
+
+/* line 1, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+.pg-product-detail, .pg-confirmed-failure {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  /* line 8, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+  .pg-product-detail .container, .pg-confirmed-failure .container {
+    background-color: #ffffff;
+    border-radius: 10px; }
+    /* line 12, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .container .page-title, .pg-confirmed-failure .container .page-title {
+      background-color: #A387B6;
+      border-radius: 10px 10px 0 0; }
+      /* line 16, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+      .pg-product-detail .container .page-title h1, .pg-confirmed-failure .container .page-title h1 {
+        color: #ffffff;
+        text-transform: uppercase;
+        padding: 20px 0; }
+    /* line 22, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .container .view-detail, .pg-confirmed-failure .container .view-detail {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly; }
+      /* line 28, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+      .pg-product-detail .container .view-detail .modal-button, .pg-confirmed-failure .container .view-detail .modal-button {
+        margin-right: 10px; }
+    /* line 33, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .container .probleme-declare textarea.materialize-textarea:disabled, .pg-confirmed-failure .container .probleme-declare textarea.materialize-textarea:disabled {
+      color: #5477FD;
+      border-bottom-color: #5477FD; }
+    /* line 37, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .container .probleme-declare textarea.materialize-textarea:disabled + label, .pg-confirmed-failure .container .probleme-declare textarea.materialize-textarea:disabled + label {
+      color: #5477FD; }
+    /* line 42, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .container .commentaire-reception textarea.materialize-textarea:disabled, .pg-confirmed-failure .container .commentaire-reception textarea.materialize-textarea:disabled {
+      color: #D32F2F;
+      border-bottom-color: #D32F2F; }
+    /* line 46, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .container .commentaire-reception textarea.materialize-textarea:disabled + label, .pg-confirmed-failure .container .commentaire-reception textarea.materialize-textarea:disabled + label {
+      color: #D32F2F; }
+    /* line 50, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .container .buttons-treatment, .pg-confirmed-failure .container .buttons-treatment {
+      margin-bottom: 25px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center; }
+      /* line 57, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+      .pg-product-detail .container .buttons-treatment .btn-confirm-panne, .pg-product-detail .container .buttons-treatment .btn-modal-faible-valeur, .pg-product-detail .container .buttons-treatment .btn-modal-forte-valeur, .pg-confirmed-failure .container .buttons-treatment .btn-confirm-panne, .pg-confirmed-failure .container .buttons-treatment .btn-modal-faible-valeur, .pg-confirmed-failure .container .buttons-treatment .btn-modal-forte-valeur {
+        margin-right: 20px;
+        background-color: #16a300; }
+      /* line 61, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+      .pg-product-detail .container .buttons-treatment .btn-modal-reject-panne, .pg-confirmed-failure .container .buttons-treatment .btn-modal-reject-panne {
+        background-color: #D32F2F; }
+  /* line 67, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+  .pg-product-detail .modal-client .modal-content, .pg-confirmed-failure .modal-client .modal-content {
+    border-radius: 10px;
+    position: relative; }
+    /* line 70, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .modal-client .modal-content .modal-title, .pg-confirmed-failure .modal-client .modal-content .modal-title {
+      background: #A387B6; }
+      /* line 72, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+      .pg-product-detail .modal-client .modal-content .modal-title h2, .pg-confirmed-failure .modal-client .modal-content .modal-title h2 {
+        padding: 15px 0;
+        color: #ffffff; }
+    /* line 77, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .modal-client .modal-content .contact-container, .pg-confirmed-failure .modal-client .modal-content .contact-container {
+      margin-top: 15px; }
+      /* line 79, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+      .pg-product-detail .modal-client .modal-content .contact-container .row, .pg-confirmed-failure .modal-client .modal-content .contact-container .row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between; }
+    /* line 86, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .modal-client .modal-content .modal-close-button, .pg-confirmed-failure .modal-client .modal-content .modal-close-button {
+      position: absolute;
+      top: 5px;
+      right: 5px; }
+  /* line 94, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+  .pg-product-detail .modal-panne-deballage .modal-content, .pg-confirmed-failure .modal-panne-deballage .modal-content {
+    border-radius: 10px;
+    position: relative; }
+    /* line 97, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .modal-panne-deballage .modal-content .modal-title, .pg-confirmed-failure .modal-panne-deballage .modal-content .modal-title {
+      background: #A387B6; }
+      /* line 99, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+      .pg-product-detail .modal-panne-deballage .modal-content .modal-title h2, .pg-confirmed-failure .modal-panne-deballage .modal-content .modal-title h2 {
+        padding: 15px 0;
+        color: #ffffff; }
+  /* line 109, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+  .pg-product-detail .modal-panne-deballage .modal-content,
+  .pg-product-detail .modal-panne-non-constatee .modal-content,
+  .pg-product-detail .modal-panne-deballage-forte-valeur .modal-content, .pg-confirmed-failure .modal-panne-deballage .modal-content,
+  .pg-confirmed-failure .modal-panne-non-constatee .modal-content,
+  .pg-confirmed-failure .modal-panne-deballage-forte-valeur .modal-content {
+    border-radius: 10px;
+    position: relative; }
+    /* line 112, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .modal-panne-deballage .modal-content .modal-title,
+    .pg-product-detail .modal-panne-non-constatee .modal-content .modal-title,
+    .pg-product-detail .modal-panne-deballage-forte-valeur .modal-content .modal-title, .pg-confirmed-failure .modal-panne-deballage .modal-content .modal-title,
+    .pg-confirmed-failure .modal-panne-non-constatee .modal-content .modal-title,
+    .pg-confirmed-failure .modal-panne-deballage-forte-valeur .modal-content .modal-title {
+      background: #A387B6; }
+      /* line 114, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+      .pg-product-detail .modal-panne-deballage .modal-content .modal-title h2,
+      .pg-product-detail .modal-panne-non-constatee .modal-content .modal-title h2,
+      .pg-product-detail .modal-panne-deballage-forte-valeur .modal-content .modal-title h2, .pg-confirmed-failure .modal-panne-deballage .modal-content .modal-title h2,
+      .pg-confirmed-failure .modal-panne-non-constatee .modal-content .modal-title h2,
+      .pg-confirmed-failure .modal-panne-deballage-forte-valeur .modal-content .modal-title h2 {
+        padding: 15px 0;
+        color: #ffffff; }
+    /* line 119, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .modal-panne-deballage .modal-content .modal-container,
+    .pg-product-detail .modal-panne-non-constatee .modal-content .modal-container,
+    .pg-product-detail .modal-panne-deballage-forte-valeur .modal-content .modal-container, .pg-confirmed-failure .modal-panne-deballage .modal-content .modal-container,
+    .pg-confirmed-failure .modal-panne-non-constatee .modal-content .modal-container,
+    .pg-confirmed-failure .modal-panne-deballage-forte-valeur .modal-content .modal-container {
+      margin-top: 20px;
+      padding: 0 10px; }
+      /* line 122, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+      .pg-product-detail .modal-panne-deballage .modal-content .modal-container .notification,
+      .pg-product-detail .modal-panne-non-constatee .modal-content .modal-container .notification,
+      .pg-product-detail .modal-panne-deballage-forte-valeur .modal-content .modal-container .notification, .pg-confirmed-failure .modal-panne-deballage .modal-content .modal-container .notification,
+      .pg-confirmed-failure .modal-panne-non-constatee .modal-content .modal-container .notification,
+      .pg-confirmed-failure .modal-panne-deballage-forte-valeur .modal-content .modal-container .notification {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100px; }
+        /* line 129, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+        .pg-product-detail .modal-panne-deballage .modal-content .modal-container .notification i,
+        .pg-product-detail .modal-panne-non-constatee .modal-content .modal-container .notification i,
+        .pg-product-detail .modal-panne-deballage-forte-valeur .modal-content .modal-container .notification i, .pg-confirmed-failure .modal-panne-deballage .modal-content .modal-container .notification i,
+        .pg-confirmed-failure .modal-panne-non-constatee .modal-content .modal-container .notification i,
+        .pg-confirmed-failure .modal-panne-deballage-forte-valeur .modal-content .modal-container .notification i {
+          position: absolute;
+          top: 5px;
+          left: 5px; }
+      /* line 135, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+      .pg-product-detail .modal-panne-deballage .modal-content .modal-container .modal-actions,
+      .pg-product-detail .modal-panne-non-constatee .modal-content .modal-container .modal-actions,
+      .pg-product-detail .modal-panne-deballage-forte-valeur .modal-content .modal-container .modal-actions, .pg-confirmed-failure .modal-panne-deballage .modal-content .modal-container .modal-actions,
+      .pg-confirmed-failure .modal-panne-non-constatee .modal-content .modal-container .modal-actions,
+      .pg-confirmed-failure .modal-panne-deballage-forte-valeur .modal-content .modal-container .modal-actions {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center; }
+  /* line 146, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+  .pg-product-detail .modal-panne-deballage .btn-splitting, .pg-confirmed-failure .modal-panne-deballage .btn-splitting {
+    margin-right: 20px;
+    background-color: #5477FD; }
+  /* line 150, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+  .pg-product-detail .modal-panne-deballage .btn-close-treatment, .pg-confirmed-failure .modal-panne-deballage .btn-close-treatment {
+    background-color: #D32F2F; }
+  /* line 155, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+  .pg-product-detail .modal-panne-deballage-forte-valeur .btn-reparable, .pg-confirmed-failure .modal-panne-deballage-forte-valeur .btn-reparable {
+    background-color: #16a300;
+    margin-right: 30px;
+    height: 115px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  /* line 164, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+  .pg-product-detail .modal-panne-deballage-forte-valeur .produit-non-reparable, .pg-confirmed-failure .modal-panne-deballage-forte-valeur .produit-non-reparable {
+    width: 40%;
+    border: 1.5px solid #D32F2F;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center; }
+    /* line 171, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .modal-panne-deballage-forte-valeur .produit-non-reparable span, .pg-confirmed-failure .modal-panne-deballage-forte-valeur .produit-non-reparable span {
+      font-size: 15px;
+      font-weight: 700;
+      color: #D32F2F; }
+    /* line 176, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .modal-panne-deballage-forte-valeur .produit-non-reparable p, .pg-confirmed-failure .modal-panne-deballage-forte-valeur .produit-non-reparable p {
+      font-size: 13px;
+      margin-bottom: 10px; }
+    /* line 180, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .modal-panne-deballage-forte-valeur .produit-non-reparable .btn-splitting, .pg-confirmed-failure .modal-panne-deballage-forte-valeur .produit-non-reparable .btn-splitting {
+      margin-right: 20px;
+      background-color: #5477FD; }
+    /* line 184, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+    .pg-product-detail .modal-panne-deballage-forte-valeur .produit-non-reparable .btn-close-treatment, .pg-confirmed-failure .modal-panne-deballage-forte-valeur .produit-non-reparable .btn-close-treatment {
+      background-color: #D32F2F; }
+  /* line 190, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_product-detail.scss */
+  .pg-product-detail .modal-panne-non-constatee .btn-confirm, .pg-confirmed-failure .modal-panne-non-constatee .btn-confirm {
+    background-color: #F5A623; }
+
+/* line 2, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_confirmed-failure.scss */
+.pg-confirmed-failure .buttons-confirm-failure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; }
+  /* line 8, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_confirmed-failure.scss */
+  .pg-confirmed-failure .buttons-confirm-failure .btn-choice[disabled] {
+    background-color: rgba(26, 188, 0, 0.4) !important;
+    color: #138900 !important;
+    margin-bottom: 30px; }
+  /* line 13, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_confirmed-failure.scss */
+  .pg-confirmed-failure .buttons-confirm-failure span {
+    font-size: 16px; }
+  /* line 16, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_confirmed-failure.scss */
+  .pg-confirmed-failure .buttons-confirm-failure .actions-confirm-failure {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; }
+    /* line 23, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_confirmed-failure.scss */
+    .pg-confirmed-failure .buttons-confirm-failure .actions-confirm-failure .btn-confirm-reparation {
+      margin-right: 25px;
+      background-color: #16a300; }
+    /* line 27, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_confirmed-failure.scss */
+    .pg-confirmed-failure .buttons-confirm-failure .actions-confirm-failure .btn-reject-reparation {
+      background-color: #D32F2F; }
+
+/* line 33, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_confirmed-failure.scss */
+.pg-confirmed-failure .modal-produit-non-reparable .modal-content {
+  border-radius: 10px; }
+  /* line 35, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_confirmed-failure.scss */
+  .pg-confirmed-failure .modal-produit-non-reparable .modal-content .modal-title {
+    background: #A387B6; }
+    /* line 37, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_confirmed-failure.scss */
+    .pg-confirmed-failure .modal-produit-non-reparable .modal-content .modal-title h2 {
+      padding: 15px 0;
+      color: #ffffff; }
+  /* line 42, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_confirmed-failure.scss */
+  .pg-confirmed-failure .modal-produit-non-reparable .modal-content .modal-container {
+    margin-top: 20px;
+    padding: 0 10px; }
+    /* line 45, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_confirmed-failure.scss */
+    .pg-confirmed-failure .modal-produit-non-reparable .modal-content .modal-container .notification {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px; }
+      /* line 52, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_confirmed-failure.scss */
+      .pg-confirmed-failure .modal-produit-non-reparable .modal-content .modal-container .notification i {
+        position: absolute;
+        top: 5px;
+        left: 5px; }
+    /* line 58, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_confirmed-failure.scss */
+    .pg-confirmed-failure .modal-produit-non-reparable .modal-content .modal-container .modal-actions {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center; }
+      /* line 65, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_confirmed-failure.scss */
+      .pg-confirmed-failure .modal-produit-non-reparable .modal-content .modal-container .modal-actions .btn-large {
+        flex-grow: 1; }
+      /* line 68, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_confirmed-failure.scss */
+      .pg-confirmed-failure .modal-produit-non-reparable .modal-content .modal-container .modal-actions .btn-splitting {
+        margin-right: 15px;
+        background-color: #5477FD; }
+      /* line 72, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_confirmed-failure.scss */
+      .pg-confirmed-failure .modal-produit-non-reparable .modal-content .modal-container .modal-actions .btn-close-treatment {
+        background-color: #D32F2F; }
+
+/* line 1, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+.pg-view-product {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  /* line 8, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+  .pg-view-product .container {
+    background-color: #ffffff;
+    border-radius: 10px; }
+    /* line 12, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+    .pg-view-product .container .page-title {
+      background-color: #A387B6;
+      border-radius: 10px 10px 0 0; }
+      /* line 16, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+      .pg-view-product .container .page-title h1 {
+        color: #ffffff;
+        text-transform: uppercase;
+        padding: 20px 0; }
+    /* line 22, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+    .pg-view-product .container .view-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly; }
+      /* line 28, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+      .pg-view-product .container .view-container .block-reception,
+      .pg-view-product .container .view-container .block-treatment,
+      .pg-view-product .container .view-container .block-now {
+        min-height: 300px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: #d3d3d3;
+        border-radius: 7px; }
+      /* line 40, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+      .pg-view-product .container .view-container .block-reception {
+        margin-left: 20px; }
+        /* line 43, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+        .pg-view-product .container .view-container .block-reception img {
+          width: 50%;
+          height: auto; }
+        /* line 47, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+        .pg-view-product .container .view-container .block-reception p {
+          margin-top: 15px; }
+        /* line 50, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+        .pg-view-product .container .view-container .block-reception span {
+          font-size: 24px; }
+      /* line 54, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+      .pg-view-product .container .view-container .block-treatment {
+        margin: 0 20px; }
+        /* line 57, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+        .pg-view-product .container .view-container .block-treatment img {
+          width: 34%;
+          height: auto; }
+        /* line 61, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+        .pg-view-product .container .view-container .block-treatment p {
+          margin-top: 15px; }
+        /* line 64, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+        .pg-view-product .container .view-container .block-treatment span {
+          font-size: 22px; }
+      /* line 68, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+      .pg-view-product .container .view-container .block-now {
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        /* line 74, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+        .pg-view-product .container .view-container .block-now span {
+          width: 100%;
+          text-align: center;
+          margin: 15px 0;
+          padding: 5px 0;
+          font-size: 22px;
+          font-weight: 700;
+          border-top: 2px solid #4b4b4b;
+          border-bottom: 2px solid #4b4b4b; }
+        /* line 84, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+        .pg-view-product .container .view-container .block-now .btn-access-part {
+          width: 98%;
+          height: 45px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px; }
+    /* line 94, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+    .pg-view-product .container .infos-supplementaires {
+      padding: 0 20px; }
+      /* line 97, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+      .pg-view-product .container .infos-supplementaires p {
+        margin-bottom: 10px; }
+      /* line 100, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+      .pg-view-product .container .infos-supplementaires .tag.is-dark {
+        font-weight: 400;
+        background-color: #4b4b4b; }
+      /* line 104, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+      .pg-view-product .container .infos-supplementaires .tag.is-link {
+        background-color: #c3c3c3;
+        color: #4b4b4b; }
+    /* line 109, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+    .pg-view-product .container .choices-buttons {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center; }
+      /* line 115, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+      .pg-view-product .container .choices-buttons .btn-return-home {
+        margin-right: 25px;
+        background-color: #8b67a3; }
+      /* line 119, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_scan-view-product.scss */
+      .pg-view-product .container .choices-buttons .btn-scan-other {
+        margin-left: 25px;
+        background-color: #5477FD; }

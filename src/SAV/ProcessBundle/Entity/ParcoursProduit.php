@@ -129,6 +129,13 @@ class ParcoursProduit
     private $statutReception;
 
     /**
+     * @var bool|null
+     *
+     * @ORM\Column(name="importe", type="boolean", nullable=true)
+     */
+    private $importe;
+    
+    /**
      * @var string|null
      *
      * @ORM\Column(name="commentaire_reception", type="text", nullable=true)
@@ -324,24 +331,36 @@ class ParcoursProduit
         $this->setUpdatedAt(new \DateTime());
     }
 
-    public function __construct()
+    /**
+     * @ORM\PrePersist
+     */
+    public function initializeBooleans()
     {
-        $jourAchat = strtotime($this->getDateAchat());
-        $jourCreationBar = strtotime($this->getDateCreationBar());
-        $delaiBar = abs($jourCreationBar - $jourAchat) / 86400;
+        $dateAchat = $this->getDateAchat();
+        $dateTimeAchat = new \DateTime($dateAchat);
+        $dateAchatFormat = $dateTimeAchat->format('Y-m-d');
+        $jourAchat = \DateTime::createFromFormat('Y-m-d', $dateAchatFormat);
 
-        if( $delaiBar > 14)
+        $dateCreationBar = $this->getDateCreationBar();
+        $dateTimeCreationBar = new \DateTime($dateCreationBar);
+        $dateCreationBarFormat = $dateTimeCreationBar->format('Y-m-d');
+        $jourCreationBar = \DateTime::createFromFormat('Y-m-d', $dateCreationBarFormat);
+
+        $interval = $jourAchat->diff($jourCreationBar);
+        $delaiBar = $interval->format('%a');
+
+        if( $delaiBar < 15)
         {
             $this->setBarHorsDelai(false);
-            $this->setPanneAuDeballage(false);
-        }elseif($delaiBar > 30)
+            $this->setPanneAuDeballage(true);
+        }elseif($delaiBar > 14 && $delaiBar < 31)
         {
             $this->setBarHorsDelai(true);
             $this->setPanneAuDeballage(false);
         }
         else{
             $this->setBarHorsDelai(false);
-            $this->setPanneAuDeballage(true);
+            $this->setPanneAuDeballage(false);
         }
     }
 
@@ -1289,5 +1308,29 @@ class ParcoursProduit
     public function getBarHorsDelai()
     {
         return $this->barHorsDelai;
+    }
+
+    /**
+     * Set importe.
+     *
+     * @param bool|null $importe
+     *
+     * @return ParcoursProduit
+     */
+    public function setImporte($importe = null)
+    {
+        $this->importe = $importe;
+
+        return $this;
+    }
+
+    /**
+     * Get importe.
+     *
+     * @return bool|null
+     */
+    public function getImporte()
+    {
+        return $this->importe;
     }
 }

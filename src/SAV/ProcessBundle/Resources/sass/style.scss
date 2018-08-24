@@ -1,8 +1,23 @@
 @charset "utf-8";
 
+// Généralités + variables
 @import 'pages/common';
+
+// Accueil
 @import 'pages/dashboard';
+
+// Formulaire de vérification de n° de série ou n° de BAR
+// Pages d'accueil Réception / Traitement / Scan
 @import 'pages/form_verification';
+
+// Réception
 @import 'pages/receipt-check';
 @import 'pages/receipt-review';
 @import 'pages/receipt-overview';
+
+// Traitement
+@import "pages/product-detail";
+@import 'pages/confirmed-failure';
+
+// Scan
+@import "pages/scan-view-product";

@@ -122,5 +122,20 @@
                 </div>
             </div>
         </div>
+        {% for message in app.flashes('notice') %}
+            <div class="notification is-success flashbag">
+                <span>{{ message }}</span>
+                <button class="delete delete-flashbag"></button>
+            </div>
+        {% endfor %}
+        {% block javascript %}
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $('.delete-flashbag').click(function(){
+                        $('.flashbag').css('display', 'none');
+                    })
+                })
+            </script>
+        {% endblock %}
     </section>
 {% endblock %}

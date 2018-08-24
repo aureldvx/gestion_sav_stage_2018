@@ -1,0 +1,51 @@
+<div class="modal modal-client">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="modal-title">
+            <h2>Contact Client</h2>
+        </div>
+        <div class="contact-container">
+            <div class="row">
+                <div class="input-field nom-client col s12">
+                    <input disabled type="text" id="nom-client" value="{{ produit.client }}">
+                    <label for="nom-client">Nom du client</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6 telephone-client">
+                    <input disabled type="text" id="telephone-client" value="{{ produit.client }}">
+                    <label for="telephone-client">Téléphone</label>
+                </div>
+                {% if produit.client is not null %}
+                    <div class="input-field col s6 fax-client">
+                        <input disabled type="text" id="fax-client" value="{{ produit.client }}">
+                        <label for="fax-client">Fax</label>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="row">
+                <div class="input-field mail-client col s12">
+                    <input disabled type="text" id="mail-client" value="{{ produit.client }}">
+                    <label for="mail-client">Adresse email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field adresse-client col s12">
+                    <textarea disabled type="text" id="adresse-client" class="materialize-textarea">{{ produit.client }}</textarea>
+                    <label for="adresse-client">Adresse postale</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s4 cp-client">
+                    <input disabled type="text" id="cp-client" value="{{ produit.client }}">
+                    <label for="cp-client">Code Postal</label>
+                </div>
+                <div class="input-field col s8 ville-client">
+                    <input disabled type="text" id="ville-client" value="{{ produit.client }}">
+                    <label for="ville-client">Ville</label>
+                </div>
+            </div>
+        </div>
+        <button class="delete modal-close-button"></button>
+    </div>
+</div>

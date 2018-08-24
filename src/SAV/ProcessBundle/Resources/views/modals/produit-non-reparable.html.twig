@@ -1,0 +1,18 @@
+<div class="modal modal-produit-non-reparable">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="modal-title">
+            <h2>Produit non-réparable</h2>
+        </div>
+        <div class="modal-container">
+            <div class="notification is-warning">
+                <i class="material-icons">info</i>
+                <span>{{ 'Mettre le produit dans le stock à détruire' | upper}}</span>
+            </div>
+            <div class="modal-actions">
+                <a href="{{ path('treatment_product_splitting', {'numeroBar' : produit.numeroBar}) }}" class="btn-large waves-effect waves-light btn-splitting">{{ 'récupérer des pièces détachées' | upper }}</a>
+                <a href="{{ path('home_dashboard') }}" class="btn-large waves-effect waves-light btn-close-treatment">{{ 'clore le traitement du produit' | upper }}</a>
+            </div>
+        </div>
+    </div>
+</div>

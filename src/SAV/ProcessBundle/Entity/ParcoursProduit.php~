@@ -129,6 +129,13 @@ class ParcoursProduit
     private $statutReception;
 
     /**
+     * @var bool|null
+     *
+     * @ORM\Column(name="importe", type="boolean", nullable=true)
+     */
+    private $importe;
+    
+    /**
      * @var string|null
      *
      * @ORM\Column(name="commentaire_reception", type="text", nullable=true)
@@ -322,6 +329,27 @@ class ParcoursProduit
     public function updateDate()
     {
         $this->setUpdatedAt(new \DateTime());
+    }
+
+    public function __construct()
+    {
+        $jourAchat = strtotime($this->getDateAchat());
+        $jourCreationBar = strtotime($this->getDateCreationBar());
+        $delaiBar = abs($jourCreationBar - $jourAchat) / 86400;
+
+        if( $delaiBar > 14)
+        {
+            $this->setBarHorsDelai(false);
+            $this->setPanneAuDeballage(false);
+        }elseif($delaiBar > 30)
+        {
+            $this->setBarHorsDelai(true);
+            $this->setPanneAuDeballage(false);
+        }
+        else{
+            $this->setBarHorsDelai(false);
+            $this->setPanneAuDeballage(true);
+        }
     }
 
     /**
@@ -1244,5 +1272,29 @@ class ParcoursProduit
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set barHorsDelai.
+     *
+     * @param bool $barHorsDelai
+     *
+     * @return ParcoursProduit
+     */
+    public function setBarHorsDelai($barHorsDelai)
+    {
+        $this->barHorsDelai = $barHorsDelai;
+
+        return $this;
+    }
+
+    /**
+     * Get barHorsDelai.
+     *
+     * @return bool
+     */
+    public function getBarHorsDelai()
+    {
+        return $this->barHorsDelai;
     }
 }

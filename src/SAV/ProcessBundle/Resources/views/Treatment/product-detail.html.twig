@@ -1,0 +1,86 @@
+{% extends 'SAVProcessBundle::layout.html.twig' %}
+
+{% block title %}Détail Produit - Traitement{% endblock %}
+
+{% block view %}
+<section class="pg-product-detail">
+    <div class="container">
+        <div class="row page-title">
+            <h1>{{ 'Détail du produit à traiter' }}</h1>
+        </div>
+        <div class="row view-detail">
+            <div class="input-field col s5">
+                <input disabled type="text" id="reference-produit" value="{{ produit.referenceProduit }}">
+                <label for="reference-produit">Référence produit</label>
+            </div>
+            <div class="input-field col s5">
+                <input disabled type="text" id="nom-client" value="{{ produit.client }}">
+                <label for="nom-client">Nom du client</label>
+            </div>
+            <a href="#!" class="col s2 btn waves-effect waves-light modal-button">{{ 'Contact Client' | upper}}</a>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 probleme-declare">
+                <textarea disabled type="text" id="probleme-declare" class="materialize-textarea">{{ produit.referenceProduit }}</textarea>
+                <label for="probleme-declare">Problème déclaré lors de la création du BAR</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 commentaire-reception">
+                <textarea disabled type="text" id="commentaire-reception" class="materialize-textarea">{{ produit.referenceProduit }}</textarea>
+                <label for="commentaire-reception">Informations renseignées lors de la réception du produit</label>
+            </div>
+        </div>
+        <div class="buttons-treatment">
+            {% if produit.panneAuDeballage == 1 %}
+                {% if produit.faibleValeur == 1 %}
+                    <a href="#!" class="col s3 btn-large waves-effect waves-light btn-modal-faible-valeur">Je confirme la panne</a>
+                {% endif %}
+                {% if produit.faibleValeur == 0 %}
+                    <a href="#!" class="col s3 btn-large waves-effect waves-light btn-modal-forte-valeur">Je confirme la panne</a>
+                {% endif %}
+            {% else %}
+                <a href="{{ path('treatment_confirmed_failure', {'numeroBar': produit.numeroBar}) }}" class="col s3 btn-large waves-effect waves-light btn-confirm-panne">Je confirme la panne</a>
+            {% endif %}
+            <a href="#!" class="col s3 btn-large waves-effect waves-light btn-modal-reject-panne">La panne déclarée n'existe pas</a>
+        </div>
+    </div>
+
+    {# Import des différents modals de la page #}
+    {% include 'SAVProcessBundle:modals:modal-client.html.twig' %}
+    {% if produit.panneAuDeballage == 1 and produit.faibleValeur == 1 %}
+        {% include 'SAVProcessBundle:modals:panne-au-deballage.html.twig' %}
+    {% elseif produit.panneAuDeballage == 1 and produit.faibleValeur == 0 %}
+        {% include 'SAVProcessBundle:modals:panne-au-deballage-forte-valeur.html.twig' %}
+    {% endif %}
+    {% include 'SAVProcessBundle:modals:panne-non-constatee.html.twig' %}
+</section>
+{% endblock %}
+{% block javascript %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        // Ouverture et fermeture du modal CLIENT
+        $(".modal-button").click(function() {
+            $(".modal-client").addClass("is-active");
+        });
+        $(".modal-close-button").click(function() {
+            $(".modal-client").removeClass("is-active");
+        });
+
+        // Ouverture du modal Panne au Déballage et Faible Valeur
+        $('.btn-modal-faible-valeur').click(function(){
+            $('.modal-panne-deballage').addClass("is-active");
+        });
+
+        // Ouverture du modal Panne au Déballage et Forte Valeur
+        $('.btn-modal-forte-valeur').click(function(){
+            $('.modal-panne-deballage-forte-valeur').addClass("is-active");
+        });
+
+        // Ouverture du modal Panne non-constatée
+        $('.btn-modal-reject-panne').click(function(){
+            $('.modal-panne-non-constatee').addClass("is-active");
+        });
+    })
+</script>
+{% endblock %}

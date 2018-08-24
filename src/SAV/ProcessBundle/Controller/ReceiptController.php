@@ -6,11 +6,11 @@ use SAV\ProcessBundle\Entity\CentreSav;
 use SAV\ProcessBundle\Entity\ParcoursProduit;
 use SAV\ProcessBundle\Form\ParcoursProduitType;
 use SAV\ProcessBundle\Form\ParcoursProduitCommentType;
-use SAV\ProcessBundle\Form\ParcoursProduitRejectType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use SAV\ProcessBundle\Repository\ParcoursProduitRepository;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 class ReceiptController extends Controller
 {
@@ -41,42 +41,51 @@ class ReceiptController extends Controller
                 ));
             }
 
-            // Formattage du N° de BAR
-            if (empty($formNumeroSerie)) {
-                $bar = preg_replace('#([a-z]{3})([0-9]{9})#i', 'BAR$2', $formNumeroBar);
-            }
+            if(empty($formNumeroBar) || empty($formNumeroSerie))
+            {
+                // Formattage du N° de BAR
+                if (empty($formNumeroSerie)) {
+                    $bar = preg_replace('#([a-z]{3})([0-9]{9})#i', 'BAR$2', $formNumeroBar);
+                    $numeroSerie = preg_replace('#([a-z]{3})([0-9]{9})#i', '$2', $formNumeroBar);
+                }
 
-            // Formattage du N° de série et renvoi vers le BAR correspondant
-            if (empty($formNumeroBar)) {
-                // ICI = chercher le BAR correspondant
-                // Appel au webservice
-                // Retour en XML
-                $bar = preg_replace('#[0-9]{9}#', 'BAR$0', $formNumeroSerie);
-            }
+                // Formattage du N° de série et renvoi vers le BAR correspondant
+                if (empty($formNumeroBar)) {
+                    // ICI = chercher le BAR correspondant
+                    // Appel au webservice
+                    // Retour en XML
+                    $numeroSerie = preg_replace('#[0-9]{9}#', '$0', $formNumeroSerie);
+                    $bar = preg_replace('#[0-9]{9}#', 'BAR$0', $formNumeroSerie);
+                }
 
-            // BAR hors-délai ou non
-            if ($receipt->getBarHorsDelai() == true) {
-                $modalHorsDelai = 'is-active';
-
+                /* DÉBUT : à modifier quand webservice actif */
                 $receipt->setDateReception(new \DateTime());
-                $receipt->setPaiementParClient(true);
-                $receipt->setNumeroSav(0);
-                $receipt->setPaysSav(1);
+                $receipt->setNumeroSav(14);
+                $receipt->setPaysSav(2);
+                /* FIN : à modifier quand webservice actif */
 
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($receipt);
                 $em->flush();
 
-                return $this->render('SAVProcessBundle:Receipt:receipt-home.html.twig', array(
-                    'form' => $form->createView(),
-                    'modalHorsDelai' => $modalHorsDelai,
-                ));
+                // BAR hors-délai ou non
+                if($receipt->getBarHorsDelai() == 1) {
+                    $modalHorsDelai = 'is-active';
+
+                    $receipt->setPaiementParClient(true);
+
+                    $em->flush();
+
+                    return $this->render('SAVProcessBundle:Receipt:receipt-home.html.twig', array(
+                        'form' => $form->createView(),
+                        'modalHorsDelai' => $modalHorsDelai,
+                    ));
+                }
+                else
+                {
+                    return $this->redirectToRoute('receipt_product_check', array('numeroBar' => $bar));
+                }
             }
-
-            return $this->redirectToRoute('receipt_product_check', array('numeroBar' => $bar));
-
         }
-
         // Si première arrivée sur la page
         return $this->render('SAVProcessBundle:Receipt:receipt-home.html.twig', array(
             'form' => $form->createView(),
@@ -86,27 +95,6 @@ class ReceiptController extends Controller
 
     public function checkAction(ParcoursProduit $produit, Request $request)
     {
-        // Définition des champs internes
-        if(null == $produit->getStatutReception())
-        {
-            $produit->setStatutReception(1);
-        }
-
-        if(null == $produit->getDateReception())
-        {
-            $produit->setDateReception(new \DateTime());
-        }
-
-        if(null == $produit->getNumeroSav())
-        {
-            $produit->setNumeroSav(0); // A modifier dynamiquement
-        }
-
-        if(null == $produit->getPaysSav())
-        {
-            $produit->setPaysSav(1); // A modifier dynamiquement
-        }
-
 
         // Cas où on supprime le commentaire réception
         if(!empty($request->query->get('delete'))) {
@@ -114,12 +102,12 @@ class ReceiptController extends Controller
                 $produit->setCommentaireReception(null);
                 $statutReception = $produit->getStatutReception();
                 switch ($statutReception) {
-                    case 4 :
+                    case 3 :
                         $statutReception = 1;
                         break;
 
-                    case 5:
-                        $statutReception = 3;
+                    case 4:
+                        $statutReception = 2;
                 }
                 $produit->setStatutReception($statutReception);
                 $em = $this->getDoctrine()->getManager();
@@ -153,11 +141,11 @@ class ReceiptController extends Controller
             switch ($statutReception)
             {
                 case 1:
-                    $statutReception = 4;
+                    $statutReception = 3;
                 break;
 
-                case 13:
-                    $statutReception = 5;
+                case 2:
+                    $statutReception = 4;
                 break;
             }
 
@@ -179,6 +167,7 @@ class ReceiptController extends Controller
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('SAVProcessBundle:ParcoursProduit');
 
+        // Cas où on annule le refus d'un produit
         if($request->isMethod('POST'))
         {
             $bar = $_POST['numeroBar'];
@@ -189,12 +178,12 @@ class ReceiptController extends Controller
             $statutReception = $produit->getStatutReception();
             switch($statutReception)
             {
-                case 3:
+                case 2:
                     $statutReception = 1;
                 break;
 
-                case 5:
-                    $statutReception = 4;
+                case 4:
+                    $statutReception = 3;
                 break;
             }
             $produit->setStatutReception($statutReception);
@@ -203,8 +192,11 @@ class ReceiptController extends Controller
             $em->flush();
         }
 
+
+        // Affichage lors de la première arrivée
         $listProducts = $repository
             ->getOverview('p.statutReception', 'DESC');
+
 
         // Récupération des tags de tri de l'URL
         if(!empty($request))
@@ -234,6 +226,7 @@ class ReceiptController extends Controller
                 'DESC'
             );
 
+            // Tri des données on fonction des tags de l'URL
             if(in_array($filter, $listFilter) && in_array($order, $listOrder))
             {
                 if(in_array($statut, $listStatuts))
@@ -272,6 +265,43 @@ class ReceiptController extends Controller
                     }
                 }
             }
+
+            // Cas où on valide la liste d'importation
+            $action = $request->query->get('action');
+
+            if($action == 'import')
+            {
+                $listImport = $repository->getImportList();
+
+                foreach ($listImport as $import)
+                {
+                    switch($import->getStatutReception())
+                    {
+                        case 1 :
+                            $import->setStatutReparation(1);
+                            $import->setImporte(true);
+                        break;
+
+                        case 2 :
+                            $import->setPaiementClient(true);
+                            $import->setImporte(true);
+                        break;
+
+                        case 3 :
+                            $import->setStatutReparation(1);
+                            $import->setImporte(true);
+                        break;
+
+                        case 4 :
+                            $import->setPaiementClient(true);
+                            $import->setImporte(true);
+                        break;
+                    }
+                }
+                $request->getSession()->getFlashBag()->add('notice', "Tous les produits de la liste ont été importé et dispatché dans les stocks de votre SAV");
+                    return $this->redirectToRoute('home_dashboard');
+            }
+
         }
 
         // Comptage et affichage du nombre de lignes correspondantes à chaque statut

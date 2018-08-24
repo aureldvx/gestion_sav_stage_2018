@@ -47,7 +47,7 @@
                 </a>
                 {# Affichage du bouton de soumission #}
                 {{ form_widget(form.add, {'attr': {'class': 'waves-effect waves-light btn btn-save'}}) }}
-                {% if produit.statutReception == 4 or produit.statutReception == 5 %}
+                {% if produit.statutReception == 3 or produit.statutReception == 4 %}
                     <a href="#!" class="btn waves-effect waves-light modal-button">Supprimer le commentaire</a>
                 {% endif %}
             </div>

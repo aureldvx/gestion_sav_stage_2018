@@ -57,7 +57,7 @@ treatment_product_detail:
 treatment_confirmed_failure:
     path:    /treatment/confirmed-failure/{numeroBar}
     defaults:
-        _controller: SAVProcessBundle:Treatment:failure
+        _controller: SAVProcessBundle:Treatment:confirmedFailure
     requirements:
         numeroBar: "BAR[0-9]{9}"
 

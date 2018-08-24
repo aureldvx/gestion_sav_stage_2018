@@ -328,6 +328,13 @@
 		"oAP": "\/src\/SAV\/ProcessBundle\/Controller\/TreatmentController.php",
 		"oF": 0
 		},
+	"\/src\/SAV\/ProcessBundle\/DataFixtures\/ORM\/LoadClient.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/src\/SAV\/ProcessBundle\/DataFixtures\/ORM\/LoadClient.php",
+		"oF": 0
+		},
 	"\/src\/SAV\/ProcessBundle\/DataFixtures\/ORM\/LoadParcoursProduit.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -1905,6 +1912,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/src\/SAV\/ProcessBundle\/Resources\/sass\/pages\/_confirmed-failure.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/src\/SAV\/ProcessBundle\/Resources\/sass\/public\/css\/_confirmed-failure.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/src\/SAV\/ProcessBundle\/Resources\/sass\/pages\/_dashboard.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -1928,6 +1948,19 @@
 		"oA": 1,
 		"oAP": "\/src\/SAV\/ProcessBundle\/Resources\/sass\/public\/css\/_form_verification.css",
 		"oF": 1,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/src\/SAV\/ProcessBundle\/Resources\/sass\/pages\/_product-detail.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/src\/SAV\/ProcessBundle\/Resources\/sass\/public\/css\/_product-detail.css",
+		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
@@ -1970,6 +2003,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/src\/SAV\/ProcessBundle\/Resources\/sass\/pages\/_scan-view-product.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/src\/SAV\/ProcessBundle\/Resources\/sass\/public\/css\/_scan-view-product.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/src\/SAV\/ProcessBundle\/Resources\/sass\/style.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -1995,6 +2041,41 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/src\/SAV\/ProcessBundle\/Resources\/views\/layout.html.twig",
+		"oF": 0
+		},
+	"\/src\/SAV\/ProcessBundle\/Resources\/views\/modals\/modal-client.html.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/src\/SAV\/ProcessBundle\/Resources\/views\/modals\/modal-client.html.twig",
+		"oF": 0
+		},
+	"\/src\/SAV\/ProcessBundle\/Resources\/views\/modals\/panne-au-deballage-forte-valeur.html.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/src\/SAV\/ProcessBundle\/Resources\/views\/modals\/panne-au-deballage-forte-valeur.html.twig",
+		"oF": 0
+		},
+	"\/src\/SAV\/ProcessBundle\/Resources\/views\/modals\/panne-au-deballage.html.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/src\/SAV\/ProcessBundle\/Resources\/views\/modals\/panne-au-deballage.html.twig",
+		"oF": 0
+		},
+	"\/src\/SAV\/ProcessBundle\/Resources\/views\/modals\/panne-non-constatee.html.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/src\/SAV\/ProcessBundle\/Resources\/views\/modals\/panne-non-constatee.html.twig",
+		"oF": 0
+		},
+	"\/src\/SAV\/ProcessBundle\/Resources\/views\/modals\/produit-non-reparable.html.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/src\/SAV\/ProcessBundle\/Resources\/views\/modals\/produit-non-reparable.html.twig",
 		"oF": 0
 		},
 	"\/src\/SAV\/ProcessBundle\/Resources\/views\/Receipt\/overview.html.twig": {
@@ -2032,11 +2113,32 @@
 		"oAP": "\/src\/SAV\/ProcessBundle\/Resources\/views\/Scan\/scan-home.html.twig",
 		"oF": 0
 		},
+	"\/src\/SAV\/ProcessBundle\/Resources\/views\/Scan\/view-product.html.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/src\/SAV\/ProcessBundle\/Resources\/views\/Scan\/view-product.html.twig",
+		"oF": 0
+		},
 	"\/src\/SAV\/ProcessBundle\/Resources\/views\/templates\/form-verification.html.twig": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/src\/SAV\/ProcessBundle\/Resources\/views\/templates\/form-verification.html.twig",
+		"oF": 0
+		},
+	"\/src\/SAV\/ProcessBundle\/Resources\/views\/Treatment\/confirmed-failure.html.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/src\/SAV\/ProcessBundle\/Resources\/views\/Treatment\/confirmed-failure.html.twig",
+		"oF": 0
+		},
+	"\/src\/SAV\/ProcessBundle\/Resources\/views\/Treatment\/product-detail.html.twig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/src\/SAV\/ProcessBundle\/Resources\/views\/Treatment\/product-detail.html.twig",
 		"oF": 0
 		},
 	"\/src\/SAV\/ProcessBundle\/Resources\/views\/Treatment\/treatment-home.html.twig": {

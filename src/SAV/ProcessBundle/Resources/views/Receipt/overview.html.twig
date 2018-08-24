@@ -40,7 +40,7 @@
                     </a>
             </div>
 
-            <a href="{{ path('receipt_home') }}" class="btn-large waves-effect waves-light import-button">
+            <a href="{{ path('receipt_overview', {'action' : 'import'}) }}" class="btn-large waves-effect waves-light import-button">
                 {{ "Valider et importer les produits" | upper }}
             </a>
         </div>
@@ -111,25 +111,25 @@
                         <td>{{ product.statutReception }}</td>
                         <td class="actions-cell">
                             {% if product.faibleValeur == 1 %}
-                                <a href="{{ path('treatment_product_splitting', {'numeroBar' : product.numeroBar, 'source' : 'receipt_overview'}) }}" class="btn waves-effect waves-light button-pd">
+                                <a href="{{ path('treatment_product_splitting', {'numeroBar' : product.numeroBar, 'source' : 'receipt-overview'}) }}" class="btn waves-effect waves-light button-pd">
                                     {{ "Récupérer pièces détachées" | upper }}
                                 </a>
                             {% endif %}
                             {% if product.commentaireReception is null %}
-                                <a href="{{ path('receipt_product_review', {'numeroBar' : product.numeroBar, 'source' : 'receipt_overview'}) }}" class="btn waves-effect waves-light button-infos-add">
+                                <a href="{{ path('receipt_product_review', {'numeroBar' : product.numeroBar, 'source' : 'receipt-overview'}) }}" class="btn waves-effect waves-light button-infos-add">
                                     {{ "Ajouter des informations" | upper }}
                                 </a>
                             {% else %}
-                                <a href="{{ path('receipt_product_review', {'numeroBar' : product.numeroBar, 'source' : 'receipt_overview'}) }}" class="btn waves-effect waves-light button-infos-modify">
+                                <a href="{{ path('receipt_product_review', {'numeroBar' : product.numeroBar, 'source' : 'receipt-overview'}) }}" class="btn waves-effect waves-light button-infos-modify">
                                     {{ "Modifier les informations" | upper }}
                                 </a>
                             {% endif %}
-                            {% if product.statutReception == 3 or product.statutReception == 5 %}
+                            {% if product.statutReception == 2 or product.statutReception == 4 %}
                                 <a href="#!" class="btn waves-effect waves-light modal-button button-reject-cancel" data-bar="{{ product.numeroBar }}">
                                     {{ "Annuler le refus" | upper }}
                                 </a>
                             {% else %}
-                                <a href="{{ path('receipt_product_rejection', {'numeroBar' : product.numeroBar, 'source' : 'receipt_overview'}) }}" class="btn waves-effect button-reject">
+                                <a href="{{ path('receipt_product_rejection', {'numeroBar' : product.numeroBar, 'source' : 'receipt-overview'}) }}" class="btn waves-effect button-reject">
                                     {{ "Refuser produit" | upper }}
                                 </a>
                             {% endif %}

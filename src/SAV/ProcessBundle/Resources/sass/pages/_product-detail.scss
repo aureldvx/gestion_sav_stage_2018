@@ -1,0 +1,194 @@
+.pg-product-detail, .pg-confirmed-failure {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    background-color: $white;
+    border-radius: 10px;
+
+    .page-title {
+      background-color: $purple;
+      border-radius: 10px 10px 0 0;
+
+      h1 {
+        color: $white;
+        text-transform: uppercase;
+        padding: 20px 0;
+      }
+    }
+    .view-detail{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+
+      .modal-button{
+        margin-right: 10px;
+      }
+    }
+    .probleme-declare{
+      textarea.materialize-textarea:disabled{
+        color: $blue;
+        border-bottom-color: $blue;
+      }
+      textarea.materialize-textarea:disabled + label{
+        color: $blue;
+      }
+    }
+    .commentaire-reception{
+      textarea.materialize-textarea:disabled{
+        color: $red;
+        border-bottom-color: $red;
+      }
+      textarea.materialize-textarea:disabled + label{
+        color: $red;
+      }
+    }
+    .buttons-treatment{
+      margin-bottom: 25px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .btn-confirm-panne, .btn-modal-faible-valeur, .btn-modal-forte-valeur{
+        margin-right: 20px;
+        background-color: darken($green, 5%);
+      }
+      .btn-modal-reject-panne{
+        background-color: $red;
+      }
+    }
+  }
+  .modal-client{
+    .modal-content{
+      border-radius: 10px;
+      position: relative;
+      .modal-title{
+        background: $purple;
+        h2{
+          padding: 15px 0;
+          color: $white;
+        }
+      }
+      .contact-container{
+        margin-top: 15px;
+        .row{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+      .modal-close-button{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+      }
+    }
+  }
+  .modal-panne-deballage{
+    .modal-content {
+      border-radius: 10px;
+      position: relative;
+      .modal-title {
+        background: $purple;
+        h2 {
+          padding: 15px 0;
+          color: $white;
+        }
+      }
+    }
+  }
+  .modal-panne-deballage,
+  .modal-panne-non-constatee,
+  .modal-panne-deballage-forte-valeur{
+    .modal-content {
+      border-radius: 10px;
+      position: relative;
+      .modal-title {
+        background: $purple;
+        h2 {
+          padding: 15px 0;
+          color: $white;
+        }
+      }
+      .modal-container{
+        margin-top: 20px;
+        padding: 0 10px;
+        .notification{
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100px;
+
+          i{
+            position: absolute;
+            top: 5px;
+            left: 5px;
+          }
+        }
+        .modal-actions{
+          margin-bottom: 20px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+  .modal-panne-deballage{
+    .btn-splitting{
+      margin-right: 20px;
+      background-color: $blue;
+    }
+    .btn-close-treatment{
+      background-color: $red;
+    }
+  }
+  .modal-panne-deballage-forte-valeur{
+    .btn-reparable{
+      background-color: darken($green, 5%);
+      margin-right: 30px;
+      height: 115px;
+      width: 40%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .produit-non-reparable{
+      width: 40%;
+      border: 1.5px solid $red;
+      border-radius: 5px;
+      padding: 10px 20px;
+      text-align: center;
+
+      span{
+        font-size: 15px;
+        font-weight: 700;
+        color: $red;
+      }
+      p{
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+      .btn-splitting{
+        margin-right: 20px;
+        background-color: $blue;
+      }
+      .btn-close-treatment{
+        background-color: $red;
+      }
+    }
+  }
+  .modal-panne-non-constatee{
+    .btn-confirm{
+      background-color: $orange;
+    }
+  }
+}
