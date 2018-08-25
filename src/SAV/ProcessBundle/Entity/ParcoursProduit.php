@@ -2,6 +2,7 @@
 
 namespace SAV\ProcessBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -201,11 +202,7 @@ class ParcoursProduit
     private $numeroSerieProduitEchange;
 
     /**
-     * @var array|null
-     *
-     * @ORM\Column(name="pieces_detachees_select", type="array", nullable=true)
-     *
-     * @ORM\ManyToMany(targetEntity="SAV\ProcessBundle\Entity\PieceDetachee")
+     * @ORM\ManyToMany(targetEntity="SAV\ProcessBundle\Entity\PieceDetachee", cascade={"persist"})
      */
     private $piecesDetacheesSelect;
 
@@ -323,6 +320,11 @@ class ParcoursProduit
      */
     private $updatedAt;
 
+    public function __construct()
+    {
+        $this->piecesDetacheesSelect = new ArrayCollection();
+    }
+
     /**
      * @ORM\PreUpdate
      */
@@ -362,6 +364,18 @@ class ParcoursProduit
             $this->setBarHorsDelai(false);
             $this->setPanneAuDeballage(false);
         }
+    }
+
+    // Ajouter une pièce détachée
+    public function addPieceDetachee(PieceDetachee $pieceDetachee)
+    {
+        $this->piecesDetacheesSelect[] = $pieceDetachee;
+    }
+
+    // Supprimer une pièce détachée
+    public function removePieceDetachee(PieceDetachee $pieceDetachee)
+    {
+        $this->piecesDetacheesSelect->removeElement($pieceDetachee);
     }
 
     /**
@@ -900,20 +914,6 @@ class ParcoursProduit
     public function getNumeroSerieProduitEchange()
     {
         return $this->numeroSerieProduitEchange;
-    }
-
-    /**
-     * Set piecesDetacheesSelect.
-     *
-     * @param array|null $piecesDetacheesSelect
-     *
-     * @return ParcoursProduit
-     */
-    public function setPiecesDetacheesSelect($piecesDetacheesSelect = null)
-    {
-        $this->piecesDetacheesSelect = $piecesDetacheesSelect;
-
-        return $this;
     }
 
     /**
