@@ -938,3 +938,172 @@ header .navbar-fixed nav .nav-wrapper {
       .pg-view-product .container .choices-buttons .btn-scan-other {
         margin-left: 25px;
         background-color: #5477FD; }
+
+/* line 1, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+.pg-repairs-overview {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 80px; }
+  /* line 9, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+  .pg-repairs-overview .container-overview {
+    width: 98vw !important;
+    background-color: #ffffff;
+    border-radius: 10px; }
+    /* line 14, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+    .pg-repairs-overview .container-overview .page-title {
+      background-color: #A387B6;
+      border-radius: 10px 10px 0 0; }
+      /* line 18, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+      .pg-repairs-overview .container-overview .page-title h1 {
+        color: #ffffff;
+        text-transform: uppercase;
+        padding: 15px 0;
+        font-size: 24px; }
+    /* line 25, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+    .pg-repairs-overview .container-overview .resume {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 0 10px; }
+      /* line 32, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+      .pg-repairs-overview .container-overview .resume .group-stats {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly; }
+        /* line 37, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+        .pg-repairs-overview .container-overview .resume .group-stats .stats {
+          width: content-box;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 5px 10px;
+          margin: 0 10px;
+          background-color: lightgrey;
+          border-radius: 5px;
+          text-align: center;
+          color: #4b4b4b;
+          -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+          -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+          will-change: box-shadow; }
+          /* line 53, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+          .pg-repairs-overview .container-overview .resume .group-stats .stats:hover {
+            -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3); }
+          /* line 58, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+          .pg-repairs-overview .container-overview .resume .group-stats .stats p {
+            font-size: 14px; }
+      /* line 64, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+      .pg-repairs-overview .container-overview .resume .btn-modal-filter {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        line-height: 1rem; }
+        /* line 71, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+        .pg-repairs-overview .container-overview .resume .btn-modal-filter i {
+          font-size: 40px; }
+      /* line 75, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+      .pg-repairs-overview .container-overview .resume .search-product {
+        margin-bottom: 0;
+        border: 2px solid #1ABC00;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center; }
+        /* line 84, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+        .pg-repairs-overview .container-overview .resume .search-product .input-field {
+          width: 90%; }
+        /* line 87, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+        .pg-repairs-overview .container-overview .resume .search-product button {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          border-radius: 24px;
+          background: #16a300;
+          cursor: pointer; }
+          /* line 94, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+          .pg-repairs-overview .container-overview .resume .search-product button:hover {
+            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3); }
+          /* line 98, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+          .pg-repairs-overview .container-overview .resume .search-product button i {
+            padding: 8px;
+            color: #ffffff; }
+    /* line 105, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+    .pg-repairs-overview .container-overview .tableau {
+      padding: 0 10px; }
+      /* line 107, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+      .pg-repairs-overview .container-overview .tableau table {
+        font-size: 14px; }
+        /* line 109, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+        .pg-repairs-overview .container-overview .tableau table thead {
+          background-color: #4b4b4b; }
+          /* line 111, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+          .pg-repairs-overview .container-overview .tableau table thead th {
+            font-size: 15px;
+            color: #ffffff;
+            vertical-align: middle; }
+        /* line 119, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+        .pg-repairs-overview .container-overview .tableau table tbody tr td {
+          vertical-align: middle; }
+        /* line 122, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+        .pg-repairs-overview .container-overview .tableau table tbody tr .spare-parts-cell {
+          width: 300px; }
+        /* line 125, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+        .pg-repairs-overview .container-overview .tableau table tbody tr .actions-cell {
+          padding: 7px 15px 7px 0;
+          width: 390px;
+          text-align: right; }
+          /* line 129, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+          .pg-repairs-overview .container-overview .tableau table tbody tr .actions-cell .btn {
+            font-size: 14px; }
+          /* line 132, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+          .pg-repairs-overview .container-overview .tableau table tbody tr .actions-cell .btn-modal-end-repair {
+            margin-right: 10px;
+            background-color: #149300; }
+          /* line 136, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+          .pg-repairs-overview .container-overview .tableau table tbody tr .actions-cell .btn-modal-start-repair {
+            background-color: #5477FD; }
+          /* line 139, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+          .pg-repairs-overview .container-overview .tableau table tbody tr .actions-cell .btn-modal-cancel-repair {
+            background-color: #D32F2F; }
+  /* line 149, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+  .pg-repairs-overview .modal-filter .modal-content {
+    position: relative;
+    border-radius: 10px;
+    min-height: 50vh;
+    min-width: 50vw; }
+    /* line 155, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+    .pg-repairs-overview .modal-filter .modal-content .modal-title {
+      background-color: #A387B6; }
+      /* line 158, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+      .pg-repairs-overview .modal-filter .modal-content .modal-title h2 {
+        color: #ffffff;
+        padding: 10px 0;
+        font-size: 25px; }
+    /* line 165, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+    .pg-repairs-overview .modal-filter .modal-content .form-filter {
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start; }
+      /* line 172, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+      .pg-repairs-overview .modal-filter .modal-content .form-filter .row {
+        width: 100%; }
+      /* line 176, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+      .pg-repairs-overview .modal-filter .modal-content .form-filter [type="checkbox"] + span:not(.lever) {
+        font-size: 13px; }
+    /* line 181, Applications/MAMP/htdocs/outilSav/src/SAV/ProcessBundle/Resources/sass/pages/_repairs-overview.scss */
+    .pg-repairs-overview .modal-filter .modal-content .delete-modal-filter {
+      position: absolute;
+      top: 5px;
+      right: 5px; }

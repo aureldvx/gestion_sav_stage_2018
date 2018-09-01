@@ -1,0 +1,174 @@
+{% extends 'SAVProcessBundle::layout.html.twig' %}
+
+{% block title %}Réparations en cours{% endblock %}
+
+{% block view %}
+<section class="pg-repairs-overview">
+    <div class="container container-overview is-fluid">
+        <div class="row page-title">
+            <h1>{{ "Liste des produits en cours de réparation ou reconditionnement" }}</h1>
+        </div>
+        <div class="row resume">
+            <div class="group-stats">
+                <a href="{{ path('repairs_overview', {'statut' : 'all', 'filter': 'p.statutReception', 'order': 'DESC'}) }}" class="stats">
+                    <p>{{ "Total produits de la liste" | upper }}</p>
+                    <span>{{ countAll }}</span>
+                </a>
+                <a href="{{ path('repairs_overview', {'statut' : 'valid', 'filter': 'p.statutReception', 'order': 'DESC'}) }}" class="stats">
+                    <p>{{ "en réparation" | upper }}</p>
+                    <span>{{ countRepairs }}</span>
+                </a>
+                <a href="{{ path('repairs_overview', {'statut' : 'faibleValeur', 'filter': 'p.statutReception', 'order': 'DESC'}) }}" class="stats">
+                    <p>{{ "en reconditionnement" | upper }}</p>
+                    <span>{{ countRefurbished }}</span>
+                </a>
+            </div>
+
+            <a href="#!" class="btn-large waves-effect waves-light btn-modal-filter col s3 is-primary">
+                <i class="material-icons">swap_vertical_circle</i>
+                {{ "filtrer par produit ou par pièce détachée" | upper }}
+            </a>
+
+            <form method="post" action="{{ path('repairs_overview') }}" class="search-product col s4 row">
+                <div class="input-field">
+                    <input type="text" id="search-form" name="search" placeholder="N° de série ou N° de BAR">
+                    <label for="search-form">Chercher un produit par son n° de série ou BAR</label>
+                </div>
+                <button type="submit"><i class="material-icons">search</i></button>
+            </form>
+        </div>
+
+        {% if app.request.query.get("statut") is empty %}
+            {% set statut = 'all' %}
+        {% else %}
+            {% set statut = app.request.query.get("statut") %}
+        {% endif %}
+
+        <div class="row tableau">
+            <table class="table is-bordered is-hoverable is-fullwidth striped centered responsive-table">
+                <thead>
+                <th>
+                    {{ "client" | upper }}
+                    <div class="order-content">
+                        <a href="{{ path('repairs_overview', {'statut': statut, 'filter': 'p.client', 'order': 'DESC'}) }}">
+                            <i class="material-icons">keyboard_arrow_up</i>
+                        </a>
+                        <a href="{{ path('repairs_overview', {'statut': statut, 'filter': 'p.client', 'order': 'ASC'}) }}">
+                            <i class="material-icons">keyboard_arrow_down</i>
+                        </a>
+                    </div>
+                </th>
+                <th>
+                    {{ "référence produit" | upper }}
+                    <div class="order-content">
+                        <a href="{{ path('repairs_overview', {'statut': statut, 'filter': 'p.referenceProduit', 'order': 'DESC'}) }}">
+                            <i class="material-icons">keyboard_arrow_up</i>
+                        </a>
+                        <a href="{{ path('repairs_overview', {'statut': statut, 'filter': 'p.referenceProduit', 'order': 'ASC'}) }}">
+                            <i class="material-icons">keyboard_arrow_down</i>
+                        </a>
+                    </div>
+                </th>
+                <th>
+                    {{ "Statut du traitement" | upper }}
+                    <div class="order-content">
+                        <a href="{{ path('repairs_overview', {'statut': statut, 'filter': 'p.statutReparation', 'order': 'DESC'}) }}">
+                            <i class="material-icons">keyboard_arrow_up</i>
+                        </a>
+                        <a href="{{ path('repairs_overview', {'statut': statut, 'filter': 'p.statutReparation', 'order': 'ASC'}) }}">
+                            <i class="material-icons">keyboard_arrow_down</i>
+                        </a>
+                    </div>
+                </th>
+                <th>
+                    {{ "Pièces détachées" | upper }}
+                </th>
+                <th>
+                    {{ "actions possibles" | upper }}
+                </th>
+                </thead>
+                <tbody>
+                {% for repair in listRepairs %}
+                    {% if repair.statutReparation == 1 %}
+                        {% set statutReparation = 'En attente de réparation' %}
+                    {% elseif repair.statutReparation == 2 %}
+                        {% set statutReparation = 'En attente de reconditionnement' %}
+                    {% elseif repair.statutReparation == 3 %}
+                        {% set statutReparation = 'En cours de réparation' %}
+                    {% elseif repair.statutReparation == 4 %}
+                        {% set statutReparation = 'En cours de reconditionnement' %}
+                    {% endif %}
+                    <tr>
+                        <td>{{ repair.client }}</td>
+                        <td>{{ repair.referenceProduit }}</td>
+                        <td>{{ statutReparation }}</td>
+                        <td class="spare-parts-cell">
+                            <a href="#!" class="btn waves-effect waves-light btn-modal-find-pieces">{{ 'Afficher ou chercher pièces' | upper }}</a>
+                        </td>
+                        <td class="actions-cell">
+                            {% if repair.statutReparation == 1 or repair.statutReparation == 2 %}
+                                <a href="#!" class="btn waves-effect waves-light btn-modal-start-repair">{{ 'Lancer la réparation' | upper }}</a>
+                            {% elseif repair.statutReparation == 3 or repair.statutReparation == 4 %}
+                                <a href="#!" class="btn waves-effect waves-light btn-modal-end-repair">{{ 'produit réparé !' | upper }}</a>
+                            {% endif %}
+                            {% if repair.statutReparation == 3 or repair.statutReparation == 4 %}
+                                <a href="#!" class="btn waves-effect waves-light btn-modal-cancel-repair">{{ 'annuler la réparation' | upper }}</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal modal-filter">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="modal-title">
+                <h2>{{ 'filtrer la liste des produits' | upper }}</h2>
+            </div>
+            <form action="{{ path('receipt_overview') }}" method="post" class="form-filter">
+                <div class="row">
+                    <div class="input-field col s8 offset-s2">
+                        <select multiple name="famille-produit" id="famille-produit">
+                            <option value="" disabled selected>Choisissez un ou plusieurs produits</option>
+                            <option value="1">Téléphone</option>
+                            <option value="2">Tablette</option>
+                            <option value="3">Ordinateur</option>
+                            <option value="4">TV</option>
+                        </select>
+                        <label for="famille-produit">{{ 'famille produit' | upper }}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s8 offset-s2">
+                        <select multiple name="nom-produit" id="nom-produit">
+                            <option value="" disabled selected>Choisissez un ou plusieurs produits</option>
+                            <option value="1">Téléphone</option>
+                            <option value="2">Tablette</option>
+                            <option value="3">Ordinateur</option>
+                            <option value="4">TV</option>
+                        </select>
+                        <label for="nom-produit">{{ 'nom produit' | upper }}</label>
+                    </div>
+                </div>
+                <button type="submit">Appliquer les filtres</button>
+            </form>
+            <button class="delete is-medium delete-modal-filter"></button>
+        </div>
+    </div>
+</section>
+{% block javascript %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.btn-modal-filter').click(function(){
+                $('.modal-filter').addClass('is-active');
+            });
+            $('.delete-modal-filter').click(function(){
+                $('.modal-filter').removeClass('is-active');
+            });
+            $('select').formSelect();
+        })
+    </script>
+{% endblock %}
+{% endblock %}

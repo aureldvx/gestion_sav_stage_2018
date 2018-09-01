@@ -1,0 +1,188 @@
+.pg-repairs-overview {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 80px;
+
+  .container-overview {
+    width: 98vw !important;
+    background-color: $white;
+    border-radius: 10px;
+
+    .page-title {
+      background-color: $purple;
+      border-radius: 10px 10px 0 0;
+
+      h1 {
+        color: $white;
+        text-transform: uppercase;
+        padding: 15px 0;
+        font-size: 24px;
+      }
+    }
+    .resume {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 0 10px;
+
+      .group-stats {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        .stats {
+          width: content-box;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 5px 10px;
+          margin: 0 10px;
+          background-color: lightgrey;
+          border-radius: 5px;
+          text-align: center;
+          color: $grey;
+          -webkit-box-shadow: $box-shadow-1;
+          -moz-box-shadow: $box-shadow-1;
+          box-shadow: $box-shadow-1;
+          will-change: box-shadow;
+          &:hover {
+            -webkit-box-shadow: $box-shadow-2;
+            -moz-box-shadow: $box-shadow-2;
+            box-shadow: $box-shadow-2;
+          }
+          p {
+            font-size: 14px;
+          }
+
+        }
+      }
+      .btn-modal-filter {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        line-height: 1rem;
+
+        i{
+          font-size: 40px;
+        }
+      }
+      .search-product{
+        margin-bottom: 0;
+        border: 2px solid $green;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        .input-field{
+          width: 90%;
+        }
+        button{
+          margin: 0;
+          padding: 0;
+          border: 0;
+          border-radius: 24px;
+          background: darken($green, 5%);
+          cursor: pointer;
+          &:hover{
+            box-shadow: $box-shadow-2;
+          }
+
+          i{
+            padding: 8px;
+            color: $white;
+          }
+        }
+      }
+    }
+    .tableau {
+      padding: 0 10px;
+      table {
+        font-size: 14px;
+        thead {
+          background-color: $grey;
+          th {
+            font-size: 15px;
+            color: $white;
+            vertical-align: middle;
+          }
+        }
+        tbody {
+          tr {
+            td {
+              vertical-align: middle;
+            }
+            .spare-parts-cell{
+              width: 300px;
+            }
+            .actions-cell {
+              padding: 7px 15px 7px 0;
+              width: 390px;
+              text-align: right;
+              .btn {
+                font-size: 14px;
+              }
+              .btn-modal-end-repair{
+                margin-right: 10px;
+                background-color: darken($green, 8%);
+              }
+              .btn-modal-start-repair{
+                background-color: $blue;
+              }
+              .btn-modal-cancel-repair{
+                background-color: $red;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .modal-filter{
+    .modal-content{
+      position: relative;
+      border-radius: 10px;
+      min-height: 50vh;
+      min-width: 50vw;
+
+      .modal-title{
+        background-color: $purple;
+
+        h2{
+          color: $white;
+          padding: 10px 0;
+          font-size: 25px;
+        }
+      }
+
+      .form-filter{
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        .row{
+          width: 100%;
+        }
+
+        [type="checkbox"] + span:not(.lever){
+          font-size: 13px;
+        }
+      }
+
+      .delete-modal-filter{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+      }
+    }
+  }
+}
