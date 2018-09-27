@@ -76,7 +76,22 @@ class Client
      * @ORM\Column(name="ville", type="string", length=255)
      */
     private $ville;
-
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\ContratClient", inversedBy="clients")
+     * @ORM\JoinColumn(name="contrat_client_id", nullable=true)
+     */
+    private $contratClient;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="SAV\ProcessBundle\Entity\ParcoursProduit", mappedBy="client")
+     */
+    private $parcoursProduits;
+    
+    public function __construct()
+    {
+        $this->parcoursProduits = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -278,5 +293,52 @@ class Client
     public function getVille()
     {
         return $this->ville;
+    }
+    
+    /**
+     * Set contratClient
+     *
+     * @param \SAV\ProcessBundle\Entity\ContratClient $contratClient
+     * @return Client
+     */
+    public function setContratClient(\SAV\ProcessBundle\Entity\ContratClient $contratClient = null) {
+        $this->contratClient = $contratClient;
+        
+        return $this;
+    }
+    
+    /**
+     * Get contratClient
+     *
+     * @return \SAV\ProcessBundle\Entity\ContratClient
+     */
+    public function getContratClient() {
+        return $this->contratClient;
+    }
+    
+    public function setParcoursProduits(\Doctrine\Common\Collections\ArrayCollection $parcoursProduits)
+    {
+        foreach ($parcoursProduits as $parcoursProduit)
+        {
+            $parcoursProduit->setClient($this);
+        }
+        $this->parcoursProduits = $parcoursProduits;
+    }
+    
+    public function getParcoursProduits()
+    {
+        return $this->parcoursProduits;
+    }
+    
+    public function addParcoursProduit(\SAV\ProcessBundle\Entity\ParcoursProduit $parcoursProduit)
+    {
+        $parcoursProduit->setClient($this);
+        $this->parcoursProduits->add($parcoursProduit);
+        return $this;
+    }
+    
+    public function removeParcoursProduit(\SAV\ProcessBundle\Entity\ParcoursProduit $parcoursProduit)
+    {
+        $this->parcoursProduits->removeElement($parcoursProduit);
     }
 }

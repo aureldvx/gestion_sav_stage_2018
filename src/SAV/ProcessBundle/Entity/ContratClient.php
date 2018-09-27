@@ -27,8 +27,17 @@ class ContratClient
      * @ORM\Column(name="libelle", type="string", length=255, unique=true)
      */
     private $libelle;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="SAV\ProcessBundle\Entity\Client", mappedBy="contratClient")
+     */
+    private $clients;
 
-
+    public function __construct()
+    {
+        $this->clients = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id.
      *
@@ -61,5 +70,31 @@ class ContratClient
     public function getLibelle()
     {
         return $this->libelle;
+    }
+    
+    public function setClients(\Doctrine\Common\Collections\ArrayCollection $clients)
+    {
+        foreach ($clients as $client)
+        {
+            $client->setContratClient($this);
+        }
+        $this->clients = $clients;
+    }
+    
+    public function getClients()
+    {
+        return $this->clients;
+    }
+    
+    public function addClient(\SAV\ProcessBundle\Entity\Client $client)
+    {
+        $client->setContratClient($this);
+        $this->clients->add($client);
+        return $this;
+    }
+    
+    public function removeClient(\SAV\ProcessBundle\Entity\Client $client)
+    {
+        $this->clients->removeElement($client);
     }
 }

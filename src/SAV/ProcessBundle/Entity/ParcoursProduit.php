@@ -38,11 +38,8 @@ class ParcoursProduit
     private $numeroSerie;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="client", type="integer")
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\Client")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\Client", inversedBy="parcoursProduits")
+     * @ORM\JoinColumn(name="client_id", nullable=false)
      */
     private $client;
 
@@ -73,15 +70,6 @@ class ParcoursProduit
      * @ORM\Column(name="bar_hors_delai", type="boolean")
      */
     private $barHorsDelai;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="contrat_client", type="integer")
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\ContratClient")
-     */
-    private $contratClient;
 
     /**
      * @var string
@@ -299,13 +287,10 @@ class ParcoursProduit
     private $datePassageDestructeur;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="numero_sav", type="integer")
-     *
      * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\CentreSav")
+     * @ORM\JoinColumn(name="centre_sav_id", nullable=false)
      */
-    private $numeroSav;
+    private $centreSav;
 
     /**
      * @var int
@@ -338,14 +323,10 @@ class ParcoursProduit
      */
     public function initializeBooleans()
     {
-        $dateAchat = $this->getDateAchat();
-        $dateTimeAchat = new \DateTime($dateAchat);
-        $dateAchatFormat = $dateTimeAchat->format('Y-m-d');
+        $dateAchatFormat = $this->getDateAchat()->format('Y-m-d');
         $jourAchat = \DateTime::createFromFormat('Y-m-d', $dateAchatFormat);
-
-        $dateCreationBar = $this->getDateCreationBar();
-        $dateTimeCreationBar = new \DateTime($dateCreationBar);
-        $dateCreationBarFormat = $dateTimeCreationBar->format('Y-m-d');
+        
+        $dateCreationBarFormat = $this->getDateCreationBar()->format('Y-m-d');
         $jourCreationBar = \DateTime::createFromFormat('Y-m-d', $dateCreationBarFormat);
 
         $interval = $jourAchat->diff($jourCreationBar);
@@ -439,11 +420,11 @@ class ParcoursProduit
     /**
      * Set client.
      *
-     * @param int $client
+     * @param \SAV\ProcessBundle\Entity\Client $client
      *
      * @return ParcoursProduit
      */
-    public function setClient($client)
+    public function setClient(\SAV\ProcessBundle\Entity\Client $client)
     {
         $this->client = $client;
 
@@ -453,7 +434,7 @@ class ParcoursProduit
     /**
      * Get client.
      *
-     * @return int
+     * @return \SAV\ProcessBundle\Entity\Client
      */
     public function getClient()
     {
@@ -530,30 +511,6 @@ class ParcoursProduit
     public function getDateCreationBar()
     {
         return $this->dateCreationBar;
-    }
-
-    /**
-     * Set contratClient.
-     *
-     * @param int $contratClient
-     *
-     * @return ParcoursProduit
-     */
-    public function setContratClient($contratClient)
-    {
-        $this->contratClient = $contratClient;
-
-        return $this;
-    }
-
-    /**
-     * Get contratClient.
-     *
-     * @return int
-     */
-    public function getContratClient()
-    {
-        return $this->contratClient;
     }
 
     /**
@@ -1215,27 +1172,27 @@ class ParcoursProduit
     }
 
     /**
-     * Set numeroSav.
+     * Set centreSav.
      *
-     * @param int $numeroSav
+     * @param \SAV\ProcessBundle\Entity\CentreSav $centreSav
      *
      * @return ParcoursProduit
      */
-    public function setNumeroSav($numeroSav)
+    public function setCentreSav(\SAV\ProcessBundle\Entity\CentreSav $centreSav)
     {
-        $this->numeroSav = $numeroSav;
+        $this->centreSav = $centreSav;
 
         return $this;
     }
 
     /**
-     * Get numeroSav.
+     * Get centreSav.
      *
-     * @return int
+     * @return \SAV\ProcessBundle\Entity\CentreSav
      */
-    public function getNumeroSav()
+    public function getCentreSav()
     {
-        return $this->numeroSav;
+        return $this->centreSav;
     }
 
     /**

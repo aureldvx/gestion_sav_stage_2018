@@ -57,10 +57,11 @@ class ReceiptController extends Controller
                     $numeroSerie = preg_replace('#[0-9]{9}#', '$0', $formNumeroSerie);
                     $bar = preg_replace('#[0-9]{9}#', 'BAR$0', $formNumeroSerie);
                 }
+                $em = $this->getDoctrine()->getManager();
+                $repository = $em->getRepository('SAVProcessBundle:ParcoursProduit');
 
                 /* DÉBUT : à modifier quand webservice actif */
-                $receipt->setDateReception(new \DateTime());
-                $receipt->setNumeroSav(14);
+                $receipt->setCentreSav($this->getDoctrine()->getManager()->getRepository('SAVProcessBundle:CentreSav')->find(1));
                 $receipt->setPaysSav(2);
                 /* FIN : à modifier quand webservice actif */
 
