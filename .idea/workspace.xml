@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e696278-a9dc-46d4-a724-3f4d3627ad86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/outilSav.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/outilSav.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.codekit3" beforeDir="false" afterPath="$PROJECT_DIR$/config.codekit3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Controller/RepairsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Controller/RepairsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Repository/ParcoursProduitRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Repository/ParcoursProduitRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfonyCC" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfonyUpdateDB" beforeDir="false" afterPath="$PROJECT_DIR$/symfonyUpdateDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/config.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,14 +107,58 @@
       <usages-collector id="statistics.php.composer.command.options" />
       <usages-collector id="statistics.php.composer.actions" />
     </session>
+    <session id="1848818354">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="CacheClear" value="1" />
+          <entry key="php" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Bash" value="1" />
+          <entry key="PHP" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit" />
+      <usages-collector id="statistics.file.types.edit" />
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.php.rename.constructor" />
+      <usages-collector id="statistics.php.new.test" />
+      <usages-collector id="statistics.php.composer.actions" />
+      <usages-collector id="statistics.php.composer.command.options" />
+      <usages-collector id="statistics.vcs.git.usages" />
+      <usages-collector id="statistics.php.new.class" />
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/SAV/CoreBundle/Resources/views/corelayout.html.twig">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/MotifAnnulationReparation.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/Client.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+            <state relative-caret-position="63">
+              <caret line="92" column="85" selection-start-line="92" selection-start-column="85" selection-end-line="92" selection-end-column="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/ParcoursProduit.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-23852">
+              <caret line="207" selection-start-line="207" selection-end-line="207" />
             </state>
           </provider>
         </entry>
@@ -294,48 +337,26 @@
         <subPane>
           <expand>
             <path>
-              <item name="outilSav" type="b2602c69:ProjectViewProjectNode" />
-              <item name="outilSav" type="462c0819:PsiDirectoryNode" />
+              <item name="outilsav" type="b2602c69:ProjectViewProjectNode" />
+              <item name="outilsav" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="outilSav" type="b2602c69:ProjectViewProjectNode" />
-              <item name="outilSav" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="outilSav" type="b2602c69:ProjectViewProjectNode" />
-              <item name="outilSav" type="462c0819:PsiDirectoryNode" />
+              <item name="outilsav" type="b2602c69:ProjectViewProjectNode" />
+              <item name="outilsav" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="outilSav" type="b2602c69:ProjectViewProjectNode" />
-              <item name="outilSav" type="462c0819:PsiDirectoryNode" />
+              <item name="outilsav" type="b2602c69:ProjectViewProjectNode" />
+              <item name="outilsav" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="SAV" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="outilSav" type="b2602c69:ProjectViewProjectNode" />
-              <item name="outilSav" type="462c0819:PsiDirectoryNode" />
+              <item name="outilsav" type="b2602c69:ProjectViewProjectNode" />
+              <item name="outilsav" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="SAV" type="462c0819:PsiDirectoryNode" />
-              <item name="CoreBundle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="outilSav" type="b2602c69:ProjectViewProjectNode" />
-              <item name="outilSav" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="SAV" type="462c0819:PsiDirectoryNode" />
-              <item name="CoreBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="outilSav" type="b2602c69:ProjectViewProjectNode" />
-              <item name="outilSav" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="SAV" type="462c0819:PsiDirectoryNode" />
-              <item name="CoreBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="ProcessBundle" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -394,18 +415,18 @@
       <workItem from="1533490189838" duration="233013000" />
       <workItem from="1535797118955" duration="85000" />
       <workItem from="1535797225244" duration="1783000" />
+      <workItem from="1538394877685" duration="588000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234881000" />
+    <option name="totallyTimeSpent" value="235660000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2639485" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2746781" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32891566" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
@@ -432,16 +453,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/sass/pages/_receipt-check.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="20" column="5" lean-forward="true" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/js/pg-receipt-comment.js" />
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/js/materialize.js" />
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/js/bulma.js" />
     <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/js/modals.js" />
     <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Controller/HomeController.php">
       <provider selected="true" editor-type-id="text-editor" />
@@ -525,11 +536,6 @@
         <state relative-caret-position="591">
           <caret line="118" column="40" selection-start-line="118" selection-start-column="40" selection-end-line="118" selection-end-column="40" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/Client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-422" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/modals/modal-client.html.twig">
@@ -662,13 +668,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/ParcoursProduit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Resources/views/Receipt/overview.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
@@ -734,8 +733,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SAV/CoreBundle/Resources/views/corelayout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
+        <state relative-caret-position="624">
           <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-23">
+          <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CacheClear">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/MouvementStockProduit.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/MotifAnnulationReparation.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="92" column="85" selection-start-line="92" selection-start-column="85" selection-end-line="92" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SAV/ProcessBundle/Entity/ParcoursProduit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-23852">
+          <caret line="207" selection-start-line="207" selection-end-line="207" />
         </state>
       </provider>
     </entry>
