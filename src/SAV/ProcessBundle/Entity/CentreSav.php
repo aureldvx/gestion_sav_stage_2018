@@ -49,6 +49,22 @@ class CentreSav
      */
     private $ip;
 
+    /**
+     * @ORM\OneToMany(targetEntity="SAV\ProcessBundle\Entity\ParcoursProduit", mappedBy="centreSav")
+     */
+    private $parcoursProduits;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\Pays", inversedBy="centresSav")
+     * @ORM\JoinColumn(name="pays_sav_id", nullable=false)
+     */
+    private $paysSav;
+
+    public function __construct()
+    {
+        $this->parcoursProduits = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 
     /**
      * Get id.
@@ -154,5 +170,65 @@ class CentreSav
     public function getIp()
     {
         return $this->ip;
+    }
+
+    /**
+     * Add parcoursProduit.
+     *
+     * @param \SAV\ProcessBundle\Entity\ParcoursProduit $parcoursProduit
+     *
+     * @return CentreSav
+     */
+    public function addParcoursProduit(\SAV\ProcessBundle\Entity\ParcoursProduit $parcoursProduit)
+    {
+        $this->parcoursProduits[] = $parcoursProduit;
+
+        return $this;
+    }
+
+    /**
+     * Remove parcoursProduit.
+     *
+     * @param \SAV\ProcessBundle\Entity\ParcoursProduit $parcoursProduit
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeParcoursProduit(\SAV\ProcessBundle\Entity\ParcoursProduit $parcoursProduit)
+    {
+        return $this->parcoursProduits->removeElement($parcoursProduit);
+    }
+
+    /**
+     * Get parcoursProduits.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getParcoursProduits()
+    {
+        return $this->parcoursProduits;
+    }
+
+    /**
+     * Set paysSav.
+     *
+     * @param \SAV\ProcessBundle\Entity\Pays $paysSav
+     *
+     * @return CentreSav
+     */
+    public function setPaysSav(\SAV\ProcessBundle\Entity\Pays $paysSav)
+    {
+        $this->paysSav = $paysSav;
+
+        return $this;
+    }
+
+    /**
+     * Get paysSav.
+     *
+     * @return \SAV\ProcessBundle\Entity\Pays
+     */
+    public function getPaysSav()
+    {
+        return $this->paysSav;
     }
 }

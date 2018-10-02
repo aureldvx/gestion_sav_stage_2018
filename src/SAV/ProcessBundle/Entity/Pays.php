@@ -28,6 +28,18 @@ class Pays
      */
     private $libelle;
 
+    /**
+     * @ORM\OneToMany(targetEntity="SAV\ProcessBundle\Entity\CentreSav", mappedBy="paysSav")
+     * @ORM\JoinColumn(name="centres_sav_id", nullable=false)
+     */
+    private $centresSav;
+
+    public function __construct()
+    {
+        $this->parcoursProduits = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->centresSav = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 
     /**
      * Get id.
@@ -61,5 +73,41 @@ class Pays
     public function getLibelle()
     {
         return $this->libelle;
+    }
+
+    /**
+     * Add centresSav.
+     *
+     * @param \SAV\ProcessBundle\Entity\CentreSav $centresSav
+     *
+     * @return Pays
+     */
+    public function addCentresSav(\SAV\ProcessBundle\Entity\CentreSav $centresSav)
+    {
+        $this->centresSav[] = $centresSav;
+
+        return $this;
+    }
+
+    /**
+     * Remove centresSav.
+     *
+     * @param \SAV\ProcessBundle\Entity\CentreSav $centresSav
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeCentresSav(\SAV\ProcessBundle\Entity\CentreSav $centresSav)
+    {
+        return $this->centresSav->removeElement($centresSav);
+    }
+
+    /**
+     * Get centresSav.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCentresSav()
+    {
+        return $this->centresSav;
     }
 }

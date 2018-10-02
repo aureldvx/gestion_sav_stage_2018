@@ -28,6 +28,16 @@ class Transporteur
      */
     private $libelle;
 
+    /**
+     * @ORM\OneToMany(targetEntity="SAV\ProcessBundle\Entity\ParcoursProduit", mappedBy="transporteurRenvoi")
+     */
+    private $parcoursProduits;
+
+    public function __construct()
+    {
+        $this->parcoursProduits = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 
     /**
      * Get id.
@@ -61,5 +71,41 @@ class Transporteur
     public function getLibelle()
     {
         return $this->libelle;
+    }
+
+    /**
+     * Add parcoursProduit.
+     *
+     * @param \SAV\ProcessBundle\Entity\ParcoursProduit $parcoursProduit
+     *
+     * @return Transporteur
+     */
+    public function addParcoursProduit(\SAV\ProcessBundle\Entity\ParcoursProduit $parcoursProduit)
+    {
+        $this->parcoursProduits[] = $parcoursProduit;
+
+        return $this;
+    }
+
+    /**
+     * Remove parcoursProduit.
+     *
+     * @param \SAV\ProcessBundle\Entity\ParcoursProduit $parcoursProduit
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeParcoursProduit(\SAV\ProcessBundle\Entity\ParcoursProduit $parcoursProduit)
+    {
+        return $this->parcoursProduits->removeElement($parcoursProduit);
+    }
+
+    /**
+     * Get parcoursProduits.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getParcoursProduits()
+    {
+        return $this->parcoursProduits;
     }
 }

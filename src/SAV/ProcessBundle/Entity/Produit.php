@@ -36,9 +36,8 @@ class Produit
     private $libelle;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="rubrique", type="integer")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\RubriqueProduit", inversedBy="produits")
+     * @ORM\JoinColumn(name="rubrique_id", nullable=true)
      */
     private $rubrique;
 
@@ -69,6 +68,16 @@ class Produit
      * @ORM\Column(name="stock_neuf_terme", type="integer")
      */
     private $stockNeufTerme;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="SAV\ProcessBundle\Entity\PieceDetachee", cascade="persist")
+     */
+    private $piecesDetachees;
+
+    public function __construct()
+    {
+        $this->piecesDetachees = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
     /**
@@ -247,5 +256,41 @@ class Produit
     public function getStockNeufTerme()
     {
         return $this->stockNeufTerme;
+    }
+
+    /**
+     * Add piecesDetachee.
+     *
+     * @param \SAV\ProcessBundle\Entity\PieceDetachee $piecesDetachee
+     *
+     * @return Produit
+     */
+    public function addPiecesDetachee(\SAV\ProcessBundle\Entity\PieceDetachee $piecesDetachee)
+    {
+        $this->piecesDetachees[] = $piecesDetachee;
+
+        return $this;
+    }
+
+    /**
+     * Remove piecesDetachee.
+     *
+     * @param \SAV\ProcessBundle\Entity\PieceDetachee $piecesDetachee
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removePiecesDetachee(\SAV\ProcessBundle\Entity\PieceDetachee $piecesDetachee)
+    {
+        return $this->piecesDetachees->removeElement($piecesDetachee);
+    }
+
+    /**
+     * Get piecesDetachees.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPiecesDetachees()
+    {
+        return $this->piecesDetachees;
     }
 }

@@ -79,11 +79,8 @@ class ParcoursProduit
     private $panneDeclaree;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="traitement_prevu", type="integer")
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutTraitement")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutTraitement", inversedBy="parcoursProduits")
+     * @ORM\JoinColumn(name="traitement_prevu", nullable=false)
      */
     private $traitementPrevu;
 
@@ -111,9 +108,8 @@ class ParcoursProduit
     /**
      * @var int|null
      *
-     * @ORM\Column(name="statut_reception", type="integer", nullable=true)
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutReception")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutReception", inversedBy="parcoursProduit")
+     * @ORM\JoinColumn(name="statut_reception_id", nullable=true)
      */
     private $statutReception;
 
@@ -132,11 +128,8 @@ class ParcoursProduit
     private $commentaireReception;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="raison_refus_produit", type="integer", nullable=true)
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\MotifRefusProduit")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\MotifRefusProduit", inversedBy="parcoursProduits")
+     * @ORM\JoinColumn(name="raison_refus_produit", nullable=true)
      */
     private $raisonRefusProduit;
 
@@ -191,24 +184,19 @@ class ParcoursProduit
 
     /**
      * @ORM\ManyToMany(targetEntity="SAV\ProcessBundle\Entity\PieceDetachee", cascade={"persist"})
+     * @ORM\JoinColumn(name="pieces_detachees_select", nullable=true)
      */
     private $piecesDetacheesSelect;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="statut_pieces_detachees", type="integer", nullable=true)
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutPieceDetachee")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutPieceDetachee", inversedBy="parcoursProduits")
+     * @ORM\JoinColumn(name="statut_pieces_detachees", nullable=true)
      */
     private $statutPiecesDetachees;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="statut_reparation", type="integer", nullable=true)
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutReparation")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutReparation", inversedBy="parcoursProduits")
+     * @ORM\JoinColumn(name="statut_reparation", nullable=true)
      */
     private $statutReparation;
 
@@ -220,11 +208,8 @@ class ParcoursProduit
     private $dateReparation;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="motif_annulation_reparation", type="integer", nullable=true)
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\MotifAnnulationReparation")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\MotifAnnulationReparation", inversedBy="parcoursProduits")
+     * @ORM\JoinColumn(name="motif_annulation_reparation", nullable=true)
      */
     private $motifAnnulationReparation;
 
@@ -257,11 +242,8 @@ class ParcoursProduit
     private $dateRenvoiProduit;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="transporteur_renvoi", type="integer", nullable=true)
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\Transporteur")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\Transporteur", inversedBy="parcoursProduits")
+     * @ORM\JoinColumn(name="transporteur_renvoi", nullable=true)
      */
     private $transporteurRenvoi;
 
@@ -287,17 +269,10 @@ class ParcoursProduit
     private $datePassageDestructeur;
 
     /**
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\CentreSav")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\CentreSav", inversedBy="parcoursproduits")
      * @ORM\JoinColumn(name="centre_sav_id", nullable=false)
      */
     private $centreSav;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="pays_sav", type="integer")
-     */
-    private $paysSav;
 
     /**
      * @var \DateTime
@@ -1289,5 +1264,31 @@ class ParcoursProduit
     public function getImporte()
     {
         return $this->importe;
+    }
+
+    /**
+     * Add piecesDetacheesSelect.
+     *
+     * @param \SAV\ProcessBundle\Entity\PieceDetachee $piecesDetacheesSelect
+     *
+     * @return ParcoursProduit
+     */
+    public function addPiecesDetacheesSelect(\SAV\ProcessBundle\Entity\PieceDetachee $piecesDetacheesSelect)
+    {
+        $this->piecesDetacheesSelect[] = $piecesDetacheesSelect;
+
+        return $this;
+    }
+
+    /**
+     * Remove piecesDetacheesSelect.
+     *
+     * @param \SAV\ProcessBundle\Entity\PieceDetachee $piecesDetacheesSelect
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removePiecesDetacheesSelect(\SAV\ProcessBundle\Entity\PieceDetachee $piecesDetacheesSelect)
+    {
+        return $this->piecesDetacheesSelect->removeElement($piecesDetacheesSelect);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace SAV\ProcessBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -37,11 +38,8 @@ class ParcoursProduit
     private $numeroSerie;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="client", type="integer")
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\Client")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\Client", inversedBy="parcoursProduits")
+     * @ORM\JoinColumn(name="client_id", nullable=false)
      */
     private $client;
 
@@ -74,15 +72,6 @@ class ParcoursProduit
     private $barHorsDelai;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="contrat_client", type="integer")
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\ContratClient")
-     */
-    private $contratClient;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="panne_declaree", type="text")
@@ -90,11 +79,8 @@ class ParcoursProduit
     private $panneDeclaree;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="traitement_prevu", type="integer")
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutTraitement")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutTraitement", inversedBy="parcoursProduits")
+     * @ORM\JoinColumn(name="traitement_prevu", nullable=false)
      */
     private $traitementPrevu;
 
@@ -122,9 +108,8 @@ class ParcoursProduit
     /**
      * @var int|null
      *
-     * @ORM\Column(name="statut_reception", type="integer", nullable=true)
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutReception")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutReception", inversedBy="parcoursProduit")
+     * @ORM\JoinColumn(name="statut_reception_id", nullable=true)
      */
     private $statutReception;
 
@@ -143,11 +128,8 @@ class ParcoursProduit
     private $commentaireReception;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="raison_refus_produit", type="integer", nullable=true)
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\MotifRefusProduit")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\MotifRefusProduit", inversedBy="parcoursProduits")
+     * @ORM\JoinColumn(name="raison_refus_produit", nullable=true)
      */
     private $raisonRefusProduit;
 
@@ -201,29 +183,20 @@ class ParcoursProduit
     private $numeroSerieProduitEchange;
 
     /**
-     * @var array|null
-     *
-     * @ORM\Column(name="pieces_detachees_select", type="array", nullable=true)
-     *
-     * @ORM\ManyToMany(targetEntity="SAV\ProcessBundle\Entity\PieceDetachee")
+     * @ORM\ManyToMany(targetEntity="SAV\ProcessBundle\Entity\PieceDetachee", cascade={"persist"})
+     * @ORM\JoinColumn(name="pieces_detachees_select", nullable=true)
      */
     private $piecesDetacheesSelect;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="statut_pieces_detachees", type="integer", nullable=true)
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutPieceDetachee")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutPieceDetachee", inversedBy="parcoursProduits")
+     * @ORM\JoinColumn(name="statut_pieces_detachees", nullable=true)
      */
     private $statutPiecesDetachees;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="statut_reparation", type="integer", nullable=true)
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutReparation")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\StatutReparation", inversedBy="parcoursProduits")
+     * @ORM\JoinColumn(name="statut_reparation", nullable=true)
      */
     private $statutReparation;
 
@@ -235,11 +208,8 @@ class ParcoursProduit
     private $dateReparation;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="motif_annulation_reparation", type="integer", nullable=true)
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\MotifAnnulationReparation")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\MotifAnnulationReparation", inversedBy="parcoursProduits")
+     * @ORM\JoinColumn(name="motif_annulation_reparation", nullable=true)
      */
     private $motifAnnulationReparation;
 
@@ -272,11 +242,8 @@ class ParcoursProduit
     private $dateRenvoiProduit;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="transporteur_renvoi", type="integer", nullable=true)
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\Transporteur")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\Transporteur", inversedBy="parcoursProduits")
+     * @ORM\JoinColumn(name="transporteur_renvoi", nullable=true)
      */
     private $transporteurRenvoi;
 
@@ -302,13 +269,10 @@ class ParcoursProduit
     private $datePassageDestructeur;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="numero_sav", type="integer")
-     *
-     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\CentreSav")
+     * @ORM\ManyToOne(targetEntity="SAV\ProcessBundle\Entity\CentreSav", inversedBy="parcoursproduits")
+     * @ORM\JoinColumn(name="centre_sav_id", nullable=false)
      */
-    private $numeroSav;
+    private $centreSav;
 
     /**
      * @var int
@@ -323,6 +287,11 @@ class ParcoursProduit
      */
     private $updatedAt;
 
+    public function __construct()
+    {
+        $this->piecesDetacheesSelect = new ArrayCollection();
+    }
+
     /**
      * @ORM\PreUpdate
      */
@@ -331,25 +300,45 @@ class ParcoursProduit
         $this->setUpdatedAt(new \DateTime());
     }
 
-    public function __construct()
+    /**
+     * @ORM\PrePersist
+     */
+    public function initializeBooleans()
     {
-        $jourAchat = strtotime($this->getDateAchat());
-        $jourCreationBar = strtotime($this->getDateCreationBar());
-        $delaiBar = abs($jourCreationBar - $jourAchat) / 86400;
+        $dateAchatFormat = $this->getDateAchat()->format('Y-m-d');
+        $jourAchat = \DateTime::createFromFormat('Y-m-d', $dateAchatFormat);
+        
+        $dateCreationBarFormat = $this->getDateCreationBar()->format('Y-m-d');
+        $jourCreationBar = \DateTime::createFromFormat('Y-m-d', $dateCreationBarFormat);
 
-        if( $delaiBar > 14)
+        $interval = $jourAchat->diff($jourCreationBar);
+        $delaiBar = $interval->format('%a');
+
+        if( $delaiBar < 15)
         {
             $this->setBarHorsDelai(false);
-            $this->setPanneAuDeballage(false);
-        }elseif($delaiBar > 30)
+            $this->setPanneAuDeballage(true);
+        }elseif($delaiBar > 14 && $delaiBar < 31)
         {
             $this->setBarHorsDelai(true);
             $this->setPanneAuDeballage(false);
         }
         else{
             $this->setBarHorsDelai(false);
-            $this->setPanneAuDeballage(true);
+            $this->setPanneAuDeballage(false);
         }
+    }
+
+    // Ajouter une pièce détachée
+    public function addPieceDetachee(PieceDetachee $pieceDetachee)
+    {
+        $this->piecesDetacheesSelect[] = $pieceDetachee;
+    }
+
+    // Supprimer une pièce détachée
+    public function removePieceDetachee(PieceDetachee $pieceDetachee)
+    {
+        $this->piecesDetacheesSelect->removeElement($pieceDetachee);
     }
 
     /**
@@ -413,11 +402,11 @@ class ParcoursProduit
     /**
      * Set client.
      *
-     * @param int $client
+     * @param \SAV\ProcessBundle\Entity\Client $client
      *
      * @return ParcoursProduit
      */
-    public function setClient($client)
+    public function setClient(\SAV\ProcessBundle\Entity\Client $client)
     {
         $this->client = $client;
 
@@ -427,7 +416,7 @@ class ParcoursProduit
     /**
      * Get client.
      *
-     * @return int
+     * @return \SAV\ProcessBundle\Entity\Client
      */
     public function getClient()
     {
@@ -504,30 +493,6 @@ class ParcoursProduit
     public function getDateCreationBar()
     {
         return $this->dateCreationBar;
-    }
-
-    /**
-     * Set contratClient.
-     *
-     * @param int $contratClient
-     *
-     * @return ParcoursProduit
-     */
-    public function setContratClient($contratClient)
-    {
-        $this->contratClient = $contratClient;
-
-        return $this;
-    }
-
-    /**
-     * Get contratClient.
-     *
-     * @return int
-     */
-    public function getContratClient()
-    {
-        return $this->contratClient;
     }
 
     /**
@@ -891,20 +856,6 @@ class ParcoursProduit
     }
 
     /**
-     * Set piecesDetacheesSelect.
-     *
-     * @param array|null $piecesDetacheesSelect
-     *
-     * @return ParcoursProduit
-     */
-    public function setPiecesDetacheesSelect($piecesDetacheesSelect = null)
-    {
-        $this->piecesDetacheesSelect = $piecesDetacheesSelect;
-
-        return $this;
-    }
-
-    /**
      * Get piecesDetacheesSelect.
      *
      * @return array|null
@@ -1203,27 +1154,27 @@ class ParcoursProduit
     }
 
     /**
-     * Set numeroSav.
+     * Set centreSav.
      *
-     * @param int $numeroSav
+     * @param \SAV\ProcessBundle\Entity\CentreSav $centreSav
      *
      * @return ParcoursProduit
      */
-    public function setNumeroSav($numeroSav)
+    public function setCentreSav(\SAV\ProcessBundle\Entity\CentreSav $centreSav)
     {
-        $this->numeroSav = $numeroSav;
+        $this->centreSav = $centreSav;
 
         return $this;
     }
 
     /**
-     * Get numeroSav.
+     * Get centreSav.
      *
-     * @return int
+     * @return \SAV\ProcessBundle\Entity\CentreSav
      */
-    public function getNumeroSav()
+    public function getCentreSav()
     {
-        return $this->numeroSav;
+        return $this->centreSav;
     }
 
     /**
@@ -1296,5 +1247,29 @@ class ParcoursProduit
     public function getBarHorsDelai()
     {
         return $this->barHorsDelai;
+    }
+
+    /**
+     * Set importe.
+     *
+     * @param bool|null $importe
+     *
+     * @return ParcoursProduit
+     */
+    public function setImporte($importe = null)
+    {
+        $this->importe = $importe;
+
+        return $this;
+    }
+
+    /**
+     * Get importe.
+     *
+     * @return bool|null
+     */
+    public function getImporte()
+    {
+        return $this->importe;
     }
 }
